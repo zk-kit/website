@@ -1,41 +1,37 @@
 import type { ReactNode } from "react"
-import clsx from "clsx"
-import Link from "@docusaurus/Link"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import Layout from "@theme/Layout"
-import HomepageFeatures from "@site/src/components/HomepageFeatures"
-import Heading from "@theme/Heading"
-
-import styles from "./index.module.css"
-
-function HomepageHeader() {
-    const { siteConfig } = useDocusaurusContext()
-    return (
-        <header className={clsx("hero hero--primary", styles.heroBanner)}>
-            <div className="container">
-                <Heading as="h1" className="hero__title">
-                    {siteConfig.title}
-                </Heading>
-                <p className="hero__subtitle">{siteConfig.tagline}</p>
-                <div className={styles.buttons}>
-                    <Link className="button button--secondary button--lg" to="/docs/intro">
-                        Docusaurus Tutorial - 5min ⏱️
-                    </Link>
-                    <h1 className="text-3xl font-bold underline">Hello world!</h1>
-                </div>
-            </div>
-        </header>
-    )
-}
 
 export default function Home(): ReactNode {
     const { siteConfig } = useDocusaurusContext()
     return (
         <Layout>
-            <HomepageHeader />
-            <main>
-                <HomepageFeatures />
-            </main>
+            <div className="flex flex-col items-center justify-center p-14">
+                <div className="text-3xl font-medium mb-5">
+                    Zero-Knowledge Development Libraries
+                </div>
+                <div className="text-xl font-medium max-w-2xl">
+                    ZK-Kit is a set of libraries (algorithms, utility functions and data structures) that can be reused
+                    in different projects and zero-knowledge protocols, making it easier for developers to access
+                    user-friendly, tested, and documented code.
+                </div>
+            </div>
+            <div className="flex flex-col items-center justify-center p-14">
+                <div className="text-3xl font-medium mb-5">
+                    ZK-Kit Features
+                </div>
+                <div className="text-xl font-medium max-w-2xl">
+                    
+                </div>
+            </div>
+            <div className="flex flex-col items-center justify-center p-14">
+                <div className="text-3xl font-medium mb-5">
+                    ZK-Kit Languages
+                </div>
+                <div className="text-xl font-medium max-w-2xl">
+                    
+                </div>
+            </div>
         </Layout>
     )
 }
