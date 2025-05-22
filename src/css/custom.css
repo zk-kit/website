@@ -28,3 +28,17 @@
     --ifm-color-primary-lightest: #4fddbf;
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+@import "tailwindcss";
+@custom-variant dark (&:is([data-theme="dark"] *));
+
+.navbar__link {
+    display: flex;
+    align-items: center;
+}
+
+.footer__link-item {
+    display: flex;
+    align-items: center;
+    max-width: fit-content;
+}
