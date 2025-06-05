@@ -35,7 +35,7 @@ export default function Home(): ReactNode {
                 </div>
             </div>
             <div className="flex flex-col items-center justify-center p-14">
-                <div className="text-3xl font-medium mb-5">Key Features</div>
+                <div className="text-3xl font-medium mb-16">Key Features</div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {features.map((feature, index) => (
                         <FeatureCard
@@ -48,7 +48,7 @@ export default function Home(): ReactNode {
                 </div>
             </div>
             <div className="flex flex-col items-center justify-center p-14">
-                <div className="text-3xl font-medium mb-5">Supported Languages</div>
+                <div className="text-3xl font-medium mb-16">Supported Languages</div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                     {languages.map((language, index) => (
                         <LanguageCard key={index} text={language.text} link={language.link} />

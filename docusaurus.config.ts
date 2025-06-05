@@ -75,7 +75,7 @@ const config: Config = {
             },
             items: [
                 {
-                    href: "https://github.com/orgs/zk-kit/repositories",
+                    href: "https://github.com/privacy-scaling-explorations/zk-kit",
                     label: "GitHub",
                     position: "right"
                 }
