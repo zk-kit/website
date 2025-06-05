@@ -7,7 +7,11 @@ import { TbPackages } from "react-icons/tb"
 import { LuPuzzle, LuBookOpen, LuShieldCheck, LuHandshake } from "react-icons/lu"
 
 const features = [
-    { text: "Language-specific packages", description: "Circom, JavaScript, Solidity, Noir, Rust.", icon: <TbPackages /> },
+    {
+        text: "Language-specific packages",
+        description: "Circom, JavaScript, Solidity, Noir, Rust.",
+        icon: <TbPackages />
+    },
     { text: "Modular design", description: "Use only what you need.", icon: <LuPuzzle /> },
     { text: "Fully documented", description: "With code examples.", icon: <LuBookOpen /> },
     { text: "Battle-tested", description: "Used in real-world ZK apps and protocols.", icon: <LuShieldCheck /> },
