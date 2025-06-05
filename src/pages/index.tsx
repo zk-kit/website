@@ -30,8 +30,7 @@ export default function Home(): ReactNode {
                 <div className="text-3xl font-medium mb-5">Zero-Knowledge Development Libraries</div>
                 <div className="text-xl font-medium max-w-2xl">
                     ZK-Kit is a set of libraries (algorithms, utility functions and data structures) that can be reused
-                    in different projects and zero-knowledge protocols, making it easier for developers to access
-                    user-friendly, tested, and documented code.
+                    in different projects and zero-knowledge protocols.
                 </div>
             </div>
             <div className="flex flex-col items-center justify-center p-14">
