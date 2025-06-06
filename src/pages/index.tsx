@@ -8,14 +8,34 @@ import { LuPuzzle, LuBookOpen, LuShieldCheck, LuHandshake } from "react-icons/lu
 
 const features = [
     {
-        text: "Language-specific packages",
-        description: "Circom, JavaScript, Solidity, Noir, Rust.",
+        text: "Language-Specific Packages",
+        description:
+            "Dedicated libraries for multiple programming languages, making it easy to build in your preferred environment.",
         icon: <TbPackages />
     },
-    { text: "Modular design", description: "Use only what you need.", icon: <LuPuzzle /> },
-    { text: "Fully documented", description: "With code examples.", icon: <LuBookOpen /> },
-    { text: "Battle-tested", description: "Used in real-world ZK apps and protocols.", icon: <LuShieldCheck /> },
-    { text: "Community-driven", description: "Open source and maintained by developers.", icon: <LuHandshake /> }
+    {
+        text: "Modular Design",
+        description:
+            "Each package is independent and composable, so you can include only the parts relevant to your project.",
+        icon: <LuPuzzle />
+    },
+    {
+        text: "Fully Documented",
+        description:
+            "Comprehensive documentation, usage examples, and test coverage, ensuring a smooth development process.",
+        icon: <LuBookOpen />
+    },
+    {
+        text: "Battle-Tested",
+        description:
+            "Used in real-world ZK apps and protocols, ensuring stability and performance in production environments.",
+        icon: <LuShieldCheck />
+    },
+    {
+        text: "Community-Driven",
+        description: "Built by and for developers, maintained openly with contributions from across the ecosystem.",
+        icon: <LuHandshake />
+    }
 ]
 
 const languages = [
