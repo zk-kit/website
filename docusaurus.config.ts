@@ -89,7 +89,7 @@ const config: Config = {
                     items: [
                         {
                             label: "GitHub Discussions",
-                            href: "https://github.com/privacy-scaling-explorations/zk-kit/discussions/new/choose"
+                            href: "https://github.com/privacy-scaling-explorations/zk-kit/discussions"
                         },
                         {
                             label: "PSE Discord(#🧰-zk-kit)",
