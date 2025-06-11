@@ -43,12 +43,14 @@
     max-width: fit-content;
 }
 
+.navbar__logo {
+    height: 25px;
+}
+
 html[data-theme="dark"] .navbar__logo {
     content: url("/static/img/zk-kit-full-logo-dark-mode.svg");
-    height: 25px;
 }
 
 html[data-theme="light"] .navbar__logo {
     content: url("/static/img/zk-kit-full-logo.svg");
-    height: 25px;
 }
