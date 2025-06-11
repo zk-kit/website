@@ -50,14 +50,14 @@ export default function Home(): ReactNode {
     const { siteConfig } = useDocusaurusContext()
     return (
         <Layout>
-            <div className="flex flex-col items-center justify-center p-14">
+            <div className="flex flex-col items-center justify-center p-14 mb-5">
                 <div className="text-3xl font-medium mb-5">Zero-Knowledge Development Libraries</div>
                 <div className="text-xl font-medium max-w-2xl">
                     ZK-Kit is a set of libraries (algorithms, utility functions and data structures) that can be reused
                     in different projects and zero-knowledge protocols.
                 </div>
             </div>
-            <div className="flex flex-col items-center justify-center p-14">
+            <div className="flex mb-5 bg-[#e4f9df] dark:bg-[#0d2a09] flex-col items-center justify-center p-14">
                 <div className="text-3xl font-medium mb-16">Key Features</div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {features.map((feature, index) => (
