@@ -75,10 +75,10 @@ const config: Config = {
         // Replace with your project's social card
         image: "img/docusaurus-social-card.jpg",
         navbar: {
-            title: "ZK-Kit",
+            title: "",
             logo: {
-                alt: "My Site Logo",
-                src: "img/zk-kit-logo.svg"
+                alt: "ZK-Kit Logo",
+                src: "img/zk-kit-full-logo.svg"
             },
             items: [
                 {
