@@ -33,6 +33,13 @@ const config: Config = {
 
     plugins: ["./src/plugins/tailwind-config.ts"],
 
+    stylesheets: [
+        {
+            href: "https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap",
+            type: "text/css"
+        }
+    ],
+
     presets: [
         [
             "classic",
