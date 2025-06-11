@@ -1,11 +1,11 @@
 import IconExternalLink from "@theme/Icon/ExternalLink"
 
-export type LanguageCardProps = {
+export type LanguageButtonProps = {
     text: string
     link: string
 }
 
-export default function LanguageCard({ text, link }: LanguageCardProps) {
+export default function LanguageButton({ text, link }: LanguageButtonProps) {
     return (
         <a
             href={link}

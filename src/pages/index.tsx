@@ -2,7 +2,7 @@ import type { ReactNode } from "react"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import Layout from "@theme/Layout"
 import FeatureCard from "@site/src/components/FeatureCard"
-import LanguageCard from "@site/src/components/LanguageCard"
+import LanguageButton from "@site/src/components/LanguageButton"
 import { TbPackages } from "react-icons/tb"
 import { LuPuzzle, LuBookOpen, LuShieldCheck, LuHandshake } from "react-icons/lu"
 
@@ -74,7 +74,7 @@ export default function Home(): ReactNode {
                 <div className="text-3xl font-medium mb-16">Supported Languages</div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                     {languages.map((language, index) => (
-                        <LanguageCard key={index} text={language.text} link={language.link} />
+                        <LanguageButton key={index} text={language.text} link={language.link} />
                     ))}
                 </div>
             </div>
