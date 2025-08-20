@@ -1,11 +1,78 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+@import "tailwindcss";
+@import "./font.css";
+@custom-variant dark (&:is([data-theme="dark"] *));
 
-/* You can override the default Infima variables here. */
+@theme {
+    --color-app-color-text-base: var(--app-color-text-base);
+    --color-app-color-text-secondary: var(--app-color-text-secondary);
+    --color-app-color-background: var(--app-color-background);
+    --color-app-color-background-secondary: var(--app-color-background-secondary);
+    --color-app-color-border: var(--app-color-border);
+    --color-app-color-tag-background: var(--app-color-tag-background);
+    --color-app-color-tag-background-hover: var(--app-color-tag-background-hover);
+    --color-app-color-tag-text: var(--app-color-tag-text);
+    --color-app-color-primary: var(--app-color-primary);
+
+    --color-app-color-button-primary-background: var(--app-color-button-primary-background);
+    --color-app-color-button-primary-background-hover: var(--app-color-button-primary-background-hover);
+    --color-app-color-button-primary-text: var(--app-color-button-primary-text);
+    --color-app-color-button-primary-text-hover: var(--app-color-button-primary-text-hover);
+    --color-app-color-button-secondary-background: var(--app-color-button-secondary-background);
+    --color-app-color-button-secondary-background-hover: var(--app-color-button-secondary-background-hover);
+    --color-app-color-button-secondary-text: var(--app-color-button-secondary-text);
+    --color-app-color-button-secondary-text-hover: var(--app-color-button-secondary-text-hover);
+    
+
+    --background-bg-surface-invert-shadow: rgba(93, 202, 71, 0.6);
+
+    --font-family-clash-grotesk: "ClashGrotesk-Variable", sans-serif;
+    --font-satoshi: "Satoshi-Variable", sans-serif;
+}
+
+/* ContributeCard hover states with proper index-based logic */
+.contribute-card[data-index="1"]:hover .contribute-icon path:nth-child(3),
+.contribute-card[data-index="1"]:hover .contribute-icon path:nth-child(4) {
+    fill: var(--app-color-primary);
+}
+
+.contribute-card[data-index="2"]:hover .contribute-icon path:nth-child(2) {
+    fill: var(--app-color-primary);
+}
+
+.contribute-card[data-index="3"]:hover .contribute-icon path:nth-child(1) {
+    fill: var(--app-color-primary);
+}
+
+.contribute-card[data-index="4"]:hover .contribute-icon path:nth-child(5),
+.contribute-card[data-index="4"]:hover .contribute-icon path:nth-child(6) {
+    fill: var(--app-color-primary);
+}
+
+.contribute-icon path {
+    transition: fill 0.2s ease;
+}
+
 :root {
+    --app-color-background: #ffffff;
+    --app-color-background-secondary: #f3fcf1;
+    --app-color-primary: #5dca47;
+    --app-color-text-base: #0e0e0e;
+    --app-color-text-secondary: #6d6d6d;
+    --app-color-border: #d1d1d1;
+    --app-color-tag-background: #e4f9df;
+    --app-color-tag-background-hover: #caf1c1;
+    --app-color-tag-text: #285d1e;
+
+    --app-color-button-primary-background: #0E0E0E;
+    --app-color-button-primary-background-hover: #48b532;
+    --app-color-button-primary-text: #ffffff;
+    --app-color-button-primary-text-hover: #ffffff;
+
+    --app-color-button-secondary-background: #e4f9df;
+    --app-color-button-secondary-background-hover: #2D7520;
+    --app-color-button-secondary-text: #0E0E0E;
+    --app-color-button-secondary-text-hover: #fff;
+
     --ifm-color-primary: #48b532;
     --ifm-color-primary-dark: #369524;
     --ifm-color-primary-darker: #2d7520;
@@ -19,6 +86,26 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
+    --app-color-background: #0e0e0e;
+    --app-color-background-secondary: #131313;
+    --app-color-primary: #5dca47;
+    --app-color-text-base: #e7e7e7;
+    --app-color-text-secondary: #b0b0b0;
+    --app-color-border: #323232;
+    --app-color-tag-background: #1a1a1a;
+    --app-color-tag-background-hover: #1a1a1a;
+    --app-color-tag-text: #fff;
+
+    --app-color-button-primary-background: #5dca47;
+    --app-color-button-primary-background-hover: #48b532;
+    --app-color-button-primary-text: #ffffff;
+    --app-color-button-secondary-background: #0e0e0e;
+    --app-color-button-secondary-background-hover: #1a1a1a;
+    --app-color-button-secondary-text: #ffffff;
+    --app-color-button-tertiary-background: #e4f9df;
+    --app-color-button-tertiary-background-hover: #caf1c1;
+    --app-color-button-tertiary-text: #285d1e;
+
     --ifm-color-primary: #48b532;
     --ifm-color-primary-dark: #369524;
     --ifm-color-primary-darker: #2d7520;
@@ -29,8 +116,27 @@
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-@import "tailwindcss";
-@custom-variant dark (&:is([data-theme="dark"] *));
+html {
+    scroll-behavior: smooth;
+}
+
+[id] {
+    scroll-margin-top: 80px;
+}
+
+html,
+body,
+html * {
+    font-family: "ClashGrotesk-Variable", sans-serif !important;
+}
+
+.font-clash-grotesk {
+    font-family: "ClashGrotesk-Variable", sans-serif !important;
+}
+
+.font-satoshi {
+    font-family: "Satoshi-Variable", sans-serif !important;
+}
 
 .navbar__link {
     display: flex;
@@ -53,4 +159,23 @@ html[data-theme="dark"] .navbar__logo {
 
 html[data-theme="light"] .navbar__logo {
     content: url("/static/img/zk-kit-full-logo.svg");
+}
+
+/* remove styling from docusaurus links */
+a,
+a:hover,
+a:visited,
+a:active,
+a:focus {
+    color: inherit !important;
+    text-decoration: none !important;
+    background-color: inherit !important;
+}
+
+.language-card-link {
+    background-color: var(--app-color-background) !important;
+}
+
+.language-card-link:hover {
+    background-color: var(--app-color-background-secondary) !important;
 }

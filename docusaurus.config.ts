@@ -74,6 +74,11 @@ const config: Config = {
     themeConfig: {
         // Replace with your project's social card
         image: "img/docusaurus-social-card.jpg",
+        colorMode: {
+            defaultMode: 'dark',
+            disableSwitch: false,
+            respectPrefersColorScheme: false,
+        },
         navbar: {
             title: "",
             logo: {
@@ -82,10 +87,31 @@ const config: Config = {
             },
             items: [
                 {
-                    href: "https://github.com/privacy-scaling-explorations/zk-kit",
-                    label: "GitHub",
+                    href: "/",
+                    label: "Home",
+                },
+                {
+                    href: "/projects",
+                    label: "Projects",
+                },
+                {
+                    href: "/contribute",
+                    label: "Contribute",
+                },
+                {
+                    href: "/about",
+                    label: "About",
+                },
+                {
+                    href: "/blog",
+                    label: "Blog",
+                },
+                {
+                    href: "/docs",
+                    label: "Documentation",
                     position: "right"
-                }
+                },
+                
             ]
         },
         footer: {
