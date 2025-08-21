@@ -225,3 +225,129 @@ a:focus {
 .language-card-link:hover {
     background-color: var(--app-color-background-secondary) !important;
 }
+
+/* Custom Sidebar Styling */
+.custom-doc-sidebar {
+    /* Add custom sidebar styles here if needed beyond Tailwind */
+}
+
+/* Enhanced sidebar menu styling */
+.custom-sidebar-content .menu__list {
+    @apply space-y-1;
+}
+
+.custom-sidebar-content .menu__list-item {
+    @apply rounded-lg;
+}
+
+.custom-sidebar-content .menu__link {
+    @apply px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200;
+    @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+    @apply border-l-4 border-transparent hover:border-gray-300 dark:hover:border-gray-600;
+    @apply flex items-center;
+}
+
+.custom-sidebar-content .menu__link--active {
+    @apply bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300;
+    @apply border-l-4 border-blue-500;
+    @apply shadow-sm;
+}
+
+/* Category styling */
+.custom-sidebar-content .menu__list-item--collapsible .menu__link {
+    @apply font-semibold;
+    @apply bg-gray-50 dark:bg-gray-800/50;
+}
+
+.custom-sidebar-content .menu__list-item--collapsible .menu__link:hover {
+    @apply bg-gray-100 dark:bg-gray-700;
+}
+
+/* Nested item indentation */
+.custom-sidebar-content .menu__list .menu__list {
+    @apply ml-4 border-l-2 border-gray-200 dark:border-gray-700 pl-2;
+}
+
+/* Custom badges and indicators */
+.sidebar-badge-new {
+    @apply ml-auto px-2 py-0.5 text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded-full;
+}
+
+.sidebar-badge-beta {
+    @apply ml-auto px-2 py-0.5 text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 rounded-full;
+}
+
+.sidebar-active-indicator {
+    @apply ml-auto w-2 h-2 bg-blue-500 rounded-full;
+}
+
+/* Hover effects for categories */
+.category-wrapper:hover .menu__caret {
+    @apply text-gray-600 dark:text-gray-300;
+}
+
+/* Custom scrollbar for sidebar */
+.custom-sidebar-content::-webkit-scrollbar {
+    @apply w-2;
+}
+
+.custom-sidebar-content::-webkit-scrollbar-track {
+    @apply bg-transparent;
+}
+
+.custom-sidebar-content::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+.custom-sidebar-content::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Custom TOC Styling */
+.custom-toc {
+    /* Add custom TOC styles here if needed beyond Tailwind */
+}
+
+.custom-toc-content .table-of-contents {
+    /* Custom TOC list styling */
+    @apply space-y-1;
+}
+
+.custom-toc-content .table-of-contents__link {
+    /* Custom TOC link styling */
+    @apply block px-3 py-1.5 text-sm rounded-lg transition-colors duration-200;
+    @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+    @apply border-l-2 border-transparent hover:border-blue-500;
+}
+
+.custom-toc-content .table-of-contents__link--active {
+    /* Active TOC link styling */
+    @apply bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300;
+    @apply border-l-2 border-blue-500;
+}
+
+
+#doc-root-layout {
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-family-clash-grotesk) !important;
+        font-weight: 400 !important;
+        color: var(--app-color-text-base) !important;
+    }
+
+    [aria-label="Home page"] {
+        display: none !important;
+    }
+
+    .breadcrumbs__link.breadcrumbs__item--active {
+        border-radius: 6px !important;
+        background-color: var(--app-color-tag-background) !important;
+        color: var(--app-color-tag-text) !important;
+        padding: 2px 6px !important;
+        font-size: 12px !important;
+        font-weight: 500 !important;
+    }
+
+    .table-of-contents {
+        border: none !important;
+    } 
+}
