@@ -6,11 +6,11 @@ import type * as Preset from "@docusaurus/preset-classic"
 
 const config: Config = {
     title: "ZK-Kit",
-    tagline: "ZK-Kit website.",
+    tagline: "A set of reusable libraries for zero-knowledge technologies.",
     favicon: "img/zk-kit-logo.svg",
 
     // Set the production url of your site here
-    url: "https://your-docusaurus-site.example.com",
+    url: "https://zkkit.org",
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: "/",
@@ -31,14 +31,12 @@ const config: Config = {
         locales: ["en"]
     },
 
-    plugins: ["./src/plugins/tailwind-config.ts"],
-
-    stylesheets: [
-        {
-            href: "https://api.fontshare.com/v2/css?f[]=clash-grotesk@500&display=swap",
-            type: "text/css"
-        }
+    plugins: [
+        "./src/plugins/tailwind-config.ts",
+        "./src/plugins/critical-css-plugin.ts"
     ],
+
+    // Moved to local fonts to avoid blocking external requests
 
     presets: [
         [
@@ -70,8 +68,8 @@ const config: Config = {
     ],
 
     themeConfig: {
-        // Replace with your project's social card
-        image: "img/docusaurus-social-card.jpg",
+        // Open Graph / social card image
+        image: "og-share-zk-kot.webp",
         colorMode: {
             defaultMode: 'dark',
             disableSwitch: false,

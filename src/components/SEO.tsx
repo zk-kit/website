@@ -23,7 +23,7 @@ export const SEO = ({
     const pageTitle = title ? `${title} | ${siteConfig.title}` : siteConfig.title
     const pageDescription = description || siteConfig.tagline
     const pageUrl = url || siteConfig.url
-    const pageImage = image || `${siteConfig.url}/img/zk-kit-social-card.jpg`
+    const pageImage = image || `${siteConfig.url}/og-share-zk-kot.webp`
     
     return (
         <Head>

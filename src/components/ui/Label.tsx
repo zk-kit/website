@@ -10,8 +10,8 @@ interface LabelProps {
 
 const PageTitle = ({ children, className, as = "h1", size = "lg" }: LabelProps) => {
     const sizeClass = {
-        lg: "!text-5xl lg:!text-[80px]",
-        md: "!text-[38px] lg:!text-[60px]",
+        lg: "!leading-[52.3px] !text-5xl lg:!text-[80px] lg:!leading-[88px]",
+        md: "!text-[38px] lg:!text-[60px] !leading-[38px] lg:!leading-[60px]",
         sm: "!text-2xl lg:!text-[32px]"
     }
 
@@ -19,7 +19,7 @@ const PageTitle = ({ children, className, as = "h1", size = "lg" }: LabelProps) 
         as,
         {
             className: twMerge(
-                "!font-normal !font-clash-grotesk text-app-color-text-base !mb-0",
+                "!font-normal !font-clash-grotesk text-app-color-text-base !mb-0 text-4xl",
                 className,
                 sizeClass[size]
             )

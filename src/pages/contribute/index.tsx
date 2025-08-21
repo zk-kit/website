@@ -1,6 +1,5 @@
 import { AppContent } from "@site/src/components/AppContent"
 import { Icons } from "@site/src/components/ui/Icons"
-import { useState } from "react"
 import { Label } from "@site/src/components/ui/Label"
 import { AppPageLayoutWrapper } from "@site/src/components/layouts/AppPageLayoutWrapper"
 import { ContributeSectionCard } from "@site/src/components/cards/ContributeSectionCard"
@@ -8,29 +7,41 @@ import { contribute } from "@site/src/content"
 import { ContributeCard } from "@site/src/components/cards/ContributeCard"
 import { SEO } from "@site/src/components/SEO"
 import { FeatureValueCard } from "@site/src/components/cards/FeatureValueCard"
-import { Button } from "@site/src/components/ui/Button"
+import { ActionButton, Button } from "@site/src/components/ui/Button"
 import { CardBase } from "@site/src/components/cards/CardBase"
 import { BulletPoint } from "@site/src/components/ui/BulletPoint"
-import { LINKS } from "@site/src/constants"
+import { LINKS, SEO_DATA } from "@site/src/constants"
+import { useGithubData } from "@site/src/hooks/useGithubData"
+
+const IssueData = ({ title, isLoading }: { title: string; isLoading: boolean }) => {
+    return (
+        <div className="flex flex-col gap-[10px] ml-auto">
+            {isLoading ? (
+                <div className="animate-pulse h-[18px] w-[100px] bg-slate-300 ml-auto"></div>
+            ) : (
+                <span className="text-app-color-text-base text-lg text-right font-satoshi font-normal">{title}</span>
+            )}
+            <div className="flex items-center gap-1 justify-end">
+                <span className="text-app-color-primary text-xs tracking-[0.96px] font-medium font-clash-grotesk">
+                    BROWSE
+                </span>
+                <Icons.ExternalLink className="text-app-color-primary" />
+            </div>
+        </div>
+    )
+}
 
 export default function ContributePage() {
+    const { data, loading } = useGithubData()
 
     return (
         <>
             <SEO
-                title="Contribute"
-                description="Help ZK-Kit grow and improve. Choose your contribution path - from picking issues to becoming a maintainer or partner."
-                keywords={[
-                    "ZK-Kit",
-                    "contribute",
-                    "open-source",
-                    "community",
-                    "maintainer",
-                    "partner",
-                    "issues",
-                    "development"
-                ]}
+                title={SEO_DATA.CONTRIBUTE_PAGE.TITLE}
+                description={SEO_DATA.CONTRIBUTE_PAGE.DESCRIPTION}
+                keywords={SEO_DATA.CONTRIBUTE_PAGE.KEYWORDS}
             />
+
             <AppPageLayoutWrapper>
                 <div className="flex flex-col">
                     <div className="flex flex-col gap-14 lg:gap-20">
@@ -47,7 +58,7 @@ export default function ContributePage() {
                                 ></div>
 
                                 <AppContent className="flex flex-col items-center gap-[10px] text-center">
-                                    <Label.PageTitle>Contribute to ZK-Kit</Label.PageTitle>
+                                    <Label.PageTitle className="w-2/3 lg:w-full">Contribute to ZK-Kit</Label.PageTitle>
                                     <span className="font-satoshi text-base text-app-color-text-secondary lg:max-w-[475px]">
                                         For individuals or teams who want to help ZK-Kit grow and improve. Choose the
                                         contribution path that matches your skills and interests.
@@ -94,22 +105,74 @@ export default function ContributePage() {
                                 }
                                 content={
                                     <div className="flex flex-col gap-[18px]">
-                                        <FeatureValueCard
-                                            title="Good First Issues"
-                                            description="Perfect for newcomers to the project"
-                                        />
-                                        <FeatureValueCard
-                                            title="Bug Fixes"
-                                            description="Help us squash bugs and improve stability"
-                                        />
-                                        <FeatureValueCard
-                                            title="Features Requests"
-                                            description="Implement new functionality"
-                                        />
-                                        <FeatureValueCard
-                                            title="Documentation"
-                                            description="Improve guides, examples, and API docs"
-                                        />
+                                        <a
+                                            href={data?.goodFirstIssues.url ?? "#   "}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hover:[&>div]:bg-app-color-background-secondary"
+                                        >
+                                            <FeatureValueCard
+                                                title="Good First Issues"
+                                                description="Perfect for newcomers to the project"
+                                                value={
+                                                    <IssueData
+                                                        isLoading={loading}
+                                                        title={`${data?.goodFirstIssues.total ?? 0} issues`}
+                                                    />
+                                                }
+                                            />
+                                        </a>
+                                        <a
+                                            href={data?.bugFixes.url ?? "#   "}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hover:[&>div]:bg-app-color-background-secondary"
+                                        >
+                                            <FeatureValueCard
+                                                title="Bug Fixes"
+                                                description="Help us squash bugs and improve stability"
+                                                value={
+                                                    <IssueData
+                                                        isLoading={loading}
+                                                        title={`${data?.bugFixes.total ?? 0} issues`}
+                                                    />
+                                                }
+                                            />
+                                        </a>
+                                        <a
+                                            href={data?.featureRequests.url ?? "#   "}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hover:[&>div]:bg-app-color-background-secondary"
+                                        >
+                                            <FeatureValueCard
+                                                title="Features Requests"
+                                                description="Implement new functionality"
+                                                value={
+                                                    <IssueData
+                                                        isLoading={loading}
+                                                        title={`${data?.featureRequests.total ?? 0} issues`}
+                                                    />
+                                                }
+                                            />
+                                        </a>
+                                        <a
+                                            href={data?.documentationIssues.url ?? "#   "}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hover:[&>div]:bg-app-color-background-secondary"
+                                        >
+                                            <FeatureValueCard
+                                                title="Documentation"
+                                                description="Improve guides, examples, and API docs"
+                                                value={
+                                                    <IssueData
+                                                        isLoading={loading}
+                                                        title={`${data?.documentationIssues.total ?? 0} issues`}
+                                                    />
+                                                }
+                                            />
+                                        </a>
                                     </div>
                                 }
                             >
@@ -185,6 +248,7 @@ export default function ContributePage() {
 
                             <ContributeSectionCard
                                 index={3}
+                                id="become-a-maintainer"
                                 title="Become a Maintainer"
                                 description="Join our core team as a package maintainer and help shape the technical direction of ZK-Kit. Perfect for individual developers who want to take ownership of specific components and work closely with the community."
                                 icon={
@@ -244,69 +308,83 @@ export default function ContributePage() {
                                 </>
                             </ContributeSectionCard>
 
-                            <ContributeSectionCard
-                                index={4}
-                                title="Audit a Package"
-                                description="Help ensure the security and reliability of ZK-Kit components through community-led code reviews and security audits. These are volunteer contributions that help maintain trust in the ecosystem and ensure the highest quality standards for all users."
-                                icon={
-                                    <Icons.ContributeIcon
-                                        width={80}
-                                        height={54}
-                                        className="text-app-color-tag-background"
-                                        index={4}
-                                    />
-                                }
-                                content={
-                                    <>
-                                        <div className="flex flex-col gap-[18px]">
-                                            <FeatureValueCard
-                                                title="Security Audit"
-                                                description="Review code for security vulnerabilities and best practices"
-                                            />
-                                            <FeatureValueCard
-                                                title="Code Quality"
-                                                description="Assess code structure, documentation, and maintainability"
-                                            />
-                                            <FeatureValueCard
-                                                title="Performance Review"
-                                                description="Analyze performance characteristics and optimization opportunities"
-                                            />
-                                            <FeatureValueCard
-                                                title="Compliance Check"
-                                                description="Ensure adherence to project standards and guidelinesn"
-                                            />
-                                        </div>
-                                        <Button href={LINKS.AUDIT_GUIDE} isExternal>
-                                            See our audit guide
-                                        </Button>
-                                    </>
-                                }
-                            >
-                                <CardBase
-                                    className="my-auto"
-                                    title="Current Audit Opportunities"
-                                    actions={<Button href={LINKS.VIEW_ALL_OPPORTUNITIES} isExternal>View All Opportunities</Button>}
+                            <AppContent className="flex flex-col gap-[30px] justify-center items-center">
+                                <ContributeSectionCard
+                                    index={4}
+                                    id="audit-a-package"
+                                    title="Audit a Package"
+                                    description="Help ensure the security and reliability of ZK-Kit components through community-led code reviews and security audits. These are volunteer contributions that help maintain trust in the ecosystem and ensure the highest quality standards for all users."
+                                    icon={
+                                        <Icons.ContributeIcon
+                                            width={80}
+                                            height={54}
+                                            className="text-app-color-tag-background"
+                                            index={4}
+                                        />
+                                    }
+                                    content={
+                                        <>
+                                            <div className="flex flex-col gap-[18px]">
+                                                <FeatureValueCard
+                                                    title="Security Audit"
+                                                    description="Review code for security vulnerabilities and best practices"
+                                                />
+                                                <FeatureValueCard
+                                                    title="Code Quality"
+                                                    description="Assess code structure, documentation, and maintainability"
+                                                />
+                                                <FeatureValueCard
+                                                    title="Performance Review"
+                                                    description="Analyze performance characteristics and optimization opportunities"
+                                                />
+                                                <FeatureValueCard
+                                                    title="Compliance Check"
+                                                    description="Ensure adherence to project standards and guidelinesn"
+                                                />
+                                            </div>
+                                            <Button href={LINKS.AUDIT_GUIDE} isExternal>
+                                                See our audit guide
+                                            </Button>
+                                        </>
+                                    }
                                 >
-                                    <FeatureValueCard
-                                        title="@zk-kit.identity"
-                                        description="v2.1.0 - Security"
-                                        value="High"
-                                    />
-                                    <FeatureValueCard
-                                        title="@zk-kit/merkle-tree"
-                                        description="v1.8.0 - Performance"
-                                        value="Medium"
-                                    />
-                                    <FeatureValueCard
-                                        title="@zk-kit/voting"
-                                        description="v3.0.0 - Code Quality"
-                                        value="High"
-                                    />
-                                </CardBase>
-                            </ContributeSectionCard>
+                                    <CardBase
+                                        className="my-auto"
+                                        title="Current Audit Opportunities"
+                                        actions={
+                                            <Button href={LINKS.VIEW_ALL_OPPORTUNITIES} isExternal>
+                                                View All Opportunities
+                                            </Button>
+                                        }
+                                    >
+                                        <FeatureValueCard
+                                            title="@zk-kit.identity"
+                                            description="v2.1.0 - Security"
+                                            value="High"
+                                        />
+                                        <FeatureValueCard
+                                            title="@zk-kit/merkle-tree"
+                                            description="v1.8.0 - Performance"
+                                            value="Medium"
+                                        />
+                                        <FeatureValueCard
+                                            title="@zk-kit/voting"
+                                            description="v3.0.0 - Code Quality"
+                                            value="High"
+                                        />
+                                    </CardBase>
+                                </ContributeSectionCard>
+                                <a href="#" className="flex flex-col gap-2 group">
+                                    <ActionButton className="flex flex-col gap-0">
+                                        <Icons.ArrowDown className="rotate-180" />
+                                    </ActionButton>
+                                    <span className="text-app-color-text-secondary text-base font-satoshi group-hover:text-app-color-text-base duration-200">
+                                        Back to top
+                                    </span>
+                                </a>
+                            </AppContent>
                         </div>
                     </div>
-
                 </div>
             </AppPageLayoutWrapper>
         </>

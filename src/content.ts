@@ -15,7 +15,8 @@ export interface Project {
     title: string
     description?: string
     image?: string
-    tags?: string[]
+    languages?: string[]
+    useCases?: string[]
     url?: string
 }
 
@@ -103,7 +104,8 @@ export const projects: Project[] = [
         description:
             "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
         image: "/img/projects/project-1.png",
-        tags: ["JavaScript", "ZK", "Privacy"],
+        languages: ["Javascript", "Circom", "Solidity"],
+        useCases: ["Identity", "Voting", "Privacy"],
         url: "#"
     },
     {
@@ -111,7 +113,8 @@ export const projects: Project[] = [
         description:
             "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
         image: "/img/projects/project-2.png",
-        tags: ["JavaScript", "ZK", "Privacy"],
+        languages: ["Javascript", "Solidity", "Circom"],
+        useCases: ["Voting", "Privacy", "Identity"],
         url: "#"
     },
     {
@@ -119,7 +122,8 @@ export const projects: Project[] = [
         description:
             "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
         image: "/img/projects/project-3.png",
-        tags: ["JavaScript", "ZK", "Privacy"],
+        languages: ["Rust", "Noir", "Solidity"],
+        useCases: ["DeFi", "Privacy"],
         url: "#"
     },
     {
@@ -127,7 +131,8 @@ export const projects: Project[] = [
         description:
             "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
         image: "/img/projects/project-4.png",
-        tags: ["JavaScript", "ZK", "Privacy"],
+        languages: ["Noir", "Javascript"],
+        useCases: ["Gaming", "Social"],
         url: "#"
     },
 
@@ -136,7 +141,8 @@ export const projects: Project[] = [
         description:
             "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
         image: "/img/projects/project-5.png",
-        tags: ["JavaScript", "ZK", "Privacy"],
+        languages: ["Circom", "Rust", "Javascript"],
+        useCases: ["Identity", "Social", "Privacy"],
         url: "#"
     },
     {
@@ -144,7 +150,8 @@ export const projects: Project[] = [
         description:
             "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
         image: "/img/projects/project-6.png",
-        tags: ["JavaScript", "ZK", "Privacy"],
+        languages: ["Solidity", "Noir"],
+        useCases: ["DeFi", "Voting"],
         url: "#"
     },
     {
@@ -152,7 +159,8 @@ export const projects: Project[] = [
         description:
             "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
         image: "/img/projects/project-7.png",
-        tags: ["JavaScript", "ZK", "Privacy"],
+        languages: ["Rust", "Circom", "Solidity"],
+        useCases: ["Gaming", "Privacy", "Identity"],
         url: "#"
     },
     {
@@ -160,7 +168,8 @@ export const projects: Project[] = [
         description:
             "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
         image: "/img/projects/project-8.png",
-        tags: ["JavaScript", "ZK", "Privacy"],
+        languages: ["Javascript", "Noir", "Rust"],
+        useCases: ["Social", "DeFi"],
         url: "#"
     },
     {
@@ -168,7 +177,8 @@ export const projects: Project[] = [
         description:
             "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
         image: "/img/projects/project-9.png",
-        tags: ["JavaScript", "ZK", "Privacy"],
+        languages: ["Circom", "Solidity"],
+        useCases: ["Voting", "Identity", "Gaming"],
         url: "#"
     },
     {
@@ -176,7 +186,8 @@ export const projects: Project[] = [
         description:
             "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
         image: "/img/projects/project-10.png",
-        tags: ["JavaScript", "ZK", "Privacy"],
+        languages: ["Noir", "Rust", "Javascript", "Solidity"],
+        useCases: ["Privacy", "Social", "DeFi"],
         url: "#"
     }
 ]

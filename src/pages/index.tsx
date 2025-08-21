@@ -8,27 +8,22 @@ import { Button } from "../components/ui/Button"
 import { Icons } from "../components/ui/Icons"
 import { AppPageLayoutWrapper } from "../components/layouts/AppPageLayoutWrapper"
 import { SEO } from "../components/SEO"
+import { Label } from "../components/ui/Label"
+import { SEO_DATA } from "../constants"
 
 export default function HomePage(): ReactNode {
     return (
         <>
             <SEO
-                description="ZK-Kit is a set of libraries (algorithms, utility functions and data structures) that can be reused in different projects and zero-knowledge protocols."
-                keywords={[
-                    "ZK-Kit",
-                    "zero-knowledge",
-                    "cryptography",
-                    "libraries",
-                    "development tools",
-                    "privacy",
-                    "blockchain"
-                ]}
+                title={SEO_DATA.INDEX_PAGE.TITLE}
+                description={SEO_DATA.INDEX_PAGE.DESCRIPTION}
+                keywords={SEO_DATA.INDEX_PAGE.KEYWORDS}
             />
             <AppPageLayoutWrapper>
                 <div className="flex flex-col gap-10 lg:gap-[140px]">
-                    <AppContent as="section" className="flex flex-col gap-10">
-                        <div className="flex flex-col lg:grid lg:grid-cols-[minmax(0,600px)_400px] items-center justify-between">
-                            <span className="text-5xl text-app-color-text-base lg:text-[80px] font-normal font-clash-grotesk">
+                    <AppContent as="section" className="flex flex-col gap-16">
+                        <div className="flex flex-col gap-5 lg:gap-0 lg:grid lg:grid-cols-[minmax(0,600px)_400px] lg:items-center lg:justify-between">
+                            <span className="text-5xl text-app-color-text-base lg:text-[80px] font-normal font-clash-grotesk w-4/5 lg:w-full text-left">
                                 Zero-Knowledge Development Libraries
                             </span>
                             <div className="flex flex-col gap-9">
@@ -45,15 +40,17 @@ export default function HomePage(): ReactNode {
                             src="/img/illustrations/intro-illustration.svg"
                             alt="Zero-Knowledge Development Libraries"
                             className="w-full"
+                            fetchPriority="high"
+                            loading="eager"
                         />
                     </AppContent>
 
                     <section className="flex flex-col gap-10 lg:gap-16">
                         <AppContent>
-                            <div className="flex flex-col lg:grid lg:grid-cols-[minmax(0,600px)_400px] lg:items-center lg:justify-between">
-                                <h3 className="!text-4xl lg:!text-6xl text-app-color-text-base !font-normal !font-clash-grotesk">
+                            <div className="flex flex-col gap-5 lg:gap-0 lg:grid lg:grid-cols-[minmax(0,600px)_400px] lg:items-center lg:justify-between">
+                                <Label.PageTitle as="h3" size="md">
                                     Key Features
-                                </h3>
+                                </Label.PageTitle>
                                 <span className="text-base text-app-color-text-base font-satoshi">
                                     Everything you need to build robust, privacy-preserving applications.
                                 </span>
@@ -61,7 +58,7 @@ export default function HomePage(): ReactNode {
                         </AppContent>
                         <div className="border-t border-b border-app-color-border">
                             <AppContent>
-                                <div className="grid grid-cols-1 lg:grid-cols-5 divide-y lg:divide-x divide-app-color-border border-r border-l border-app-color-border">
+                                <div className="grid grid-cols-1 lg:grid-cols-5 divide-y lg:divide-y-0 lg:divide-x divide-app-color-border border-r border-l border-app-color-border">
                                     {features.map((feature, index) => (
                                         <FeatureCard
                                             key={index}
@@ -76,10 +73,10 @@ export default function HomePage(): ReactNode {
                     </section>
 
                     <AppContent as="section" className="flex flex-col gap-10 lg:gap-16">
-                        <div className="flex flex-col lg:grid lg:grid-cols-[minmax(0,600px)_400px] lg:items-center lg:justify-between">
-                            <h3 className="!text-4xl lg:!text-6xl !font-normal text-app-color-text-base !font-clash-grotesk">
+                        <div className="flex flex-col gap-5 lg:gap-0 lg:grid lg:grid-cols-[minmax(0,600px)_400px] lg:items-center lg:justify-between">
+                            <Label.PageTitle as="h3" size="md">
                                 Supported Languages
-                            </h3>
+                            </Label.PageTitle>
                             <span className="text-base text-app-color-text-base font-satoshi">
                                 Native implementations across popular languages and frameworks.
                             </span>

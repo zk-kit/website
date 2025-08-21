@@ -25,8 +25,8 @@
 
     --background-bg-surface-invert-shadow: rgba(93, 202, 71, 0.6);
 
-    --font-family-clash-grotesk: "ClashGrotesk-Variable", sans-serif;
-    --font-satoshi: "Satoshi-Variable", sans-serif;
+    --font-family-clash-grotesk: "ClashGrotesk-Variable", "ClashGrotesk-Medium", system-ui, sans-serif;
+    --font-satoshi: "Satoshi-Variable", "Satoshi-Regular", system-ui, sans-serif;
 }
 
 /* ContributeCard hover states with proper index-based logic */
@@ -102,11 +102,14 @@
     --app-color-button-primary-text-hover: #E7E7E7;
     
     --app-color-button-secondary-background: #0e0e0e;
-    --app-color-button-secondary-background-hover: #1a1a1a;
+    --app-color-button-secondary-background-hover: #FFF;
     --app-color-button-secondary-text: #ffffff;
+    --app-color-button-secondary-text-hover: #0E0E0E;
+
     --app-color-button-tertiary-background: #e4f9df;
     --app-color-button-tertiary-background-hover: #caf1c1;
     --app-color-button-tertiary-text: #285d1e;
+    --app-color-button-tertiary-text-hover: #0E0E0E;
 
     --ifm-color-primary: #48b532;
     --ifm-color-primary-dark: #369524;
@@ -129,15 +132,24 @@ html {
 html,
 body,
 html * {
-    font-family: "ClashGrotesk-Variable", sans-serif !important;
+    font-family: var(--font-family-clash-grotesk) !important;
+    text-rendering: geometricPrecision !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .font-clash-grotesk {
-    font-family: "ClashGrotesk-Variable", sans-serif !important;
+    font-family: var(--font-family-clash-grotesk) !important;
+    text-rendering: geometricPrecision !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .font-satoshi {
-    font-family: "Satoshi-Variable", sans-serif !important;
+    font-family: var(--font-satoshi) !important;
+    text-rendering: geometricPrecision !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .navbar__link {

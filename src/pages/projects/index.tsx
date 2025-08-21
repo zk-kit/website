@@ -1,34 +1,35 @@
 import { Banner } from "@site/src/components/ui/Banner"
 import { ProjectCard } from "@site/src/components/cards/ProjectCard"
 import { AppContent } from "@site/src/components/AppContent"
-import { projects } from "@site/src/content"
 import { Icons } from "@site/src/components/ui/Icons"
-import { useState } from "react"
 import { Label } from "@site/src/components/ui/Label"
 import { ActionButton, Button } from "@site/src/components/ui/Button"
 import { AppPageLayoutWrapper } from "@site/src/components/layouts/AppPageLayoutWrapper"
 import { SEO } from "@site/src/components/SEO"
-import { MAX_PROJECTS_TO_SHOW } from "@site/src/constants"
-
+import { LINKS, MAX_PROJECTS_TO_SHOW, SEO_DATA } from "@site/src/constants"
+import { useProjects } from "@site/src/hooks/useProjects"
+import { Tag } from "@site/src/components/ui/Tag"
 
 export default function ProjectsPage() {
-    const [showAllProjects, setShowAllProjects] = useState(false)
-    const showMoreProjects = projects.length > MAX_PROJECTS_TO_SHOW
+    const {
+        filteredProjects: projects,
+        showAllProjects,
+        setShowAllProjects,
+        showMoreProjects,
+        projectsLanguages,
+        projectsUseCases,
+        toggleLanguageSelection,
+        toggleUseCaseSelection,
+        selectedLanguages,
+        selectedUseCases
+    } = useProjects()
 
     return (
         <>
             <SEO
-                title="Projects"
-                description="Discover a curated showcase of innovative projects and applications built with ZK-Kit. See what developers are creating with our zero-knowledge libraries."
-                keywords={[
-                    "ZK-Kit",
-                    "projects",
-                    "zero-knowledge",
-                    "showcase",
-                    "applications",
-                    "developer community",
-                    "cryptography"
-                ]}
+                title={SEO_DATA.PROJECTS_PAGE.TITLE}
+                description={SEO_DATA.PROJECTS_PAGE.DESCRIPTION}
+                keywords={SEO_DATA.PROJECTS_PAGE.KEYWORDS}
             />
             <AppPageLayoutWrapper>
                 <div className="flex flex-col">
@@ -46,28 +47,60 @@ export default function ProjectsPage() {
                                 ></div>
 
                                 <AppContent className="flex flex-col items-center gap-[10px] text-center">
-                                    <Label.PageTitle>Built with ZK - Kit</Label.PageTitle>
+                                    <Label.PageTitle className="w-2/3 lg:w-full">Built with ZK - Kit</Label.PageTitle>
                                     <span className="font-satoshi text-base text-app-color-text-secondary lg:max-w-[410px]">
                                         Discover a curated showcase of innovative projects and applications built with
                                         ZK-Kit.
                                     </span>
                                 </AppContent>
                             </div>
-                            <Button className="mx-auto w-fit">Submit your project</Button>
+                            <div className="mx-auto">
+                                <Button className="w-fit" href={LINKS.SUBMIT_PROJECT} isExternal>
+                                    Submit your project
+                                </Button>
+                            </div>
                         </section>
 
                         <div className="flex flex-col gap-10 lg:gap-[140px]">
                             <section className="border-t border-b border-app-color-border divide-y divide-app-color-border">
-                                <AppContent className="grid grid-cols-1 lg:divide-y-none divide-y divide-app-color-border lg:grid-cols-[1fr_1fr] lg:gap-[30px] border-r border-l border-app-color-border">
+                                <AppContent className="grid grid-cols-1 lg:divide-y-0 divide-y divide-app-color-border lg:grid-cols-[1fr_1fr] lg:gap-[30px] border-r border-l border-app-color-border">
                                     <div className="p-5 lg:p-[30px] flex flex-col gap-5 lg:border-r lg:border-app-color-border">
                                         <span className="text-[28px] text-app-color-text-base font-clash-grotesk font-normal">
                                             All Languages
                                         </span>
+                                        <div className="flex gap-[10px]">
+                                            {projectsLanguages.map((language) => {
+                                                const isSelected = selectedLanguages.includes(language)
+                                                return (
+                                                    <Tag
+                                                        key={language}
+                                                        text={language}
+                                                        size="sm"
+                                                        onClick={() => toggleLanguageSelection(language)}
+                                                        isActive={isSelected}
+                                                    />
+                                                )
+                                            })}
+                                        </div>
                                     </div>
                                     <div className="p-5 lg:p-[30px] flex flex-col gap-5 lg:border-l lg:border-app-color-border">
                                         <span className="text-[28px] text-app-color-text-base font-clash-grotesk font-normal">
                                             All Use Cases
                                         </span>
+                                        <div className="flex gap-[10px]">
+                                            {projectsUseCases.map((useCase) => {
+                                                const isSelected = selectedUseCases.includes(useCase)
+                                                return (
+                                                    <Tag
+                                                        key={useCase}
+                                                        text={useCase}
+                                                        size="sm"
+                                                        onClick={() => toggleUseCaseSelection(useCase)}
+                                                        isActive={isSelected}
+                                                    />
+                                                )
+                                            })}
+                                        </div>
                                     </div>
                                 </AppContent>
 
@@ -103,7 +136,11 @@ export default function ProjectsPage() {
                         illustration="/img/illustrations/build-projects-illustration.svg"
                         illustrationWidth={117}
                         illustrationOnMobile={2}
-                    ></Banner>
+                    >
+                        <Button className="w-fit" href={LINKS.SUBMIT_PROJECT} isExternal>
+                            Submit your project
+                        </Button>
+                    </Banner>
                 </div>
             </AppPageLayoutWrapper>
         </>

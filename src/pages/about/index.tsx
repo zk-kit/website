@@ -5,14 +5,15 @@ import { Label } from "@site/src/components/ui/Label"
 import { ResponsiveSlider } from "@site/src/components/ui/ResponsiveSlider"
 import { SEO } from "@site/src/components/SEO"
 import { FeatureValueCard } from "@site/src/components/cards/FeatureValueCard"
+import { SEO_DATA } from "@site/src/constants"
 
 export default function AboutPage() {
     return (
         <>
             <SEO
-                title="About Us"
-                description="Learn about ZK-Kit, our growth, and commitment to the developer community. Discover our key figures and statistics."
-                keywords={["ZK-Kit", "about", "zero-knowledge", "cryptography", "developer tools", "statistics"]}
+                title={SEO_DATA.ABOUT_PAGE.TITLE}
+                description={SEO_DATA.ABOUT_PAGE.DESCRIPTION}
+                keywords={SEO_DATA.ABOUT_PAGE.KEYWORDS}
             />
             <AppPageLayoutWrapper className="flex flex-col gap-10 lg:gap-16">
                 <section className="flex flex-col gap-9">

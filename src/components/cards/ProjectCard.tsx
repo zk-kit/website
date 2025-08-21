@@ -7,7 +7,7 @@ export const ProjectCard = ({
     title,
     description,
     image,
-    tags = [],
+    languages = [],
     className = ""
 }: Project & { className?: string }) => {
     return (
@@ -21,8 +21,8 @@ export const ProjectCard = ({
                 <div className="flex flex-col gap-2">
                     <div className="flex items-center justify-between">
                         <div className="flex gap-1">
-                            {tags.map((tag) => (
-                                <Tag key={tag} text={tag} size="sm" />
+                            {languages.map((tag) => (
+                                <Tag key={tag} text={tag} size="sm" withHover={false} />
                             ))}
                         </div>
                         <img
@@ -33,14 +33,12 @@ export const ProjectCard = ({
                             width={45}
                         />
                     </div>
-                    <span className="text-[26px] font-clash-grotesk font-normal text-app-color-text-base">{title}</span>
+                    <span className="text-[26px] font-satoshi font-medium text-app-color-text-base">{title}</span>
                 </div>
             </div>
             <div className="flex flex-col gap-5">
-                <span className="text-base font-satoshi text-app-color-text-secondary line-clamp-3">
-                    {description}
-                </span>
-                <Button variant="secondary">
+                <span className="text-base font-satoshi text-app-color-text-secondary line-clamp-3">{description}</span>
+                <Button variant="secondary" withGroupHover>
                     <span className="relative overflow-hidden">
                         <span className="opacity-100 flex group-hover:hidden w-auto h-auto group-hover:opacity-0 group-hover:w-0 group-hover:h-0">
                             View project

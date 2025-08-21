@@ -126,7 +126,12 @@ export const Button = forwardRef<any, ButtonProps>(
 
         if (href) {
             return (
-                <a href={href} target="_blank" rel="noopener noreferrer">
+                <a
+                    href={href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    className="w-full"
+                >
                     <button
                         ref={ref}
                         className={twMerge("w-full", buttonClassName)}
@@ -156,7 +161,7 @@ export const ActionButton = ({ children, className, ...props }: ActionButtonProp
     return (
         <button
             className={twMerge(
-                "p-[10px] mx-auto border border-app-color-border cursor-pointer hover:bg-app-color-background-secondary transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none disabled:bg-app-color-background",
+                "p-[10px] mx-auto border border-app-color-border cursor-pointer group-hover:bg-app-color-background-secondary hover:bg-app-color-background-secondary transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none disabled:bg-app-color-background",
                 className
             )}
             {...props}
