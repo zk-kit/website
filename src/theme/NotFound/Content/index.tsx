@@ -5,9 +5,9 @@ import { Button } from "@site/src/components/ui/Button"
 import Link from "@docusaurus/Link"
 import { translate } from "@docusaurus/Translate"
 
-export default function NotFoundContent(): JSX.Element {
+export default function NotFoundContent() {
     return (
-        <AppPageLayoutWrapper className="flex flex-col gap-10 lg:gap-16 items-center justify-center min-h-[60vh]">
+        <div className="flex flex-col gap-10 lg:gap-16 items-center justify-center min-h-[60vh]">
             <section className="flex flex-col gap-9 items-center text-center">
                 <div
                     className="lg:container lg:mx-auto h-[200px] lg:h-[300px] mx-auto lg:w-full w-full bg-repeat bg-center lg:bg-no-repeat lg:bg-contain bg-cover opacity-30"
@@ -47,6 +47,6 @@ export default function NotFoundContent(): JSX.Element {
                     </div>
                 </AppContent>
             </section>
-        </AppPageLayoutWrapper>
+        </div>
     )
 }
