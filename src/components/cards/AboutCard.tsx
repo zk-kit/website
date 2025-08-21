@@ -29,7 +29,7 @@ const AboutCardImage = () => {
     if (isMobile) return null
 
     return (
-        <div className="relative flex flex-col aspect-square duration-200 group">
+        <div className="relative flex flex-col aspect-square duration-200 group w-full h-full">
             <div
                 className="inset-0 absolute flex lg:mx-[30px] bg-contain bg-center bg-repeat opacity-5 group-hover:opacity-100 transition-opacity duration-200"
                 style={{

@@ -104,7 +104,7 @@ export const Icons = {
         </svg>
     ),
     ZkKit: (props: any) => (
-        <svg xmlns="http://www.w3.org/2000/svg" width="77" height="20" viewBox="0 0 77 20" fill="none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="77" height="20" viewBox="0 0 77 20" fill="none" {...props}>
             <path
                 d="M70.6606 19.0696H67.6857V3.13495H61.3467V0.437462H76.9996V3.13495H70.6606V19.0696Z"
                 fill="currentColor"

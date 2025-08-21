@@ -14,6 +14,8 @@ interface SliderProps {
     slidesToShow?: number
     gap?: string
     withDivider?: boolean
+    controlsPosition?: "top" | "bottom"
+    forceSlider?: boolean
 }
 
 export const Slider = ({
@@ -24,8 +26,10 @@ export const Slider = ({
     autoSlideInterval = 3000,
     onSlideChange,
     slidesToShow = 1,
-    gap = "20px",
-    withDivider = true
+    gap = "0px",
+    withDivider = true,
+    controlsPosition = "bottom",
+    forceSlider = false
 }: SliderProps) => {
 
     const isMobile = useMediaQuery({ query: "(max-width: 767px)" })
@@ -90,8 +94,8 @@ export const Slider = ({
     const translateX = currentSlide * slideWidth
 
     return (
-        <div className="flex flex-col gap-5">
-            <div className={twMerge("flex flex-col gap-5 md:hidden relative overflow-hidden", className)}>
+        <div className={twMerge("flex flex-col gap-5", controlsPosition === "bottom" && "flex-col-reverse")}>
+            <div className={twMerge("flex flex-col gap-5 relative overflow-hidden", className)}>
                 <div
                     ref={sliderRef}
                     className={twMerge(
@@ -99,7 +103,8 @@ export const Slider = ({
                         withDivider && "divide-x divide-app-color-border"
                     )}
                     style={{
-                        transform: `translateX(-${translateX}%)`
+                        transform: `translateX(-${translateX}%)`,
+                        gap: gap
                     }}
                     onTouchStart={handleTouchStart}
                     onTouchMove={handleTouchMove}
@@ -118,7 +123,7 @@ export const Slider = ({
                     ))}
                 </div>
             </div>
-            {showNavigation && maxSlideIndex > 0 && isMobile &&(
+            {showNavigation && maxSlideIndex > 0 && (isMobile || forceSlider) && (
                 <div className="flex gap-[10px] ml-auto justify-end">
                     <ActionButton
                         onClick={goToPrev}

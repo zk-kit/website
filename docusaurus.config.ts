@@ -58,7 +58,8 @@ const config: Config = {
                     editUrl: "https://github.com/zk-kit/website",
                     onInlineTags: "warn",
                     onInlineAuthors: "warn",
-                    onUntruncatedBlogPosts: "warn"
+                    onUntruncatedBlogPosts: "warn",
+                    blogSidebarCount: 0
                 },
                 theme: {
                     customCss: "./src/css/custom.css"

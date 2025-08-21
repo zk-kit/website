@@ -10,8 +10,13 @@ import { AppPageLayoutWrapper } from "../components/layouts/AppPageLayoutWrapper
 import { SEO } from "../components/SEO"
 import { Label } from "../components/ui/Label"
 import { SEO_DATA } from "../constants"
+import { ResponsiveSlider } from "../components/ui/ResponsiveSlider"
+import { ProjectCard } from "../components/cards/ProjectCard"
+import { useProjects } from "../hooks/useProjects"
 
 export default function HomePage(): ReactNode {
+    const { featuredProjects } = useProjects()
+
     return (
         <>
             <SEO
@@ -95,6 +100,29 @@ export default function HomePage(): ReactNode {
                             ))}
                         </div>
                     </AppContent>
+
+                    <section className="flex flex-col gap-16">
+                        <AppContent className="flex flex-col gap-5 lg:gap-0 lg:grid lg:grid-cols-[minmax(0,600px)_400px] lg:items-center lg:justify-between">
+                            <Label.PageTitle as="h3" size="md">
+                                Featured Projects
+                            </Label.PageTitle>
+                            <span className="text-base text-app-color-text-base font-satoshi">
+                                Discover what the community is building with ZK-Kit
+                            </span>
+                        </AppContent>
+
+                        <ResponsiveSlider
+                            forceSlider
+                            controlsPosition="top"
+                            slidesToShow={1.1}
+                            desktopSlidesToShow={3.8}
+                            withDivider={false}
+                        >
+                            {featuredProjects.map((project, index) => (
+                                <ProjectCard key={index} {...project} className="border-t border-b border-l !border-r-0 lg:!border-x lg:!border-y" />
+                            ))}
+                        </ResponsiveSlider>
+                    </section>
 
                     <Banner
                         title="Join the community"

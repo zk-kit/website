@@ -45,17 +45,18 @@ export default function ContributePage() {
             <AppPageLayoutWrapper>
                 <div className="flex flex-col">
                     <div className="flex flex-col gap-14 lg:gap-20">
-                        <section className="flex flex-col gap-9">
+                        <AppContent className="flex flex-col gap-9">
                             <div className="flex flex-col gap-10 lg:gap-20">
-                                <div
-                                    className="lg:container lg:mx-auto h-[141px] lg:h-[170px]"
+                                <AppContent
+                                    onlyDesktopContainer
+                                    className="h-[141px] lg:h-[170px]"
                                     style={{
                                         backgroundImage: "url(/img/illustrations/contribute-page-illustration.svg)",
                                         backgroundSize: "cover",
                                         backgroundPosition: "center",
                                         backgroundRepeat: "repeat-x"
                                     }}
-                                ></div>
+                                />
 
                                 <AppContent className="flex flex-col items-center gap-[10px] text-center">
                                     <Label.PageTitle className="w-2/3 lg:w-full">Contribute to ZK-Kit</Label.PageTitle>
@@ -65,7 +66,7 @@ export default function ContributePage() {
                                     </span>
                                 </AppContent>
                             </div>
-                        </section>
+                        </AppContent>
 
                         <AppContent>
                             <div className="grid grid-cols-1 gap-[30px] lg:grid-cols-4">

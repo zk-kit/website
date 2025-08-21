@@ -18,6 +18,7 @@ export interface Project {
     languages?: string[]
     useCases?: string[]
     url?: string
+    featured?: boolean
 }
 
 export interface Contribute {
@@ -106,6 +107,7 @@ export const projects: Project[] = [
         image: "/img/projects/project-1.png",
         languages: ["Javascript", "Circom", "Solidity"],
         useCases: ["Identity", "Voting", "Privacy"],
+        featured: true,
         url: "#"
     },
     {
@@ -115,6 +117,7 @@ export const projects: Project[] = [
         image: "/img/projects/project-2.png",
         languages: ["Javascript", "Solidity", "Circom"],
         useCases: ["Voting", "Privacy", "Identity"],
+        featured: true,
         url: "#"
     },
     {
@@ -124,6 +127,7 @@ export const projects: Project[] = [
         image: "/img/projects/project-3.png",
         languages: ["Rust", "Noir", "Solidity"],
         useCases: ["DeFi", "Privacy"],
+        featured: true,
         url: "#"
     },
     {
@@ -133,6 +137,7 @@ export const projects: Project[] = [
         image: "/img/projects/project-4.png",
         languages: ["Noir", "Javascript"],
         useCases: ["Gaming", "Social"],
+        featured: true,
         url: "#"
     },
 
@@ -143,6 +148,7 @@ export const projects: Project[] = [
         image: "/img/projects/project-5.png",
         languages: ["Circom", "Rust", "Javascript"],
         useCases: ["Identity", "Social", "Privacy"],
+        featured: true,
         url: "#"
     },
     {

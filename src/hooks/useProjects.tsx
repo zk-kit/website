@@ -35,6 +35,8 @@ export const useProjects = () => {
         return languageMatch && useCaseMatch
     })
 
+    const featuredProjects = filteredProjects.filter((project) => project.featured)
+
     const showMoreProjects = filteredProjects.length > MAX_PROJECTS_TO_SHOW
 
     return {
@@ -47,6 +49,7 @@ export const useProjects = () => {
         toggleLanguageSelection,
         selectedUseCases,
         toggleUseCaseSelection,
-        filteredProjects
+        filteredProjects,
+        featuredProjects
     }
 }

@@ -13,8 +13,12 @@ interface ResponsiveSliderProps {
     autoSlideInterval?: number
     onSlideChange?: (index: number) => void
     slidesToShow?: number
+    desktopSlidesToShow?: number
     gap?: string
+    desktopGap?: string
     withDivider?: boolean
+    forceSlider?: boolean
+    controlsPosition?: "top" | "bottom"
 }
 
 export const ResponsiveSlider = ({
@@ -27,12 +31,16 @@ export const ResponsiveSlider = ({
     autoSlideInterval = 3000,
     onSlideChange,
     slidesToShow = 1,
-    gap = "20px",
-    withDivider = true
+    desktopSlidesToShow,
+    gap = "0px",
+    desktopGap = "30px",
+    withDivider = true,
+    forceSlider = false,
+    controlsPosition = "bottom"
 }: ResponsiveSliderProps) => {
     const isMobile = useMediaQuery({ query: "(max-width: 767px)" })
     
-    const validChildren = isMobile 
+    const validChildren = (isMobile || forceSlider)
         ? Children.toArray(children).filter(child => {
             if (child && typeof child === 'object' && 'type' in child) {
                 return (child.type as any)?.name !== 'AboutCardImage'
@@ -41,23 +49,34 @@ export const ResponsiveSlider = ({
         })
         : children
     
+    // Determine current slidesToShow and gap based on screen size
+    const currentSlidesToShow = isMobile ? slidesToShow : (desktopSlidesToShow ?? slidesToShow)
+    const currentGap = isMobile ? gap : (desktopGap ?? gap)
+    
     return (
         <div className={className}>
-            {/* Desktop view - Grid layout */}
-            <div className={twMerge("!hidden md:block", desktopClassName)}>
-                {children}
-            </div>
+            {/* Desktop view - Grid layout (only when not forcing slider) */}
+            {!forceSlider && (
+                <div className={twMerge("!hidden md:block", desktopClassName)}>
+                    {children}
+                </div>
+            )}
 
-            {/* Mobile view - Slider */}
+            {/* Mobile view - Slider (or forced desktop slider) */}
             <Slider
-                className={mobileClassName}
+                className={twMerge(
+                    forceSlider ? "" : "md:!hidden", 
+                    mobileClassName
+                )}
                 showNavigation={showNavigation}
                 autoSlide={autoSlide}
                 autoSlideInterval={autoSlideInterval}
                 onSlideChange={onSlideChange}
-                slidesToShow={slidesToShow}
+                slidesToShow={currentSlidesToShow}
+                gap={currentGap}
                 withDivider={withDivider}
-                gap={gap}
+                controlsPosition={controlsPosition}
+                forceSlider={forceSlider}
             >
                 {validChildren}
             </Slider>

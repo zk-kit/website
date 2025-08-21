@@ -18,12 +18,13 @@ export default function AboutPage() {
             <AppPageLayoutWrapper className="flex flex-col gap-10 lg:gap-16">
                 <section className="flex flex-col gap-9">
                     <div className="flex flex-col gap-10 lg:gap-20">
-                        <div
-                            className="lg:container lg:mx-auto h-[141px] lg:h-[223px] mx-auto lg:w-full w-full  bg-repeat bg-center lg:bg-no-repeat lg:bg-contain bg-cover"
+                        <AppContent
+                            onlyDesktopContainer
+                            className="h-[120px] lg:h-[223px] bg-repeat bg-center lg:bg-no-repeat bg-contain"
                             style={{
                                 backgroundImage: "url(/img/illustrations/about-page-illustration.svg)"
                             }}
-                        ></div>
+                        />
 
                         <AppContent className="flex flex-col items-center gap-[10px] text-center">
                             <Label.PageTitle>About us</Label.PageTitle>
@@ -67,7 +68,9 @@ export default function AboutPage() {
                         </AppContent>
 
                         <AppContent className="flex flex-col gap-5 lg:max-w-[490px] lg:mx-auto">
-                            <Label.PageTitle className="lg:text-center" size="md">Our values</Label.PageTitle>
+                            <Label.PageTitle className="lg:text-center" size="md">
+                                Our values
+                            </Label.PageTitle>
                             <div className="flex flex-col gap-[14px] lg:w-full">
                                 <FeatureValueCard
                                     title="Open Source"
