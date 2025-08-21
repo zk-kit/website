@@ -96,9 +96,11 @@
     --app-color-tag-background-hover: #1a1a1a;
     --app-color-tag-text: #fff;
 
-    --app-color-button-primary-background: #5dca47;
-    --app-color-button-primary-background-hover: #48b532;
-    --app-color-button-primary-text: #ffffff;
+    --app-color-button-primary-background: #FFF;
+    --app-color-button-primary-background-hover: #1A1A1A;
+    --app-color-button-primary-text: #0E0E0E;
+    --app-color-button-primary-text-hover: #E7E7E7;
+    
     --app-color-button-secondary-background: #0e0e0e;
     --app-color-button-secondary-background-hover: #1a1a1a;
     --app-color-button-secondary-text: #ffffff;

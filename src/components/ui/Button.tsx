@@ -16,6 +16,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     fontWeight?: ButtonFontWeight
     size?: ButtonSize
     withShadow?: boolean
+    href?: string
+    withGroupHover?: boolean
 }
 
 const BUTTON_STYLES = {
@@ -32,15 +34,22 @@ const BUTTON_STYLES = {
 
     variants: {
         primary:
-            "bg-app-color-button-primary-background text-app-color-button-primary-text hover:bg-app-color-button-primary-background-hover hover:text-app-color-button-primary-text-hover group-hover:bg-app-color-button-primary-background-hover group-hover:text-app-color-button-primary-text-hover",
+            "bg-app-color-button-primary-background text-app-color-button-primary-text hover:bg-app-color-button-primary-background-hover hover:text-app-color-button-primary-text-hover",
         secondary:
-            "bg-app-color-button-secondary-background text-app-color-button-secondary-text border border-app-color-button-secondary-background hover:bg-app-color-button-secondary-background-hover hover:text-app-color-button-secondary-text-hover group-hover:bg-app-color-button-secondary-background-hover group-hover:text-app-color-button-secondary-text-hover"
+            "bg-app-color-button-secondary-background text-app-color-button-secondary-text border border-app-color-button-secondary-background hover:bg-app-color-button-secondary-background-hover hover:text-app-color-button-secondary-text-hover"
     } as const,
 
     fontWeights: {
         bold: "font-bold",
         medium: "font-medium",
         regular: "font-regular"
+    } as const,
+
+    withGroupHover: {
+        primary:
+            "group-hover:bg-app-color-button-primary-background-hover group-hover:text-app-color-button-primary-text-hover",
+        secondary:
+            "group-hover:bg-app-color-button-secondary-background-hover group-hover:text-app-color-button-secondary-text-hover"
     } as const,
 
     withShadow: {
@@ -59,6 +68,7 @@ const createButtonClassName = (
     fontWeight: ButtonFontWeight,
     size: ButtonSize,
     withShadow: boolean,
+    withGroupHover: boolean,
     className?: string
 ): string => {
     return twMerge(
@@ -67,6 +77,7 @@ const createButtonClassName = (
         BUTTON_STYLES.fontWeights[fontWeight],
         BUTTON_STYLES.sizes[size],
         withShadow ? BUTTON_STYLES.withShadow.true : BUTTON_STYLES.withShadow.false,
+        withGroupHover ? BUTTON_STYLES.withGroupHover[variant] : "",
         className
     )
 }
@@ -89,7 +100,7 @@ const renderButtonContent = (
     )
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<any, ButtonProps>(
     (
         {
             className,
@@ -104,12 +115,30 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             size = "sm",
             withShadow = false,
             children,
+            href,
+            withGroupHover = false,
             ...props
         },
         ref
     ) => {
-        const buttonClassName = createButtonClassName(variant, fontWeight, size, withShadow, className)
+        const buttonClassName = createButtonClassName(variant, fontWeight, size, withShadow, withGroupHover, className)
         const isDisabled = loading || disabled
+
+        if (href) {
+            return (
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                    <button
+                        ref={ref}
+                        className={twMerge("w-full", buttonClassName)}
+                        disabled={isDisabled}
+                        aria-disabled={isDisabled}
+                        {...props}
+                    >
+                        {renderButtonContent(children, icon, iconPosition, isExternal, loading)}
+                    </button>
+                </a>
+            )
+        }
 
         return (
             <button ref={ref} className={buttonClassName} disabled={isDisabled} aria-disabled={isDisabled} {...props}>
@@ -123,15 +152,11 @@ export interface ActionButtonProps extends ButtonHTMLAttributes<HTMLButtonElemen
     children: React.ReactNode
 }
 
-export const ActionButton = ({
-    children,
-    className,
-    ...props
-}: ActionButtonProps) => {
+export const ActionButton = ({ children, className, ...props }: ActionButtonProps) => {
     return (
         <button
             className={twMerge(
-                "p-[10px] mx-auto border border-app-color-border cursor-pointer hover:bg-app-color-background-secondary transition-all duration-200",
+                "p-[10px] mx-auto border border-app-color-border cursor-pointer hover:bg-app-color-background-secondary transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none disabled:bg-app-color-background",
                 className
             )}
             {...props}

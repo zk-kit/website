@@ -3,8 +3,8 @@ import { AboutCard, AboutCardImage } from "@site/src/components/cards/AboutCard"
 import { AppPageLayoutWrapper } from "@site/src/components/layouts/AppPageLayoutWrapper"
 import { Label } from "@site/src/components/ui/Label"
 import { ResponsiveSlider } from "@site/src/components/ui/ResponsiveSlider"
-import { useMediaQuery } from "react-responsive"
 import { SEO } from "@site/src/components/SEO"
+import { FeatureValueCard } from "@site/src/components/cards/FeatureValueCard"
 
 export default function AboutPage() {
     return (
@@ -18,7 +18,7 @@ export default function AboutPage() {
                 <section className="flex flex-col gap-9">
                     <div className="flex flex-col gap-10 lg:gap-20">
                         <div
-                            className="lg:container lg:mx-auto h-[141px] lg:h-[223px] mx-auto lg:w-auto w-full  bg-repeat bg-center lg:bg-no-repeat lg:bg-contain bg-cover"
+                            className="lg:container lg:mx-auto h-[141px] lg:h-[223px] mx-auto lg:w-full w-full  bg-repeat bg-center lg:bg-no-repeat lg:bg-contain bg-cover"
                             style={{
                                 backgroundImage: "url(/img/illustrations/about-page-illustration.svg)"
                             }}
@@ -32,10 +32,11 @@ export default function AboutPage() {
                             </span>
                         </AppContent>
 
-                        <AppContent className="lg:border lg:border-app-color-border">
+                        <AppContent className="md:border md:border-app-color-border">
                             <ResponsiveSlider
-                                desktopClassName="lg:!grid !grid-cols-1 md:!grid-cols-3 lg:divide-x lg:divide-y lg:divide-app-color-border"
-                                slidesToShow={1.2}
+                                desktopClassName="overflow-hidden md:!grid !grid-cols-1 md:!grid-cols-3 [&>*:not(:nth-child(3n))]:md:border-r [&>*:nth-child(n+4)]:md:border-t [&>*]:border-app-color-border"
+                                mobileClassName="border-x border-app-color-border border-b border-t lg:border-none"
+                                slidesToShow={1.1}
                                 gap="16px"
                                 autoSlide={false}
                             >
@@ -49,6 +50,41 @@ export default function AboutPage() {
                                 <AboutCard value="15" title="Countries" description="Global developer reach" />
                                 <AboutCard value="95%" title="Uptime" description="Infrastructure reliability" />
                             </ResponsiveSlider>
+                        </AppContent>
+
+                        <AppContent className="flex flex-col gap-5 lg:max-w-[413px] lg:mx-auto lg:text-center lg:items-center">
+                            <Label.PageTitle size="md">Our mission</Label.PageTitle>
+                            <span className="font-satoshi text-base text-app-color-text-secondary">
+                                ZK-Kit exists to democratize zero-knowledge technology by providing developers with
+                                reliable, reusable components that make privacy-preserving applications accessible to
+                                everyone.
+                                <br />
+                                <br />
+                                We believe that privacy is a fundamental right, and our tools help developers build
+                                applications that respect user privacy without sacrificing functionality.
+                            </span>
+                        </AppContent>
+
+                        <AppContent className="flex flex-col gap-5 lg:max-w-[490px] lg:mx-auto">
+                            <Label.PageTitle className="lg:text-center" size="md">Our values</Label.PageTitle>
+                            <div className="flex flex-col gap-[14px] lg:w-full">
+                                <FeatureValueCard
+                                    title="Open Source"
+                                    description="Transparent development with public code"
+                                />
+                                <FeatureValueCard
+                                    title="Community-Driven"
+                                    description="Built by and for the developer community"
+                                />
+                                <FeatureValueCard
+                                    title="Security-First"
+                                    description="Rigorous testing and security audits"
+                                />
+                                <FeatureValueCard
+                                    title="Developer-Friendly"
+                                    description="Easy to use with great documentation"
+                                />
+                            </div>
                         </AppContent>
                     </div>
                 </section>

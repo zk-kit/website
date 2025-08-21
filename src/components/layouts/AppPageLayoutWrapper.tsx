@@ -10,9 +10,9 @@ interface AppPageLayoutWrapperProps {
 
 export const AppPageLayoutWrapper = ({ children, className }: AppPageLayoutWrapperProps) => {
     return (
-        <main className={twMerge("flex flex-col bg-app-color-background", className)}>
+        <main>
             <AppNavbar />
-            {children}
+            <div className={twMerge("flex flex-col bg-app-color-background lg:py-[140px]", className)}>{children}</div>
             <AppFooter />
         </main>
     )

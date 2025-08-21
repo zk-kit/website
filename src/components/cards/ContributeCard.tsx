@@ -13,7 +13,7 @@ export const ContributeCard = ({ index, title, description, icon, href, id }: Co
     return (
         <a
             href={href}
-            className="contribute-card flex flex-col text-center gap-9 lg:p-[30px] group border border-app-color-border duration-200 hover:!bg-app-color-background-secondary"
+            className="contribute-card flex flex-col text-center gap-9 p-[30px] group border border-app-color-border duration-200 hover:!bg-app-color-background-secondary"
             data-index={index}
             id={id}
         >

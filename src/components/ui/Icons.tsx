@@ -133,5 +133,44 @@ export const Icons = {
             />
             <path d="M44.9895 30H29.9929L29.993 15L44.9895 30Z" fill="#5DCA47" />
         </svg>
+    ),
+    ExternalLink: (props: any) => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none" {...props}>
+            <path
+                d="M0.833496 0.833984H9.16683M9.16683 0.833984V9.16732M9.16683 0.833984L0.833496 9.16732"
+                stroke="currentColor"
+                strokeWidth="0.7"
+                strokeLinecap="square"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
+    Checked: (props: any) => (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            className={props.className}
+        >
+            <path
+                d="M7 10.2307L9 12.2307L13 8.23071M3 1.23071H17C18.1046 1.23071 19 2.12614 19 3.23071V17.2307C19 18.3353 18.1046 19.2307 17 19.2307H3C1.89543 19.2307 1 18.3353 1 17.2307V3.23071C1 2.12614 1.89543 1.23071 3 1.23071Z"
+                stroke="currentColor"
+                strokeWidth="0.7"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
+    Menu: (props: any) => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" {...props}>
+            <path
+                d="M2.66699 8.00001H13.3337M2.66699 4.00001H13.3337M2.66699 12H13.3337"
+                stroke="currentColor"
+                strokeWidth="1.33"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
     )
 }

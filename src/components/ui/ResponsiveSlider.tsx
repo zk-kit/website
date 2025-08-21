@@ -1,5 +1,7 @@
 import { Slider } from "./Slider"
 import { twMerge } from "tailwind-merge"
+import { Children } from "react"
+import { useMediaQuery } from "react-responsive"
 
 interface ResponsiveSliderProps {
     children: React.ReactNode[]
@@ -28,10 +30,21 @@ export const ResponsiveSlider = ({
     gap = "20px",
     withDivider = true
 }: ResponsiveSliderProps) => {
+    const isMobile = useMediaQuery({ query: "(max-width: 767px)" })
+    
+    const validChildren = isMobile 
+        ? Children.toArray(children).filter(child => {
+            if (child && typeof child === 'object' && 'type' in child) {
+                return (child.type as any)?.name !== 'AboutCardImage'
+            }
+            return child != null
+        })
+        : children
+    
     return (
         <div className={className}>
             {/* Desktop view - Grid layout */}
-            <div className={twMerge("!hidden lg:block", desktopClassName)}>
+            <div className={twMerge("!hidden md:block", desktopClassName)}>
                 {children}
             </div>
 
@@ -46,7 +59,7 @@ export const ResponsiveSlider = ({
                 withDivider={withDivider}
                 gap={gap}
             >
-                {children}
+                {validChildren}
             </Slider>
         </div>
     )

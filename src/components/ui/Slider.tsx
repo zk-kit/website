@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react"
 import { twMerge } from "tailwind-merge"
 import { ActionButton } from "./Button"
 import { Icons } from "./Icons"
+import { useMediaQuery } from "react-responsive"
 
 interface SliderProps {
     children: React.ReactNode[]
@@ -26,6 +27,8 @@ export const Slider = ({
     gap = "20px",
     withDivider = true
 }: SliderProps) => {
+
+    const isMobile = useMediaQuery({ query: "(max-width: 767px)" })
     const [currentSlide, setCurrentSlide] = useState(0)
     const [touchStart, setTouchStart] = useState(0)
     const [touchEnd, setTouchEnd] = useState(0)
@@ -87,34 +90,35 @@ export const Slider = ({
     const translateX = currentSlide * slideWidth
 
     return (
-        <div className={twMerge("flex flex-col gap-5 md:hidden relative overflow-hidden", className)}>
-            <div
-                ref={sliderRef}
-                className={twMerge(
-                    "flex transition-transform duration-300 ease-in-out",
-                    withDivider && "divide-x divide-app-color-border"
-                )}
-                style={{
-                    transform: `translateX(-${translateX}%)`
-                }}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-            >
-                {children.map((child, index) => (
-                    <div
-                        key={index}
-                        className="flex-shrink-0"
-                        style={{
-                            width: `${slideWidth}%`
-                        }}
-                    >
-                        {child}
-                    </div>
-                ))}
+        <div className="flex flex-col gap-5">
+            <div className={twMerge("flex flex-col gap-5 md:hidden relative overflow-hidden", className)}>
+                <div
+                    ref={sliderRef}
+                    className={twMerge(
+                        "flex transition-transform duration-300 ease-in-out",
+                        withDivider && "divide-x divide-app-color-border"
+                    )}
+                    style={{
+                        transform: `translateX(-${translateX}%)`
+                    }}
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                >
+                    {children.map((child, index) => (
+                        <div
+                            key={index}
+                            className="flex-shrink-0"
+                            style={{
+                                width: `${slideWidth}%`
+                            }}
+                        >
+                            {child}
+                        </div>
+                    ))}
+                </div>
             </div>
-
-            {showNavigation && maxSlideIndex > 0 && (
+            {showNavigation && maxSlideIndex > 0 && isMobile &&(
                 <div className="flex gap-[10px] ml-auto justify-end">
                     <ActionButton
                         onClick={goToPrev}

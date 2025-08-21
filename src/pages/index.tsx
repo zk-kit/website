@@ -25,7 +25,7 @@ export default function HomePage(): ReactNode {
                 ]}
             />
             <AppPageLayoutWrapper>
-                <div className="flex flex-col gap-10 lg:gap-[140px] lg:pt-[140px]">
+                <div className="flex flex-col gap-10 lg:gap-[140px]">
                     <AppContent as="section" className="flex flex-col gap-10">
                         <div className="flex flex-col lg:grid lg:grid-cols-[minmax(0,600px)_400px] items-center justify-between">
                             <span className="text-5xl text-app-color-text-base lg:text-[80px] font-normal font-clash-grotesk">
