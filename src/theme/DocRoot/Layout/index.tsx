@@ -11,7 +11,7 @@ export default function DocRootLayout({ children }: Props): ReactNode {
     return (
         <div
             id="doc-root-layout"
-            className="min-h-screen grid grid-cols-1 lg:grid-cols-[300px_1fr] divide-x divide-app-color-border"
+            className="grid grid-cols-1 lg:grid-cols-[300px_1fr] divide-x divide-app-color-border"
         >
             {/* Sidebar Column */}
             {sidebar && !hiddenSidebarContainer && (

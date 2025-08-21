@@ -6,7 +6,7 @@ export default function DocItemTOCDesktopWrapper(props: any): ReactNode {
     const { metadata } = useDoc()
 
     return (
-        <div className="custom-toc h-full lg:pt-[30px]">
+        <div className="custom-toc lg:pt-[30px]">
             <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wide">
                 On This Page
             </h3>

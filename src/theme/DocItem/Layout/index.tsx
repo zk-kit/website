@@ -36,8 +36,8 @@ export default function DocItemLayout({ children }: Props): ReactNode {
     const { metadata } = useDoc()
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] lg:gap-[30px] divide-x divide-app-color-border">
-            <div className="py-5 lg:py-[30px] px-4 lg:px-[30px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] divide-x divide-app-color-border">
+            <div className="py-5 lg:py-[30px] px-4 lg:px-[30px] lg:h-[calc(100vh-200px)] overflow-y-auto">
                 <ContentVisibility metadata={metadata} />
                 <DocVersionBanner />
                 <div className="flex flex-col gap-6">
@@ -51,7 +51,7 @@ export default function DocItemLayout({ children }: Props): ReactNode {
                     <DocItemPaginator />
                 </div>
             </div>
-            {docTOC.desktop && <div className="sticky top-[100px]">{docTOC.desktop}</div>}
+            {docTOC.desktop && <div className="sticky top-[100px] lg:pl-[30px]">{docTOC.desktop}</div>}
         </div>
     )
 }
