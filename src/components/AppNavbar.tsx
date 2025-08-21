@@ -190,7 +190,7 @@ export const AppNavbar = () => {
                     containerClassName="h-[100px] bg-app-color-background"
                     className="grid grid-cols-[1fr_auto] lg:grid-cols-[minmax(0,250px)_1fr_minmax(0,250px)] lg:items-center divide-x divide-app-color-border h-[100px]"
                 >
-                    <a href="/" className="flex items-center gap-2 h-full lg:pr-[90px] group">
+                    <a href="/" className="flex items-center gap-2 h-full lg:pr-[40px] xl:pr-[90px] group">
                         <Icons.LogoFilled />
                         <Icons.ZkKit className="text-app-color-text-base group-hover:text-app-color-primary transition-all duration-200" />
                     </a>
