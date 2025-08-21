@@ -2,6 +2,7 @@
 @import "./font.css";
 @custom-variant dark (&:is([data-theme="dark"] *));
 
+
 @theme {
     --color-app-color-text-base: var(--app-color-text-base);
     --color-app-color-text-secondary: var(--app-color-text-secondary);
@@ -27,6 +28,37 @@
 
     --font-family-clash-grotesk: "ClashGrotesk-Variable", "ClashGrotesk-Medium", system-ui, sans-serif;
     --font-satoshi: "Satoshi-Variable", "Satoshi-Regular", system-ui, sans-serif;
+}
+
+/* Typography Settings - Titles use Satoshi, Headings use Clash Grotesk */
+
+/* Page titles and main titles use Satoshi */
+h1, .h1, [class*="pageTitle"], [class*="sectionTitle"], 
+.navbar__title, .navbar__brand, .navbar__logo,
+.pagination-nav__label, .breadcrumbs__link,
+.menu__link, .table-of-contents__link {
+    font-family: var(--font-satoshi) !important;
+}
+
+/* Content headings use Clash Grotesk */
+h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6,
+.markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6,
+.docusaurus-highlight-code-line, .codeBlockTitle {
+    font-family: var(--font-family-clash-grotesk) !important;
+}
+
+/* Docs specific typography */
+.docs-doc-id-intro h1,
+.theme-doc-markdown h1 {
+    font-family: var(--font-satoshi) !important;
+}
+
+.theme-doc-markdown h2,
+.theme-doc-markdown h3,
+.theme-doc-markdown h4,
+.theme-doc-markdown h5,
+.theme-doc-markdown h6 {
+    font-family: var(--font-family-clash-grotesk) !important;
 }
 
 /* ContributeCard hover states with proper index-based logic */
@@ -132,7 +164,7 @@ html {
 html,
 body,
 html * {
-    font-family: var(--font-family-clash-grotesk) !important;
+    font-family: var(--font-satoshi) !important;
     text-rendering: geometricPrecision !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

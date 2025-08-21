@@ -1,6 +1,7 @@
+import React from "react"
+import { useLocation } from "@docusaurus/router"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import { AppContent } from "./AppContent"
-import { useLocation } from "@docusaurus/router"
 import { twMerge } from "tailwind-merge"
 import { Icons } from "./ui/Icons"
 import { useState, useEffect } from "react"
@@ -20,7 +21,15 @@ interface NavbarConfig {
     }[]
 }
 
-const NavItems = ({ items, className }: { items: NavbarConfig["items"]; className?: string }) => {
+const NavItems = ({
+    items,
+    className,
+    currentPath
+}: {
+    items: NavbarConfig["items"]
+    className?: string
+    currentPath: string
+}) => {
     return (
         <ul
             className={twMerge(
@@ -29,7 +38,17 @@ const NavItems = ({ items, className }: { items: NavbarConfig["items"]; classNam
             )}
         >
             {items.map((item) => {
-                const isActive = useLocation().pathname === item.to
+                const isActive = (() => {
+                    if (item.to === "/") {
+                        return currentPath === "/"
+                    }
+
+                    if (item.to === "/docs/intro") {
+                        return currentPath === item.to || currentPath.startsWith("/docs/")
+                    }
+
+                    return currentPath === item.to || currentPath.startsWith(item.to + "/")
+                })()
                 return (
                     <li key={item.label}>
                         <NavLink href={item.to} label={item.label} isActive={isActive} />
@@ -41,6 +60,9 @@ const NavItems = ({ items, className }: { items: NavbarConfig["items"]; classNam
 }
 
 export const AppNavbar = () => {
+    const location = useLocation()
+    const currentPath = location.pathname
+
     const data = useDocusaurusContext()
     const siteConfig = data?.siteConfig
     const navbarConfig = siteConfig?.themeConfig?.navbar as NavbarConfig
@@ -102,9 +124,9 @@ export const AppNavbar = () => {
     const DesktopNavbar = () => {
         return (
             <>
-                <NavItems className="hidden lg:flex" items={navItems} />
+                <NavItems className="hidden lg:flex" items={navItems} currentPath={currentPath} />
                 <div className="hidden lg:flex gap-10 items-center ml-auto h-full">
-                    <NavItems items={sideNavItems} />
+                    <NavItems items={sideNavItems} currentPath={currentPath} />
                     <button
                         onClick={toggleColorMode}
                         className="p-[10px] mx-auto rounded-[6px] group cursor-pointer bg-app-color-tag-background hover:bg-app-color-tag-background-hover transition-all duration-200"
@@ -176,7 +198,11 @@ export const AppNavbar = () => {
                     </div>
 
                     <div className="flex-1">
-                        <NavItems className="flex flex-col" items={[...navItems, ...sideNavItems]} />
+                        <NavItems
+                            className="flex flex-col"
+                            items={[...navItems, ...sideNavItems]}
+                            currentPath={currentPath}
+                        />
                     </div>
                 </div>
             </div>
@@ -185,6 +211,9 @@ export const AppNavbar = () => {
 
     return (
         <>
+            {/* avoid getClientHeight error from docusaurus */}
+            <div className="navbar !h-0 !p-0 !m-0"></div>
+
             <nav className="border-b border-app-color-border overflow-hidden sticky top-0 z-50">
                 <AppContent
                     containerClassName="h-[100px] bg-app-color-background"
