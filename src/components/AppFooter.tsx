@@ -9,7 +9,7 @@ export const AppFooter = () => {
             </div>
             <div></div>
             <div className="flex items-center justify-center">
-                <NavLink href="/docs" label="Documentation" />
+                <NavLink href="/docs/intro" label="Documentation" />
             </div>
         </footer>
     )

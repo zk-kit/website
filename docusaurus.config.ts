@@ -51,15 +51,13 @@ const config: Config = {
                     editUrl: "https://github.com/zk-kit/website"
                 },
                 blog: {
+                    routeBasePath: '/blog',
                     showReadingTime: true,
                     feedOptions: {
                         type: ["rss", "atom"],
                         xslt: true
                     },
-                    // Please change this to your repo.
-                    // Remove this to remove the "edit this page" links.
                     editUrl: "https://github.com/zk-kit/website",
-                    // Useful options to enforce blogging best practices
                     onInlineTags: "warn",
                     onInlineAuthors: "warn",
                     onUntruncatedBlogPosts: "warn"
@@ -79,6 +77,7 @@ const config: Config = {
             disableSwitch: false,
             respectPrefersColorScheme: false,
         },
+        // Navbar is overridden by custom theme component but config needed for AppNavbar
         navbar: {
             title: "",
             logo: {
@@ -114,34 +113,8 @@ const config: Config = {
                 
             ]
         },
-        footer: {
-            style: "dark",
-            links: [
-                {
-                    title: "Community",
-                    items: [
-                        {
-                            label: "GitHub Discussions",
-                            href: "https://github.com/privacy-scaling-explorations/zk-kit/discussions"
-                        },
-                        {
-                            label: "PSE Discord(#🧰-zk-kit)",
-                            href: "https://pse.dev/discord"
-                        }
-                    ]
-                },
-                {
-                    title: "More",
-                    items: [
-                        {
-                            label: "GitHub",
-                            href: "https://github.com/privacy-scaling-explorations/zk-kit"
-                        }
-                    ]
-                }
-            ],
-            copyright: `Copyright © ${new Date().getFullYear()} Ethereum Foundation`
-        },
+        // Footer is overridden by custom theme component
+        footer: undefined,
         prism: {
             theme: prismThemes.github,
             darkTheme: prismThemes.dracula
