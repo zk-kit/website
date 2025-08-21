@@ -15,7 +15,7 @@ interface NavbarConfig {
     }
     items: {
         label: string
-        href: string
+        to: string
         position?: "left" | "right"
     }[]
 }
@@ -24,10 +24,10 @@ const NavItems = ({ items, className }: { items: NavbarConfig["items"]; classNam
     return (
         <ul className={twMerge("flex items-center lg:gap-14 justify-center !mb-0 h-full", className)}>
             {items.map((item) => {
-                const isActive = useLocation().pathname === item.href
+                const isActive = useLocation().pathname === item.to
                 return (
                     <li key={item.label}>
-                        <NavLink href={item.href} label={item.label} isActive={isActive} />
+                        <NavLink href={item.to} label={item.label} isActive={isActive} />
                     </li>
                 )
             })}

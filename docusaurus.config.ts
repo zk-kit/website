@@ -87,27 +87,27 @@ const config: Config = {
             },
             items: [
                 {
-                    href: "/",
+                    to: "/",
                     label: "Home",
                 },
                 {
-                    href: "/projects",
+                    to: "/projects",
                     label: "Projects",
                 },
                 {
-                    href: "/contribute",
+                    to: "/contribute",
                     label: "Contribute",
                 },
                 {
-                    href: "/about",
+                    to: "/about",
                     label: "About",
                 },
                 {
-                    href: "/blog",
+                    to: "/blog",
                     label: "Blog",
                 },
                 {
-                    href: "/docs",
+                    to: "/docs/intro",
                     label: "Documentation",
                     position: "right"
                 },
