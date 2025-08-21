@@ -69,7 +69,7 @@ export default function ProjectsPage() {
                                         <span className="text-[28px] text-app-color-text-base font-clash-grotesk font-normal">
                                             All Languages
                                         </span>
-                                        <div className="flex gap-[10px]">
+                                        <div className="flex gap-[10px] flex-wrap">
                                             {projectsLanguages.map((language) => {
                                                 const isSelected = selectedLanguages.includes(language)
                                                 return (
@@ -88,7 +88,7 @@ export default function ProjectsPage() {
                                         <span className="text-[28px] text-app-color-text-base font-clash-grotesk font-normal">
                                             All Use Cases
                                         </span>
-                                        <div className="flex gap-[10px]">
+                                        <div className="flex gap-[10px] flex-wrap">
                                             {projectsUseCases.map((useCase) => {
                                                 const isSelected = selectedUseCases.includes(useCase)
                                                 return (

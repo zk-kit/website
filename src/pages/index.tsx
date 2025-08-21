@@ -119,7 +119,11 @@ export default function HomePage(): ReactNode {
                             withDivider={false}
                         >
                             {featuredProjects.map((project, index) => (
-                                <ProjectCard key={index} {...project} className="border-t border-b border-l !border-r-0 lg:!border-x lg:!border-y" />
+                                <ProjectCard
+                                    key={index}
+                                    {...project}
+                                    className="border-t border-b border-l !border-r-0 lg:!border-x lg:!border-y"
+                                />
                             ))}
                         </ResponsiveSlider>
                     </section>

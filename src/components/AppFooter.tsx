@@ -1,15 +1,19 @@
 import { NavLink } from "./ui/NavLink"
 import { LINKS } from "@site/src/constants"
+import { Icons } from "./ui/Icons"
 
 export const AppFooter = () => {
     return (
         <footer className="grid border-t border-app-color-border lg:grid-cols-[300px_1fr_300px] divide-x divide-app-color-border h-full lg:h-[100px] bg-app-color-background">
             <div className="flex items-center justify-center">
-                <NavLink href={LINKS.GITHUB_URL} label="Github" isExternal />
+                <NavLink href={LINKS.GITHUB_URL} label="Github" isExternal className="w-full justify-center" />
             </div>
-            <div></div>
-            <div className="flex items-center justify-center">
-                <NavLink href="/docs/intro" label="Documentation" />
+            <div className="relative py-5 px-4 lg:px-20">
+                <div className="bg-repeat bg-[length:6px_6px] h-[142px] lg:h-[70px] bg-[url(/img/illustrations/footer-vector-item.svg)]"></div>
+                <Icons.ZkKit height={40} width={170} className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
+            </div>
+            <div className="flex items-center justify-center border-t lg:border-0 border-app-color-border">
+                <NavLink href="/docs/intro" label="Documentation" className="w-full justify-center" />
             </div>
         </footer>
     )

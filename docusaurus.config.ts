@@ -31,6 +31,16 @@ const config: Config = {
         locales: ["en"]
     },
 
+    headTags: [
+        {
+            tagName: "meta",
+            attributes: {
+                name: "viewport",
+                content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+            }
+        }
+    ],
+
     plugins: [
         "./src/plugins/tailwind-config.ts",
         "./src/plugins/critical-css-plugin.ts"

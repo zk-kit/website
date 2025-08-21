@@ -22,7 +22,12 @@ interface NavbarConfig {
 
 const NavItems = ({ items, className }: { items: NavbarConfig["items"]; className?: string }) => {
     return (
-        <ul className={twMerge("flex items-center lg:gap-6 xl:gap-14 justify-center h-full !p-0 !m-0", className)}>
+        <ul
+            className={twMerge(
+                "flex lg:flex-row flex-col lg:items-center gap-0 lg:gap-6 xl:gap-14 lg:justify-center h-full !p-0 !m-0",
+                className
+            )}
+        >
             {items.map((item) => {
                 const isActive = useLocation().pathname === item.to
                 return (
@@ -42,6 +47,7 @@ export const AppNavbar = () => {
     const navItems = navbarConfig?.items?.filter((item) => item?.position === "left" || !item.position)
     const sideNavItems = navbarConfig?.items?.filter((item) => item?.position === "right")
     const [theme, setTheme] = useState<"light" | "dark">("light")
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const isMobile = useMediaQuery({ query: "(max-width: 1023px)" })
 
     useEffect(() => {
@@ -64,6 +70,27 @@ export const AppNavbar = () => {
 
         return () => observer.disconnect()
     }, [])
+
+    // Handle body scroll lock when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = "hidden"
+        } else {
+            document.body.style.overflow = "unset"
+        }
+
+        // Cleanup on unmount
+        return () => {
+            document.body.style.overflow = "unset"
+        }
+    }, [isMobileMenuOpen])
+
+    // Close mobile menu on desktop
+    useEffect(() => {
+        if (!isMobile && isMobileMenuOpen) {
+            setIsMobileMenuOpen(false)
+        }
+    }, [isMobile, isMobileMenuOpen])
 
     const toggleColorMode = () => {
         const newTheme = theme === "dark" ? "light" : "dark"
@@ -97,26 +124,83 @@ export const AppNavbar = () => {
     const MobileNavbar = () => {
         return (
             <div className="flex items-center gap-10 h-full">
-                <ActionButton className="ml-4 rounded-[6px] !border-none !bg-app-color-tag-background">
+                <ActionButton
+                    className="ml-4 rounded-[6px] !border-none !bg-app-color-tag-background"
+                    onClick={() => setIsMobileMenuOpen(true)}
+                >
                     <Icons.Menu className="text-app-color-primary-base" />
                 </ActionButton>
             </div>
         )
     }
 
-    return (
-        <nav className="border-b border-app-color-border overflow-hidden sticky top-0 z-50">
-            <AppContent
-                containerClassName="h-[100px] bg-app-color-background"
-                className="grid grid-cols-[1fr_auto] lg:grid-cols-[minmax(0,250px)_1fr_minmax(0,250px)] lg:items-center divide-x divide-app-color-border h-[100px]"
+    const MobileMenu = () => {
+        return (
+            <div
+                className={twMerge(
+                    "fixed inset-0 bg-app-color-background z-50 transition-opacity duration-300 ease-in-out",
+                    isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                )}
             >
-                <a href="/" className="flex items-center gap-2 h-full lg:pr-[90px] group">
-                    <Icons.LogoFilled />
-                    <Icons.ZkKit className="text-app-color-text-base group-hover:text-app-color-primary transition-all duration-200" />
-                </a>
+                <div className="flex flex-col h-full">
+                    <div className="border-b border-app-color-border">
+                        <AppContent className="h-[100px] flex items-center justify-between">
+                            <a href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+                                <Icons.LogoFilled />
+                                <Icons.ZkKit className="text-app-color-text-base" />
+                            </a>
+                            <div className="flex h-full flex-row border-l border-app-color-border divide-x divide-app-color-border">
+                                <div className="flex items-center px-4">
+                                    <button
+                                        onClick={toggleColorMode}
+                                        className="flex items-center justify-center !w-9 !h-9 mx-auto rounded-[6px] group cursor-pointer bg-app-color-tag-background hover:bg-app-color-tag-background-hover transition-all duration-200"
+                                        aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+                                    >
+                                        {theme === "dark" ? (
+                                            <Icons.Sun className="text-app-color-text-base" />
+                                        ) : (
+                                            <Icons.Moon className="text-app-color-text-base" />
+                                        )}
+                                    </button>
+                                </div>
+                                <div className="flex items-center pl-4">
+                                    <ActionButton
+                                        className="flex items-center justify-center !w-9 !h-9 rounded-[6px] !border-none !bg-app-color-button-secondary-background-hover"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        <Icons.Close className="text-app-color-tag-background-hover" />
+                                    </ActionButton>
+                                </div>
+                            </div>
+                        </AppContent>
+                    </div>
 
-                {isMobile ? <MobileNavbar /> : <DesktopNavbar />}
-            </AppContent>
-        </nav>
+                    <div className="flex-1">
+                        <NavItems className="flex flex-col" items={[...navItems, ...sideNavItems]} />
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    return (
+        <>
+            <nav className="border-b border-app-color-border overflow-hidden sticky top-0 z-50">
+                <AppContent
+                    containerClassName="h-[100px] bg-app-color-background"
+                    className="grid grid-cols-[1fr_auto] lg:grid-cols-[minmax(0,250px)_1fr_minmax(0,250px)] lg:items-center divide-x divide-app-color-border h-[100px]"
+                >
+                    <a href="/" className="flex items-center gap-2 h-full lg:pr-[90px] group">
+                        <Icons.LogoFilled />
+                        <Icons.ZkKit className="text-app-color-text-base group-hover:text-app-color-primary transition-all duration-200" />
+                    </a>
+
+                    {isMobile ? <MobileNavbar /> : <DesktopNavbar />}
+                </AppContent>
+            </nav>
+
+            {/* Mobile Menu Overlay */}
+            {isMobile && <MobileMenu />}
+        </>
     )
 }

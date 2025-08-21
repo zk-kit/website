@@ -104,7 +104,13 @@ export const Icons = {
         </svg>
     ),
     ZkKit: (props: any) => (
-        <svg xmlns="http://www.w3.org/2000/svg" width="77" height="20" viewBox="0 0 77 20" fill="none" {...props}>
+        <svg xmlns="http://www.w3.org/2000/svg"
+            width={props?.width || 77}
+            height={props?.height || 20}
+            viewBox="0 0 77 20"
+            fill="none"
+            {...props}
+        >
             <path
                 d="M70.6606 19.0696H67.6857V3.13495H61.3467V0.437462H76.9996V3.13495H70.6606V19.0696Z"
                 fill="currentColor"
@@ -166,6 +172,17 @@ export const Icons = {
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" {...props}>
             <path
                 d="M2.66699 8.00001H13.3337M2.66699 4.00001H13.3337M2.66699 12H13.3337"
+                stroke="currentColor"
+                strokeWidth="1.33"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    ),
+    Close: (props: any) => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none" {...props}>
+            <path
+                d="M9 1.00001L1 9.00001M1 1.00001L9 9.00001"
                 stroke="currentColor"
                 strokeWidth="1.33"
                 strokeLinecap="round"
