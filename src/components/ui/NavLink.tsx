@@ -7,16 +7,19 @@ interface NavLinkProps {
     isActive?: boolean
     isExternal?: boolean
     className?: string
+    ariaLabel?: string
 }
 
-export const NavLink = ({ href, label, isActive = false, isExternal = false, className }: NavLinkProps) => {
+export const NavLink = ({ href, label, isActive = false, isExternal = false, className, ariaLabel }: NavLinkProps) => {
     return (
         <a
             href={href}
             target={isExternal ? "_blank" : undefined}
             rel={isExternal ? "noopener noreferrer" : undefined}
+            aria-label={ariaLabel || (isExternal ? `${label} (opens in new tab)` : label)}
+            aria-current={isActive ? "page" : undefined}
             className={twMerge(
-                "group flex items-center gap-2 text-font-grotesk text-sm uppercase px-5 py-[30px] lg:p-2 tracking-[1.12px] border-b border-app-color-border lg:border-0",
+                "group flex items-center gap-2 text-font-grotesk text-sm uppercase px-5 py-[30px] lg:p-2 tracking-[1.12px] border-b border-app-color-border lg:border-0 focus:outline-2 focus:outline-offset-2 focus:outline-app-color-primary",
                 className,
                 isActive
                     ? "!text-app-color-primary font-medium"

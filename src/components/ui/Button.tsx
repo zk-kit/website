@@ -130,13 +130,15 @@ export const Button = forwardRef<any, ButtonProps>(
                     href={href}
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noopener noreferrer" : undefined}
-                    className="w-full"
+                    aria-label={isExternal ? `${children} (opens in new tab)` : undefined}
+                    className="w-full focus:outline-2 focus:outline-offset-2 focus:outline-app-color-primary"
                 >
                     <button
                         ref={ref}
                         className={twMerge("w-full", buttonClassName)}
                         disabled={isDisabled}
                         aria-disabled={isDisabled}
+                        tabIndex={-1}
                         {...props}
                     >
                         {renderButtonContent(children, icon, iconPosition, isExternal, loading)}
@@ -146,7 +148,13 @@ export const Button = forwardRef<any, ButtonProps>(
         }
 
         return (
-            <button ref={ref} className={buttonClassName} disabled={isDisabled} aria-disabled={isDisabled} {...props}>
+            <button 
+                ref={ref} 
+                className={twMerge(buttonClassName, "focus:outline-2 focus:outline-offset-2 focus:outline-app-color-primary")} 
+                disabled={isDisabled} 
+                aria-disabled={isDisabled} 
+                {...props}
+            >
                 {renderButtonContent(children, icon, iconPosition, isExternal, loading)}
             </button>
         )
@@ -161,7 +169,7 @@ export const ActionButton = ({ children, className, ...props }: ActionButtonProp
     return (
         <button
             className={twMerge(
-                "p-[10px] mx-auto border border-app-color-border cursor-pointer group-hover:bg-app-color-background-secondary hover:bg-app-color-background-secondary transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none disabled:bg-app-color-background",
+                "p-[10px] mx-auto border border-app-color-border cursor-pointer group-hover:bg-app-color-background-secondary hover:bg-app-color-background-secondary transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none disabled:bg-app-color-background focus:outline-2 focus:outline-offset-2 focus:outline-app-color-primary",
                 className
             )}
             {...props}

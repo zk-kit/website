@@ -13,20 +13,14 @@
 */
 @font-face {
     font-family: "ClashGrotesk-Regular";
-    src:
-        url("/static/fonts/ClashGrotesk-Regular.woff2") format("woff2"),
-        url("/static/fonts/ClashGrotesk-Regular.woff") format("woff"),
-        url("/static/fonts/ClashGrotesk-Regular.ttf") format("truetype");
+    src: url("/static/fonts/ClashGrotesk-Regular.woff2") format("woff2");
     font-weight: 400;
     font-display: swap;
     font-style: normal;
 }
 @font-face {
     font-family: "ClashGrotesk-Medium";
-    src:
-        url("/static/fonts/ClashGrotesk-Medium.woff2") format("woff2"),
-        url("/static/fonts/ClashGrotesk-Medium.woff") format("woff"),
-        url("/static/fonts/ClashGrotesk-Medium.ttf") format("truetype");
+    src: url("/static/fonts/ClashGrotesk-Medium.woff2") format("woff2");
     font-weight: 500;
     font-display: swap;
     font-style: normal;
@@ -34,20 +28,14 @@
 
 @font-face {
     font-family: "Satoshi-Regular";
-    src:
-        url("/static/fonts/Satoshi-Regular.woff2") format("woff2"),
-        url("/static/fonts/Satoshi-Regular.woff") format("woff"),
-        url("/static/fonts/Satoshi-Regular.ttf") format("truetype");
+    src: url("/static/fonts/Satoshi-Regular.woff2") format("woff2");
     font-weight: 400;
     font-display: swap;
     font-style: normal;
 }
 @font-face {
     font-family: "Satoshi-Medium";
-    src:
-        url("/static/fonts/Satoshi-Medium.woff2") format("woff2"),
-        url("/static/fonts/Satoshi-Medium.woff") format("woff"),
-        url("/static/fonts/Satoshi-Medium.ttf") format("truetype");
+    src: url("/static/fonts/Satoshi-Medium.woff2") format("woff2");
     font-weight: 500;
     font-display: swap;
     font-style: normal;
@@ -63,10 +51,7 @@
 */
 @font-face {
     font-family: "ClashGrotesk-Variable";
-    src:
-        url("/static/fonts/ClashGrotesk-Variable.woff2") format("woff2"),
-        url("/static/fonts/ClashGrotesk-Variable.woff") format("woff"),
-        url("/static/fonts/ClashGrotesk-Variable.ttf") format("truetype");
+    src: url("/static/fonts/ClashGrotesk-Variable.woff2") format("woff2");
     font-weight: 200 700;
     font-display: swap;
     font-style: normal;
@@ -74,10 +59,7 @@
 
 @font-face {
     font-family: "Satoshi-Variable";
-    src:
-        url("/static/fonts/Satoshi-Variable.woff2") format("woff2"),
-        url("/static/fonts/Satoshi-Variable.woff") format("woff"),
-        url("/static/fonts/Satoshi-Variable.ttf") format("truetype");
+    src: url("/static/fonts/Satoshi-Variable.woff2") format("woff2");
     font-weight: 300 900;
     font-display: swap;
     font-style: normal;

@@ -168,6 +168,7 @@ html * {
     text-rendering: geometricPrecision !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
 }
 
 .font-clash-grotesk {

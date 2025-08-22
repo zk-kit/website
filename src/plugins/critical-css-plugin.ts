@@ -39,8 +39,32 @@ export default function criticalCssPlugin(context: LoadContext): Plugin {
                         attributes: {
                             rel: 'preload',
                             as: 'style',
-                            href: '/css/styles.css',
+                            href: '/assets/css/styles.css',
                             onload: "this.rel='stylesheet'"
+                        }
+                    },
+                    {
+                        tagName: 'noscript',
+                        innerHTML: '<link rel="stylesheet" href="/assets/css/styles.css">'
+                    },
+                    {
+                        tagName: 'link',
+                        attributes: {
+                            rel: 'preload',
+                            as: 'font',
+                            href: '/static/fonts/ClashGrotesk-Variable.woff2',
+                            type: 'font/woff2',
+                            crossorigin: 'anonymous'
+                        }
+                    },
+                    {
+                        tagName: 'link',
+                        attributes: {
+                            rel: 'preload',
+                            as: 'font',
+                            href: '/static/fonts/Satoshi-Variable.woff2',
+                            type: 'font/woff2',
+                            crossorigin: 'anonymous'
                         }
                     }
                 ]
