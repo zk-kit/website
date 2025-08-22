@@ -16,6 +16,8 @@ interface SliderProps {
     withDivider?: boolean
     controlsPosition?: "top" | "bottom"
     forceSlider?: boolean
+    showControls?: boolean
+    infinite?: boolean
 }
 
 export const Slider = ({
@@ -29,27 +31,67 @@ export const Slider = ({
     gap = "0px",
     withDivider = true,
     controlsPosition = "bottom",
-    forceSlider = false
+    forceSlider = false,
+    showControls = true,
+    infinite = false
 }: SliderProps) => {
 
     const isMobile = useMediaQuery({ query: "(max-width: 767px)" })
-    const [currentSlide, setCurrentSlide] = useState(0)
     const [touchStart, setTouchStart] = useState(0)
     const [touchEnd, setTouchEnd] = useState(0)
+    const [isHovered, setIsHovered] = useState(false)
+    const [isTransitioning, setIsTransitioning] = useState(true)
     const sliderRef = useRef<HTMLDivElement>(null)
 
     const totalSlides = children.length
-    const maxSlideIndex = Math.max(0, totalSlides - Math.floor(slidesToShow))
+    const maxSlideIndex = infinite ? totalSlides - 1 : Math.max(0, totalSlides - Math.floor(slidesToShow))
+    
+    // For infinite scroll, we need to duplicate slides
+    const slidesToClone = Math.ceil(slidesToShow)
+    const infiniteChildren = infinite ? [
+        ...children.slice(-slidesToClone), // Clone last items at beginning
+        ...children, // Original items
+        ...children.slice(0, slidesToClone) // Clone first items at end
+    ] : children
+
+    const [currentSlide, setCurrentSlide] = useState(infinite ? slidesToClone : 0)
+
+    // Handle seamless infinite transitions
+    useEffect(() => {
+        if (!infinite || !isTransitioning) return
+
+        const handleTransitionEnd = () => {
+            setIsTransitioning(false)
+            if (currentSlide >= totalSlides + slidesToClone) {
+                setCurrentSlide(slidesToClone)
+            } else if (currentSlide < slidesToClone) {
+                setCurrentSlide(totalSlides + slidesToClone - 1)
+            }
+            setTimeout(() => setIsTransitioning(true), 50)
+        }
+
+        const slider = sliderRef.current
+        if (slider) {
+            slider.addEventListener('transitionend', handleTransitionEnd)
+            return () => slider.removeEventListener('transitionend', handleTransitionEnd)
+        }
+    }, [infinite, currentSlide, totalSlides, slidesToClone, isTransitioning])
 
     useEffect(() => {
-        if (!autoSlide) return
+        if (!autoSlide || isHovered) return
 
         const interval = setInterval(() => {
-            setCurrentSlide((prev) => (prev >= maxSlideIndex ? 0 : prev + 1))
+            setCurrentSlide((prev) => {
+                if (infinite) {
+                    return prev + 1
+                } else {
+                    return prev >= maxSlideIndex ? 0 : prev + 1
+                }
+            })
         }, autoSlideInterval)
 
         return () => clearInterval(interval)
-    }, [autoSlide, autoSlideInterval, maxSlideIndex])
+    }, [autoSlide, autoSlideInterval, maxSlideIndex, isHovered, infinite])
 
     useEffect(() => {
         if (onSlideChange) {
@@ -58,11 +100,25 @@ export const Slider = ({
     }, [currentSlide, onSlideChange])
 
     const goToNext = () => {
-        setCurrentSlide((prev) => Math.min(prev + 1, maxSlideIndex))
+        if (!isTransitioning) return
+        setCurrentSlide((prev) => {
+            if (infinite) {
+                return prev + 1
+            } else {
+                return Math.min(prev + 1, maxSlideIndex)
+            }
+        })
     }
 
     const goToPrev = () => {
-        setCurrentSlide((prev) => Math.max(prev - 1, 0))
+        if (!isTransitioning) return
+        setCurrentSlide((prev) => {
+            if (infinite) {
+                return prev - 1
+            } else {
+                return Math.max(prev - 1, 0)
+            }
+        })
     }
 
     const handleTouchStart = (e: React.TouchEvent) => {
@@ -92,14 +148,20 @@ export const Slider = ({
 
     const slideWidth = 100 / slidesToShow
     const translateX = currentSlide * slideWidth
+    const currentChildren = infinite ? infiniteChildren : children
 
     return (
-        <div className={twMerge("flex flex-col gap-5", controlsPosition === "top" && "flex-col-reverse")}>
+        <div 
+            className={twMerge("flex flex-col gap-5", controlsPosition === "top" && "flex-col-reverse")}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
             <div className={twMerge("flex flex-col gap-5 relative overflow-hidden", className)}>
                 <div
                     ref={sliderRef}
                     className={twMerge(
-                        "flex transition-transform duration-300 ease-in-out",
+                        "flex ease-in-out",
+                        isTransitioning ? "transition-transform duration-300" : "",
                         withDivider && "divide-x divide-app-color-border"
                     )}
                     style={{
@@ -110,7 +172,7 @@ export const Slider = ({
                     onTouchMove={handleTouchMove}
                     onTouchEnd={handleTouchEnd}
                 >
-                    {children.map((child, index) => (
+                    {currentChildren.map((child, index) => (
                         <div
                             key={index}
                             className="flex-shrink-0"
@@ -123,11 +185,11 @@ export const Slider = ({
                     ))}
                 </div>
             </div>
-            {showNavigation && maxSlideIndex > 0 && (isMobile || forceSlider) && (
+            {showNavigation && maxSlideIndex > 0 && (isMobile || forceSlider) && showControls && (
                 <div className="flex gap-[10px] ml-auto justify-end">
                     <ActionButton
                         onClick={goToPrev}
-                        disabled={currentSlide === 0}
+                        disabled={!infinite && currentSlide === 0}
                         aria-label="Previous slide"
                         className="!mx-0 !focus:outline-none !focus:ring-0 !focus:ring-offset-0"
                     >
@@ -135,7 +197,7 @@ export const Slider = ({
                     </ActionButton>
                     <ActionButton
                         onClick={goToNext}
-                        disabled={currentSlide >= maxSlideIndex}
+                        disabled={!infinite && currentSlide >= maxSlideIndex}
                         aria-label="Next slide"
                         className="!mx-0 !focus:outline-none !focus:ring-0 !focus:ring-offset-0"
                     >

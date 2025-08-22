@@ -27,7 +27,7 @@ export const Banner = ({
     return (
         <div className="bg-app-color-background-secondary py-14 lg:py-[90px] overflow-hidden">
             <AppContent
-                className="grid items-center gap-[30px] px-5 pt-5 lg:p-0 lg:gap-[60px] lg:h-[350px] bg-app-color-background border border-app-color-border"
+                className="grid items-center gap-[30px] px-5 pt-5 lg:px-0 lg:py-2 lg:gap-[60px] lg:min-h-[350px] bg-app-color-background border border-app-color-border"
                 as="div"
                 style={{
                     gridTemplateColumns: isMobile

@@ -1,8 +1,9 @@
 import type { ReactNode } from "react"
+import { useState, useEffect } from "react"
 import { FeatureCard } from "@site/src/components/cards/FeatureCard"
 import { AppContent } from "../components/AppContent"
 import { LanguageCard } from "../components/cards/LanguageCard"
-import { features, languages } from "../content"
+import { features, languages, partners } from "../content"
 import { Banner } from "../components/ui/Banner"
 import { Button } from "../components/ui/Button"
 import { Icons } from "../components/ui/Icons"
@@ -34,7 +35,30 @@ const LanguageVectorMapping = {
 
 export default function HomePage(): ReactNode {
     const { featuredProjects } = useProjects()
+    const [theme, setTheme] = useState<"light" | "dark">("light")
 
+    useEffect(() => {
+        const currentTheme = document.documentElement.getAttribute("data-theme") || "light"
+        setTheme(currentTheme as "light" | "dark")
+
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === "attributes" && mutation.attributeName === "data-theme") {
+                    const newTheme = document.documentElement.getAttribute("data-theme") || "light"
+                    setTheme(newTheme as "light" | "dark")
+                }
+            })
+        })
+
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["data-theme"]
+        })
+
+        return () => observer.disconnect()
+    }, [])
+
+    const isDarkMode = theme === "dark"
     return (
         <>
             <SEO
@@ -159,6 +183,49 @@ export default function HomePage(): ReactNode {
                                 )
                             })}
                         </ResponsiveSlider>
+                    </section>
+
+                    <section className="flex flex-col gap-16">
+                        <AppContent className="flex flex-col gap-5 lg:gap-0 lg:grid lg:grid-cols-[minmax(0,600px)_400px] lg:items-center lg:justify-between">
+                            <Label.PageTitle as="h3" size="md">
+                                Our Partners
+                            </Label.PageTitle>
+                            <span className="text-base text-app-color-text-base font-satoshi">
+                                Trusted by leading organizations building the future of privacy-preserving technology.
+                            </span>
+                        </AppContent>
+
+                        <div className="border-t border-b border-app-color-border">
+                            <ResponsiveSlider
+                                forceSlider
+                                slidesToShow={1}
+                                desktopSlidesToShow={4.2}
+                                className="px-4"
+                                showControls={false}
+                                withDivider={false}
+                                desktopGap="0px"
+                                infinite={true}
+                                autoPlaySpeed={3000}
+                                autoPlay={true}
+                            >
+                                {partners?.map((partner, index) => {
+                                    return (
+                                        <div
+                                            key={index}
+                                            className="flex flex-col gap-5 p-[30px] border-l border-app-color-border"
+                                        >
+                                            <img
+                                                src={
+                                                    isDarkMode ? (partner?.imageDark ?? partner.image) : partner?.image
+                                                }
+                                                alt={partner.title}
+                                                className={`w-full h-full object-contain max-h-[60px]`}
+                                            />
+                                        </div>
+                                    )
+                                })}
+                            </ResponsiveSlider>
+                        </div>
                     </section>
 
                     <Banner

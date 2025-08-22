@@ -294,6 +294,27 @@ select {
     }
 }
 
+/* Partner logos - remove all filters, let SVGs handle their own colors */
+.partner-logo {
+    filter: none;
+}
+
+/* If logos are dark and need to be visible in dark mode, use simple invert */
+[data-theme="dark"] .partner-logo {
+    filter: invert(1);
+}
+
+/* Define CSS custom properties for logo colors that change with theme */
+:root {
+    --logo-primary-color: #000000; /* Black in light mode */
+    --logo-secondary-color: #333333; /* Dark gray in light mode */
+}
+
+[data-theme="dark"] {
+    --logo-primary-color: #ffffff; /* White in dark mode */
+    --logo-secondary-color: #cccccc; /* Light gray in dark mode */
+}
+
 .language-card-link {
     background-color: var(--app-color-background) !important;
 }

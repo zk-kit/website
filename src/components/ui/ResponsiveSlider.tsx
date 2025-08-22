@@ -19,6 +19,11 @@ interface ResponsiveSliderProps {
     withDivider?: boolean
     forceSlider?: boolean
     controlsPosition?: "top" | "bottom"
+    showControls?: boolean
+    infinite?: boolean
+    // Alias props for convenience
+    autoPlay?: boolean
+    autoPlaySpeed?: number
 }
 
 export const ResponsiveSlider = ({
@@ -36,7 +41,12 @@ export const ResponsiveSlider = ({
     desktopGap = "30px",
     withDivider = true,
     forceSlider = false,
-    controlsPosition = "bottom"
+    controlsPosition = "bottom",
+    showControls = true,
+    infinite = false,
+    // Alias props for convenience
+    autoPlay = false,
+    autoPlaySpeed = 3000
 }: ResponsiveSliderProps) => {
     const isMobile = useMediaQuery({ query: "(max-width: 767px)" })
     
@@ -69,14 +79,16 @@ export const ResponsiveSlider = ({
                     mobileClassName
                 )}
                 showNavigation={showNavigation}
-                autoSlide={autoSlide}
-                autoSlideInterval={autoSlideInterval}
+                autoSlide={autoSlide || autoPlay}
+                autoSlideInterval={autoSlideInterval || autoPlaySpeed}
                 onSlideChange={onSlideChange}
                 slidesToShow={currentSlidesToShow}
                 gap={currentGap}
                 withDivider={withDivider}
                 controlsPosition={controlsPosition}
                 forceSlider={forceSlider}
+                showControls={showControls}
+                infinite={infinite}
             >
                 {validChildren}
             </Slider>

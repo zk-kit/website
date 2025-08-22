@@ -27,6 +27,45 @@ export interface Contribute {
     url: string
 }
 
+export interface Partner {
+    title: string
+    image: string
+    imageDark?: string
+}
+
+export const partners: Partner[] = [
+    {
+        title: "Semaphore",
+        image: "/img/partners/aztec.svg",
+        imageDark: "/img/partners/aztec-dark.svg",
+    },
+    {
+        title: "Semaphore",
+        image: "/img/partners/eth.svg",
+        imageDark: "/img/partners/eth-dark.svg",
+    },
+    {
+        title: "Semaphore",
+        image: "/img/partners/aztec.svg",
+        imageDark: "/img/partners/aztec-dark.svg",
+    },
+    {
+        title: "Semaphore",
+        image: "/img/partners/eth.svg",
+        imageDark: "/img/partners/eth-dark.svg",
+    },
+    {
+        title: "Semaphore",
+        image: "/img/partners/aztec.svg",
+        imageDark: "/img/partners/aztec-dark.svg",
+    },
+    {
+        title: "Semaphore",
+        image: "/img/partners/eth.svg",
+        imageDark: "/img/partners/eth-dark.svg",
+    }
+]
+
 export const languages: Language[] = [
     {
         text: "JavaScript",
