@@ -16,19 +16,19 @@ import { ProjectCard } from "../components/cards/ProjectCard"
 
 const LanguageVectorMapping = {
     0: (
-        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-1.svg')] hover:bg-[url('/img/vectors/language-vector-1-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
+        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-1.svg')] group-hover:bg-[url('/img/vectors/language-vector-1-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
     ),
     1: (
-        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-2.svg')] hover:bg-[url('/img/vectors/language-vector-2-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
+        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-2.svg')] group-hover:bg-[url('/img/vectors/language-vector-2-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
     ),
     2: (
-        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-3.svg')] hover:bg-[url('/img/vectors/language-vector-3-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
+        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-3.svg')] group-hover:bg-[url('/img/vectors/language-vector-3-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
     ),
     3: (
-        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-4.svg')] hover:bg-[url('/img/vectors/language-vector-4-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
+        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-4.svg')] group-hover:bg-[url('/img/vectors/language-vector-4-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
     ),
     4: (
-        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-5.svg')] hover:bg-[url('/img/vectors/language-vector-5-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
+        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-5.svg')] group-hover:bg-[url('/img/vectors/language-vector-5-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
     )
 }
 
@@ -111,7 +111,7 @@ export default function HomePage(): ReactNode {
                             </span>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-[30px]">
+                        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-[30px]">
                             {languages.map((language, index) => (
                                 <LanguageCard
                                     key={index}
@@ -120,6 +120,7 @@ export default function HomePage(): ReactNode {
                                     image={LanguageVectorMapping[index]}
                                     packages={language.packages}
                                     link={language.link}
+                                    className="group"
                                 />
                             ))}
                         </div>
