@@ -14,6 +14,24 @@ import { ResponsiveSlider } from "../components/ui/ResponsiveSlider"
 import { useProjects } from "../hooks/useProjects"
 import { ProjectCard } from "../components/cards/ProjectCard"
 
+const LanguageVectorMapping = {
+    0: (
+        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-1.svg')] hover:bg-[url('/img/vectors/language-vector-1-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
+    ),
+    1: (
+        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-2.svg')] hover:bg-[url('/img/vectors/language-vector-2-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
+    ),
+    2: (
+        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-3.svg')] hover:bg-[url('/img/vectors/language-vector-3-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
+    ),
+    3: (
+        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-4.svg')] hover:bg-[url('/img/vectors/language-vector-4-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
+    ),
+    4: (
+        <div className="h-[200px] lg:h-[230px] w-full bg-[url('/img/vectors/language-vector-5.svg')] hover:bg-[url('/img/vectors/language-vector-5-active.svg')] bg-contain bg-no-repeat bg-center duration-200" />
+    )
+}
+
 export default function HomePage(): ReactNode {
     const { featuredProjects } = useProjects()
 
@@ -69,7 +87,7 @@ export default function HomePage(): ReactNode {
                         </AppContent>
                         <div className="border-t border-b border-app-color-border">
                             <AppContent>
-                                <div className="grid grid-cols-1 lg:grid-cols-5 divide-y lg:divide-y-0 lg:divide-x divide-app-color-border border-r border-l border-app-color-border">
+                                <div className="group grid grid-cols-1 lg:grid-cols-5 divide-y lg:divide-y-0 lg:divide-x divide-app-color-border border-r border-l border-app-color-border">
                                     {features.map((feature, index) => (
                                         <FeatureCard
                                             key={index}
@@ -99,7 +117,7 @@ export default function HomePage(): ReactNode {
                                     key={index}
                                     title={language.text}
                                     description={language.description}
-                                    image={language.image}
+                                    image={LanguageVectorMapping[index]}
                                     packages={language.packages}
                                     link={language.link}
                                 />

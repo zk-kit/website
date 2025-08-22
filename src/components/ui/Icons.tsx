@@ -188,5 +188,5 @@ export const Icons = {
                 strokeLinejoin="round"
             />
         </svg>
-    )
+    ),
 }

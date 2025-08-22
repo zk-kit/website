@@ -1,7 +1,6 @@
 export interface Language {
     text: string
     description: string
-    image: string
     packages: number
     link: string
 }
@@ -32,35 +31,30 @@ export const languages: Language[] = [
     {
         text: "JavaScript",
         description: "Web & Node.js applications",
-        image: "/img/illustrations/javascript-illustration.svg",
         packages: 12,
         link: "https://github.com/privacy-scaling-explorations/zk-kit"
     },
     {
         text: "Circom",
         description: "Zero-Knowledge circuirs",
-        image: "/img/illustrations/circom-illustration.svg",
         packages: 10,
         link: "https://github.com/privacy-scaling-explorations/zk-kit.circom"
     },
     {
         text: "Noir",
         description: "Privacy-focused DSL",
-        image: "/img/illustrations/noir-illustration.svg",
         packages: 9,
         link: "https://github.com/privacy-scaling-explorations/zk-kit.noir"
     },
     {
         text: "Solidity",
         description: "Smart contracts",
-        image: "/img/illustrations/solidity-illustration.svg",
         packages: 11,
         link: "https://github.com/privacy-scaling-explorations/zk-kit.solidity"
     },
     {
         text: "Rust",
         description: "High-performance systems",
-        image: "/img/illustrations/rust-illustration.svg",
         packages: 12,
         link: "https://github.com/privacy-scaling-explorations/zk-kit.rust"
     }

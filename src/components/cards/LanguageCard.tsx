@@ -1,7 +1,7 @@
 export type LanguageCardProps = {
     title: string
     description?: string
-    image?: string
+    image?: React.ReactNode
     packages?: string | number
     link: string
 }
@@ -23,7 +23,8 @@ export const LanguageCard = ({ title, description, image, packages, link }: Lang
                     <span className="font-medium text-xs uppercase leading-none tracking-[0.96px] text-app-color-text-secondary">{`${packages} packages`}</span>
                 </div>
             </div>
-            <img src={image} alt={title} width={340} height={230} className="h-[200px] lg:h-[230px] w-full" />
+
+            {image}
         </a>
     )
 }
