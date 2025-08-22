@@ -1,0 +1,67 @@
+/**
+* @license
+*
+* Font Family: Clash Grotesk
+* Designed by: Indian Type Foundry
+* URL: https://www.fontshare.com/fonts/clash-grotesk
+* © 2025 Indian Type Foundry
+*
+* Clash Grotesk Regular 
+* Clash Grotesk Medium 
+* Clash Grotesk Variable (Variable font)
+*
+*/
+@font-face {
+    font-family: "ClashGrotesk-Regular";
+    src: url("/static/fonts/ClashGrotesk-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "ClashGrotesk-Medium";
+    src: url("/static/fonts/ClashGrotesk-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Satoshi-Regular";
+    src: url("/static/fonts/Satoshi-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Satoshi-Medium";
+    src: url("/static/fonts/Satoshi-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+}
+
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 700.0;
+*
+* available axes:
+'wght' (range from 200.0 to 700.0
+*/
+@font-face {
+    font-family: "ClashGrotesk-Variable";
+    src: url("/static/fonts/ClashGrotesk-Variable.woff2") format("woff2");
+    font-weight: 200 700;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Satoshi-Variable";
+    src: url("/static/fonts/Satoshi-Variable.woff2") format("woff2");
+    font-weight: 300 900;
+    font-display: swap;
+    font-style: normal;
+}
+
