@@ -1,8 +1,14 @@
 import { NavLink } from "./ui/NavLink"
 import { LINKS } from "@site/src/constants"
 import { Icons } from "./ui/Icons"
+import { useLocation } from "@docusaurus/router"
 
 export const AppFooter = () => {
+    const location = useLocation()
+    const currentPath = location.pathname
+
+    const isDocumentationPage = currentPath.startsWith("/docs/")
+
     return (
         <footer className="grid border-t border-app-color-border lg:grid-cols-[300px_1fr_300px] divide-x divide-app-color-border h-full lg:h-[100px] bg-app-color-background">
             <div className="flex items-center justify-center">
@@ -13,7 +19,7 @@ export const AppFooter = () => {
                 <Icons.ZkKit height={40} width={170} className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
             </div>
             <div className="flex items-center justify-center border-t lg:border-0 border-app-color-border">
-                <NavLink href="/docs/intro" label="Documentation" className="w-full justify-center" />
+                {!isDocumentationPage && <NavLink href="/docs/intro" label="Documentation" className="w-full justify-center" />}
             </div>
         </footer>
     )

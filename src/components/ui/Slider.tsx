@@ -39,7 +39,7 @@ export const Slider = ({
     const sliderRef = useRef<HTMLDivElement>(null)
 
     const totalSlides = children.length
-    const maxSlideIndex = Math.max(0, totalSlides - slidesToShow)
+    const maxSlideIndex = Math.max(0, totalSlides - Math.floor(slidesToShow))
 
     useEffect(() => {
         if (!autoSlide) return
@@ -129,7 +129,7 @@ export const Slider = ({
                         onClick={goToPrev}
                         disabled={currentSlide === 0}
                         aria-label="Previous slide"
-                        className="!mx-0"
+                        className="!mx-0 !focus:outline-none !focus:ring-0 !focus:ring-offset-0"
                     >
                         <Icons.ArrowDown className="rotate-90" />
                     </ActionButton>
@@ -137,7 +137,7 @@ export const Slider = ({
                         onClick={goToNext}
                         disabled={currentSlide >= maxSlideIndex}
                         aria-label="Next slide"
-                        className="!mx-0"
+                        className="!mx-0 !focus:outline-none !focus:ring-0 !focus:ring-offset-0"
                     >
                         <Icons.ArrowDown className="-rotate-90" />
                     </ActionButton>

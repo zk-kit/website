@@ -6,7 +6,6 @@ import { twMerge } from "tailwind-merge"
 export const ProjectCard = ({
     title,
     description,
-    image,
     languages = [],
     className = ""
 }: Project & { className?: string }) => {
@@ -20,7 +19,7 @@ export const ProjectCard = ({
             <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
                     <div className="flex items-center justify-between">
-                        <div className="flex gap-1">
+                        <div className="flex gap-1 w-full">
                             {languages.map((tag) => (
                                 <Tag key={tag} text={tag} size="sm" withHover={false} />
                             ))}

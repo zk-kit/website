@@ -3,6 +3,7 @@ export const MAX_PROJECTS_TO_SHOW = 9
 export const LINKS = {
     BASE_URL: "https://zkkit.org",
     GITHUB_API_BASE_URL: "https://api.github.com/repos/zk-kit/zk-kit",
+    USE_ZK_KIT_URL: "/docs/intro",
     CONTRIBUTE: "#",
     AUDIT_GUIDE: "#",
     APPLY_TO_BE_A_MAINTAINER: "#",
@@ -10,7 +11,8 @@ export const LINKS = {
     VIEW_ALL_ISSUES: "https://github.com/zk-kit/zk-kit/issues",
     VIEW_ALL_OPPORTUNITIES: "#",
     SUBMIT_PROJECT: "#",
-    GITHUB_URL: "https://github.com/zk-kit"
+    GITHUB_URL: "https://github.com/zk-kit",
+    SIGNAL_URL: "https://signal.org/#signal"
 }
 
 export const SEO_DATA = {

@@ -219,6 +219,25 @@ a:focus {
     background-color: inherit !important;
 }
 
+/* Global removal of focus, ring and active states for all anchor tags */
+a:focus,
+a:focus-visible,
+a:active {
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+/* Preserve border functionality for elements that need it (like divide utilities) */
+a:not([class*="divide"]):focus,
+a:not([class*="divide"]):focus-visible,
+a:not([class*="divide"]):active,
+a:not([class*="border"]):focus,
+a:not([class*="border"]):focus-visible,
+a:not([class*="border"]):active {
+    border: none !important;
+}
+
 .language-card-link {
     background-color: var(--app-color-background) !important;
 }

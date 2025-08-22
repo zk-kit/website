@@ -9,10 +9,10 @@ import { Icons } from "../components/ui/Icons"
 import { AppPageLayoutWrapper } from "../components/layouts/AppPageLayoutWrapper"
 import { SEO } from "../components/SEO"
 import { Label } from "../components/ui/Label"
-import { SEO_DATA } from "../constants"
+import { LINKS, SEO_DATA } from "../constants"
 import { ResponsiveSlider } from "../components/ui/ResponsiveSlider"
-import { ProjectCard } from "../components/cards/ProjectCard"
 import { useProjects } from "../hooks/useProjects"
+import { ProjectCard } from "../components/cards/ProjectCard"
 
 export default function HomePage(): ReactNode {
     const { featuredProjects } = useProjects()
@@ -36,7 +36,7 @@ export default function HomePage(): ReactNode {
                                     ZK-Kit is a set of libraries (algorithms, utility functions and data structures)
                                     that can be reused in different projects and zero-knowledge protocols.
                                 </span>
-                                <Button variant="primary" className="w-fit" withShadow>
+                                <Button variant="primary" className="w-fit" withShadow href={LINKS.USE_ZK_KIT_URL} isExternal>
                                     Use ZK-Kit
                                 </Button>
                             </div>
@@ -117,13 +117,17 @@ export default function HomePage(): ReactNode {
                             slidesToShow={1.1}
                             desktopSlidesToShow={3.8}
                             withDivider={false}
+                            className="lg:px-4"
                         >
                             {featuredProjects.map((project, index) => (
-                                <ProjectCard
-                                    key={index}
-                                    {...project}
-                                    className="border-t border-b border-l !border-r-0 lg:!border-x lg:!border-y"
-                                />
+                                <a key={index} href={project.url ?? "#"} target="_blank" rel="noopener noreferrer">
+                                    <ProjectCard
+                                        title={project.title}
+                                        description={project.description}
+                                        image={project.image}
+                                        languages={project.languages}
+                                    />
+                                </a>
                             ))}
                         </ResponsiveSlider>
                     </section>
@@ -135,10 +139,10 @@ export default function HomePage(): ReactNode {
                         illustrationWidth={234}
                     >
                         <div className="flex lg:flex-row flex-col gap-3">
-                            <Button className="mx-auto w-fit" icon={<Icons.Github />}>
+                            <Button className="mx-auto w-fit" icon={<Icons.Github />} href={LINKS.GITHUB_URL} isExternal>
                                 <span>GitHub</span>
                             </Button>
-                            <Button className="mx-auto w-fit" icon={<Icons.Signal />}>
+                            <Button className="mx-auto w-fit" icon={<Icons.Signal />} href={LINKS.SIGNAL_URL} isExternal>
                                 <span>Signal</span>
                             </Button>
                         </div>

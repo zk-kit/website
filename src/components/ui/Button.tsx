@@ -169,7 +169,7 @@ export const ActionButton = ({ children, className, ...props }: ActionButtonProp
     return (
         <button
             className={twMerge(
-                "p-[10px] mx-auto border border-app-color-border cursor-pointer group-hover:bg-app-color-background-secondary hover:bg-app-color-background-secondary transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none disabled:bg-app-color-background focus:outline-2 focus:outline-offset-2 focus:outline-app-color-primary",
+                "p-[10px] mx-auto border border-app-color-border cursor-pointer group-hover:bg-app-color-background-secondary hover:bg-app-color-background-secondary transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none disabled:bg-app-color-background",
                 className
             )}
             {...props}

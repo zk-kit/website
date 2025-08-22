@@ -19,7 +19,7 @@ export const NavLink = ({ href, label, isActive = false, isExternal = false, cla
             aria-label={ariaLabel || (isExternal ? `${label} (opens in new tab)` : label)}
             aria-current={isActive ? "page" : undefined}
             className={twMerge(
-                "group flex items-center gap-2 text-font-grotesk text-sm uppercase px-5 py-[30px] lg:p-2 tracking-[1.12px] border-b border-app-color-border lg:border-0 focus:outline-2 focus:outline-offset-2 focus:outline-app-color-primary",
+                "group flex items-center gap-2 text-font-grotesk text-sm uppercase px-5 py-[30px] lg:p-2 tracking-[1.12px] border-b border-app-color-border lg:border-0 focus:outline-none focus:ring-0 active:outline-none",
                 className,
                 isActive
                     ? "!text-app-color-primary font-medium"
