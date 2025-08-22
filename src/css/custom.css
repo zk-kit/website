@@ -319,6 +319,65 @@ select {
     background-color: var(--app-color-background) !important;
 }
 
+body:not(.page-loaded) {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: smoothPageLoad 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes smoothPageLoad {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.page-loaded {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+}
+
+main, article, section {
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.navbar, .footer {
+    animation: slideInFromTop 0.3s ease-out 0.1s backwards;
+}
+
+@keyframes slideInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* For users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    body:not(.page-loaded) {
+        animation: quickFade 0.15s ease-out forwards;
+        transform: none;
+    }
+    
+    @keyframes quickFade {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    .navbar, .footer {
+        animation: none;
+    }
+}
+
 .language-card-link:hover {
     background-color: var(--app-color-background-secondary) !important;
 }
