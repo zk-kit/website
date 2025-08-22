@@ -94,7 +94,7 @@ export const Slider = ({
     const translateX = currentSlide * slideWidth
 
     return (
-        <div className={twMerge("flex flex-col gap-5", controlsPosition === "bottom" && "flex-col-reverse")}>
+        <div className={twMerge("flex flex-col gap-5", controlsPosition === "top" && "flex-col-reverse")}>
             <div className={twMerge("flex flex-col gap-5 relative overflow-hidden", className)}>
                 <div
                     ref={sliderRef}

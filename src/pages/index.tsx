@@ -141,7 +141,7 @@ export default function HomePage(): ReactNode {
                             slidesToShow={1.1}
                             desktopSlidesToShow={3.8}
                             withDivider={false}
-                            className="pl-4"
+                            className="px-4"
                         >
                             {featuredProjects.map((project, index) => {
                                 const isLast = index === featuredProjects.length - 1
