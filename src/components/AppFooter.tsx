@@ -16,10 +16,14 @@ export const AppFooter = () => {
             </div>
             <div className="relative py-5 px-4 lg:px-20">
                 <div className="bg-repeat bg-[length:6px_6px] h-[142px] lg:h-[70px] bg-[url(/img/illustrations/footer-vector-item.svg)]"></div>
-                <Icons.ZkKit height={40} width={170} className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
+                <Icons.ZkKit
+                    height={40}
+                    width={170}
+                    className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+                />
             </div>
             <div className="flex items-center justify-center border-t lg:border-0 border-app-color-border">
-                {!isDocumentationPage && <NavLink href="/docs/intro" label="Documentation" className="w-full justify-center" />}
+                <NavLink href="/docs/intro" label="Documentation" className="w-full justify-center" />
             </div>
         </footer>
     )
