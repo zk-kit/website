@@ -28,15 +28,21 @@ export default function HomePage(): ReactNode {
                 <div className="flex flex-col gap-10 lg:gap-[140px]">
                     <AppContent as="section" className="flex flex-col gap-16">
                         <div className="flex flex-col gap-5 lg:gap-0 lg:grid lg:grid-cols-[minmax(0,600px)_400px] lg:items-center lg:justify-between">
-                            <span className="text-5xl text-app-color-text-base lg:text-[80px] font-normal font-clash-grotesk w-4/5 lg:w-full text-left">
+                            <Label.PageTitle className="w-4/5 lg:w-full text-left">
                                 Zero-Knowledge Development Libraries
-                            </span>
+                            </Label.PageTitle>
                             <div className="flex flex-col gap-9">
                                 <span className="text-base text-app-color-text-base font-satoshi">
                                     ZK-Kit is a set of libraries (algorithms, utility functions and data structures)
                                     that can be reused in different projects and zero-knowledge protocols.
                                 </span>
-                                <Button variant="primary" className="w-fit" withShadow href={LINKS.USE_ZK_KIT_URL} isExternal>
+                                <Button
+                                    variant="primary"
+                                    className="w-fit"
+                                    withShadow
+                                    href={LINKS.USE_ZK_KIT_URL}
+                                    isExternal
+                                >
                                     Use ZK-Kit
                                 </Button>
                             </div>
@@ -117,18 +123,22 @@ export default function HomePage(): ReactNode {
                             slidesToShow={1.1}
                             desktopSlidesToShow={3.8}
                             withDivider={false}
-                            className="lg:px-4"
+                            className="pl-4"
                         >
-                            {featuredProjects.map((project, index) => (
-                                <a key={index} href={project.url ?? "#"} target="_blank" rel="noopener noreferrer">
-                                    <ProjectCard
-                                        title={project.title}
-                                        description={project.description}
-                                        image={project.image}
-                                        languages={project.languages}
-                                    />
-                                </a>
-                            ))}
+                            {featuredProjects.map((project, index) => {
+                                const isLast = index === featuredProjects.length - 1
+                                return (
+                                    <a key={index} href={project.url ?? "#"} target="_blank" rel="noopener noreferrer">
+                                        <ProjectCard
+                                            title={project.title}
+                                            description={project.description}
+                                            image={project.image}
+                                            languages={project.languages}
+                                            className={`!border-r-[0]  lg:!border-r ${isLast ? "!border-r-0" : ""}`}
+                                        />
+                                    </a>
+                                )
+                            })}
                         </ResponsiveSlider>
                     </section>
 
@@ -139,10 +149,20 @@ export default function HomePage(): ReactNode {
                         illustrationWidth={234}
                     >
                         <div className="flex lg:flex-row flex-col gap-3">
-                            <Button className="mx-auto w-fit" icon={<Icons.Github />} href={LINKS.GITHUB_URL} isExternal>
+                            <Button
+                                className="mx-auto w-fit"
+                                icon={<Icons.Github className="text-app-color-text-primary" />}
+                                href={LINKS.GITHUB_URL}
+                                isExternal
+                            >
                                 <span>GitHub</span>
                             </Button>
-                            <Button className="mx-auto w-fit" icon={<Icons.Signal />} href={LINKS.SIGNAL_URL} isExternal>
+                            <Button
+                                className="mx-auto w-fit"
+                                icon={<Icons.Signal className="text-app-color-text-primary" />}
+                                href={LINKS.SIGNAL_URL}
+                                isExternal
+                            >
                                 <span>Signal</span>
                             </Button>
                         </div>

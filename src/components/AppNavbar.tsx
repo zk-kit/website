@@ -96,14 +96,24 @@ export const AppNavbar = () => {
     // Handle body scroll lock when mobile menu is open
     useEffect(() => {
         if (isMobileMenuOpen) {
+            document.body.classList.add("mobile-menu-open")
             document.body.style.overflow = "hidden"
+            // iOS Safari specific fix
+            document.body.style.position = "fixed"
+            document.body.style.width = "100%"
         } else {
+            document.body.classList.remove("mobile-menu-open")
             document.body.style.overflow = "unset"
+            document.body.style.position = "unset"
+            document.body.style.width = "unset"
         }
 
         // Cleanup on unmount
         return () => {
+            document.body.classList.remove("mobile-menu-open")
             document.body.style.overflow = "unset"
+            document.body.style.position = "unset"
+            document.body.style.width = "unset"
         }
     }, [isMobileMenuOpen])
 
@@ -160,11 +170,11 @@ export const AppNavbar = () => {
         return (
             <div
                 className={twMerge(
-                    "fixed inset-0 bg-app-color-background z-50 transition-opacity duration-300 ease-in-out",
+                    "fixed inset-0 bg-app-color-background z-50 transition-opacity duration-300 ease-in-out mobile-menu-height",
                     isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
                 )}
             >
-                <div className="flex flex-col h-full">
+                <div className="flex flex-col mobile-menu-height">
                     <div className="border-b border-app-color-border">
                         <AppContent className="h-[100px] flex items-center justify-between">
                             <a href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>

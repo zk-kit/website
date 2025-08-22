@@ -225,17 +225,73 @@ a:focus-visible,
 a:active {
     outline: none !important;
     box-shadow: none !important;
+}
+
+/* Only remove background on focus/active for links without specific styling needs */
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):focus,
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):focus-visible,
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):active {
     background: transparent !important;
 }
 
-/* Preserve border functionality for elements that need it (like divide utilities) */
-a:not([class*="divide"]):focus,
-a:not([class*="divide"]):focus-visible,
-a:not([class*="divide"]):active,
-a:not([class*="border"]):focus,
-a:not([class*="border"]):focus-visible,
-a:not([class*="border"]):active {
+/* Be more selective about border removal - only for plain text links */
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):not([class*="rounded"]):not([class*="p-"]):not([class*="m-"]):focus,
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):not([class*="rounded"]):not([class*="p-"]):not([class*="m-"]):focus-visible,
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):not([class*="rounded"]):not([class*="p-"]):not([class*="m-"]):active {
     border: none !important;
+}
+
+/* iOS Safari specific fixes - prevent tap zoom and highlight */
+a,
+button,
+input,
+textarea,
+select {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+}
+
+/* Prevent iOS Safari zoom on tap while preserving accessibility */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    a:active,
+    button:active {
+        transform: none !important;
+        transition: none !important;
+        -webkit-transform: none !important;
+        -webkit-transition: none !important;
+    }
+}
+
+/* iOS Safari viewport height fixes */
+@supports (height: 100dvh) {
+    /* Use dynamic viewport height when supported */
+    .mobile-menu-height {
+        height: 100dvh !important;
+        min-height: 100dvh !important;
+    }
+}
+
+/* Fallback for browsers that don't support dvh */
+@supports not (height: 100dvh) {
+    .mobile-menu-height {
+        height: 100vh !important;
+        min-height: 100vh !important;
+        /* iOS Safari specific fix */
+        min-height: -webkit-fill-available !important;
+    }
+}
+
+/* Additional iOS Safari mobile menu fixes */
+@media screen and (max-width: 1023px) {
+    /* Prevent background scrolling when mobile menu is open */
+    body.mobile-menu-open {
+        position: fixed !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important;
+    }
 }
 
 .language-card-link {

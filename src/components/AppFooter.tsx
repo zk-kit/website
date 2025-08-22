@@ -10,7 +10,7 @@ export const AppFooter = () => {
     const isDocumentationPage = currentPath.startsWith("/docs/")
 
     return (
-        <footer className="grid border-t border-app-color-border lg:grid-cols-[300px_1fr_300px] divide-x divide-app-color-border h-full lg:h-[100px] bg-app-color-background">
+        <footer className="grid border-t border-app-color-border lg:grid-cols-[300px_1fr_300px] lg:divide-x divide-app-color-border h-full lg:h-[100px] bg-app-color-background">
             <div className="flex items-center justify-center">
                 <NavLink href={LINKS.GITHUB_URL} label="Github" isExternal className="w-full justify-center" />
             </div>
