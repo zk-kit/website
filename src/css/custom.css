@@ -28,6 +28,15 @@
     --font-family-satoshi: "Satoshi-Variable", "Satoshi-Regular", system-ui, sans-serif;
 }
 
+/* Ensure Tailwind generates these utility classes */
+.font-clash-grotesk {
+    font-family: var(--font-family-clash-grotesk);
+}
+
+.font-satoshi {
+    font-family: var(--font-family-satoshi);
+}
+
 
 /* ContributeCard hover states with proper index-based logic */
 .contribute-card[data-index="1"]:hover .contribute-icon path:nth-child(3),
