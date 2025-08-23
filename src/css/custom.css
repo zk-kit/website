@@ -2,7 +2,6 @@
 @import "./font.css";
 @custom-variant dark (&:is([data-theme="dark"] *));
 
-
 @theme {
     --color-app-color-text-base: var(--app-color-text-base);
     --color-app-color-text-secondary: var(--app-color-text-secondary);
@@ -22,7 +21,6 @@
     --color-app-color-button-secondary-background-hover: var(--app-color-button-secondary-background-hover);
     --color-app-color-button-secondary-text: var(--app-color-button-secondary-text);
     --color-app-color-button-secondary-text-hover: var(--app-color-button-secondary-text-hover);
-    
 
     --background-bg-surface-invert-shadow: rgba(93, 202, 71, 0.6);
 
@@ -32,18 +30,23 @@
 
 /* Typography Settings - Titles use Satoshi, Headings use Clash Grotesk */
 
-/* Page titles and main titles use Satoshi */
-h1, .h1, [class*="pageTitle"], [class*="sectionTitle"], 
-.navbar__title, .navbar__brand, .navbar__logo,
-.pagination-nav__label, .breadcrumbs__link,
-.menu__link, .table-of-contents__link {
+/* Page titles and main titles use Satoshi - but respect explicit font classes */
+:is(h1, .h1, [class*="pageTitle"], [class*="sectionTitle"]):not(.font-clash-grotesk),
+.navbar__title,
+.navbar__brand,
+.navbar__logo,
+.pagination-nav__label,
+.breadcrumbs__link,
+.menu__link,
+.table-of-contents__link {
     font-family: var(--font-satoshi) !important;
 }
 
-/* Content headings use Clash Grotesk */
-h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6,
-.markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6,
-.docusaurus-highlight-code-line, .codeBlockTitle {
+/* Content headings use Clash Grotesk - but respect explicit font classes */
+:is(h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6):not(.font-satoshi),
+:is(.markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6):not(.font-satoshi),
+.docusaurus-highlight-code-line,
+.codeBlockTitle {
     font-family: var(--font-family-clash-grotesk) !important;
 }
 
@@ -53,10 +56,10 @@ h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6,
     font-family: var(--font-satoshi) !important;
 }
 
-.theme-doc-markdown h2,
-.theme-doc-markdown h3,
-.theme-doc-markdown h4,
-.theme-doc-markdown h5,
+        .theme-doc-markdown h2,
+        .theme-doc-markdown h3,
+        .theme-doc-markdown h4,
+        .theme-doc-markdown h5,
 .theme-doc-markdown h6 {
     font-family: var(--font-family-clash-grotesk) !important;
 }
@@ -95,14 +98,14 @@ h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6,
     --app-color-tag-background-hover: #caf1c1;
     --app-color-tag-text: #285d1e;
 
-    --app-color-button-primary-background: #0E0E0E;
+    --app-color-button-primary-background: #0e0e0e;
     --app-color-button-primary-background-hover: #48b532;
     --app-color-button-primary-text: #ffffff;
     --app-color-button-primary-text-hover: #ffffff;
 
     --app-color-button-secondary-background: #e4f9df;
-    --app-color-button-secondary-background-hover: #2D7520;
-    --app-color-button-secondary-text: #0E0E0E;
+    --app-color-button-secondary-background-hover: #2d7520;
+    --app-color-button-secondary-text: #0e0e0e;
     --app-color-button-secondary-text-hover: #fff;
 
     --ifm-color-primary: #48b532;
@@ -128,20 +131,20 @@ h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6,
     --app-color-tag-background-hover: #1a1a1a;
     --app-color-tag-text: #fff;
 
-    --app-color-button-primary-background: #FFF;
-    --app-color-button-primary-background-hover: #1A1A1A;
-    --app-color-button-primary-text: #0E0E0E;
-    --app-color-button-primary-text-hover: #E7E7E7;
-    
+    --app-color-button-primary-background: #fff;
+    --app-color-button-primary-background-hover: #1a1a1a;
+    --app-color-button-primary-text: #0e0e0e;
+    --app-color-button-primary-text-hover: #e7e7e7;
+
     --app-color-button-secondary-background: #0e0e0e;
-    --app-color-button-secondary-background-hover: #FFF;
+    --app-color-button-secondary-background-hover: #fff;
     --app-color-button-secondary-text: #ffffff;
-    --app-color-button-secondary-text-hover: #0E0E0E;
+    --app-color-button-secondary-text-hover: #0e0e0e;
 
     --app-color-button-tertiary-background: #e4f9df;
     --app-color-button-tertiary-background-hover: #caf1c1;
     --app-color-button-tertiary-text: #285d1e;
-    --app-color-button-tertiary-text-hover: #0E0E0E;
+    --app-color-button-tertiary-text-hover: #0e0e0e;
 
     --ifm-color-primary: #48b532;
     --ifm-color-primary-dark: #369524;
@@ -162,13 +165,15 @@ html {
 }
 
 html,
-body,
-html * {
-    font-family: var(--font-satoshi) !important;
+body * {
     text-rendering: geometricPrecision !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     touch-action: manipulation;
+}
+
+html *:not(.font-clash-grotesk) {
+    font-family: var(--font-satoshi) !important;
 }
 
 .font-clash-grotesk {
@@ -235,9 +240,15 @@ a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):active {
 }
 
 /* Be more selective about border removal - only for plain text links */
-a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):not([class*="rounded"]):not([class*="p-"]):not([class*="m-"]):focus,
-a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):not([class*="rounded"]):not([class*="p-"]):not([class*="m-"]):focus-visible,
-a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):not([class*="rounded"]):not([class*="p-"]):not([class*="m-"]):active {
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):not([class*="rounded"]):not([class*="p-"]):not(
+        [class*="m-"]
+    ):focus,
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):not([class*="rounded"]):not([class*="p-"]):not(
+        [class*="m-"]
+    ):focus-visible,
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):not([class*="rounded"]):not([class*="p-"]):not(
+        [class*="m-"]
+    ):active {
     border: none !important;
 }
 
@@ -342,11 +353,16 @@ body.page-loaded {
     animation: none !important;
 }
 
-main, article, section {
-    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+main,
+article,
+section {
+    transition:
+        opacity 0.2s ease-out,
+        transform 0.2s ease-out;
 }
 
-.navbar, .footer {
+.navbar,
+.footer {
     animation: slideInFromTop 0.3s ease-out 0.1s backwards;
 }
 
@@ -367,13 +383,18 @@ main, article, section {
         animation: quickFade 0.15s ease-out forwards;
         transform: none;
     }
-    
+
     @keyframes quickFade {
-        from { opacity: 0; }
-        to { opacity: 1; }
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
     }
-    
-    .navbar, .footer {
+
+    .navbar,
+    .footer {
         animation: none;
     }
 }
@@ -482,7 +503,6 @@ main, article, section {
     @apply border-l-2 border-blue-500;
 }
 
-
 #doc-root-layout {
     h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-family-clash-grotesk) !important;
@@ -505,5 +525,5 @@ main, article, section {
 
     .table-of-contents {
         border: none !important;
-    } 
+    }
 }
