@@ -22,12 +22,7 @@ const PageTitle = ({ children, className, as = "h1", size = "lg" }: LabelProps) 
                 "!font-normal !font-clash-grotesk text-app-color-text-base !mb-0",
                 className,
                 sizeClass[size]
-            ),
-            style: {
-                fontFamily: 'var(--font-family-clash-grotesk)',
-                fontWeight: '400',
-                margin: '0'
-            }
+            )
         },
         children
     )
@@ -47,12 +42,7 @@ const SectionTitle = ({ children, className, as = "h2", size = "sm" }: LabelProp
                 "!font-normal !font-clash-grotesk text-app-color-text-base !mb-0",
                 className,
                 sizeClass[size]
-            ),
-            style: {
-                fontFamily: 'var(--font-family-clash-grotesk)',
-                fontWeight: '400',
-                margin: '0'
-            }
+            )
         },
         children
     )
