@@ -41,7 +41,7 @@ export default function BlogLayout(props: Props): ReactNode {
     }
 
     return (
-        <AppPageLayoutWrapper className="flex flex-col gap-10 lg:gap-20">
+        <AppPageLayoutWrapper id="blog-root-layout" className="flex flex-col gap-10 lg:gap-20">
             <AppContent className="flex flex-col gap-10 lg:gap-11">
                 {children}
                 {toc && <div className="col col--2">{toc}</div>}

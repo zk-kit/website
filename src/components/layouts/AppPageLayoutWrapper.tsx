@@ -6,11 +6,12 @@ import { AppFooter } from "../AppFooter"
 interface AppPageLayoutWrapperProps {
     children: React.ReactNode
     className?: string
+    id?: string
 }
 
-export const AppPageLayoutWrapper = ({ children, className }: AppPageLayoutWrapperProps) => {
+export const AppPageLayoutWrapper = ({ children, className, id }: AppPageLayoutWrapperProps) => {
     return (
-        <main>
+        <main id={id}>
             <AppNavbar />
             <div className={twMerge("flex flex-col bg-app-color-background py-14 lg:py-[140px]", className)}>
                 {children}

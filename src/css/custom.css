@@ -28,41 +28,6 @@
     --font-satoshi: "Satoshi-Variable", "Satoshi-Regular", system-ui, sans-serif;
 }
 
-/* Typography Settings - Titles use Satoshi, Headings use Clash Grotesk */
-
-/* Page titles and main titles use Satoshi - but respect explicit font classes */
-:is(h1, .h1, [class*="pageTitle"], [class*="sectionTitle"]):not(.font-clash-grotesk),
-.navbar__title,
-.navbar__brand,
-.navbar__logo,
-.pagination-nav__label,
-.breadcrumbs__link,
-.menu__link,
-.table-of-contents__link {
-    font-family: var(--font-satoshi) !important;
-}
-
-/* Content headings use Clash Grotesk - but respect explicit font classes */
-:is(h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6):not(.font-satoshi),
-:is(.markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6):not(.font-satoshi),
-.docusaurus-highlight-code-line,
-.codeBlockTitle {
-    font-family: var(--font-family-clash-grotesk) !important;
-}
-
-/* Docs specific typography */
-.docs-doc-id-intro h1,
-.theme-doc-markdown h1 {
-    font-family: var(--font-satoshi) !important;
-}
-
-        .theme-doc-markdown h2,
-        .theme-doc-markdown h3,
-        .theme-doc-markdown h4,
-        .theme-doc-markdown h5,
-.theme-doc-markdown h6 {
-    font-family: var(--font-family-clash-grotesk) !important;
-}
 
 /* ContributeCard hover states with proper index-based logic */
 .contribute-card[data-index="1"]:hover .contribute-icon path:nth-child(3),
@@ -170,10 +135,6 @@ body * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     touch-action: manipulation;
-}
-
-html *:not(.font-clash-grotesk) {
-    font-family: var(--font-satoshi) !important;
 }
 
 /* Ensure font-clash-grotesk class always wins with higher specificity */
@@ -505,7 +466,15 @@ section {
     @apply border-l-2 border-blue-500;
 }
 
+
+#blog-root-layout,
 #doc-root-layout {
+    font-family: var(--font-satoshi) !important;
+
+    div[class*="generated"] {
+        padding: 30px !important;
+    }
+
     h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-family-clash-grotesk) !important;
         font-weight: 400 !important;
@@ -529,3 +498,5 @@ section {
         border: none !important;
     }
 }
+
+
