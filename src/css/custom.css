@@ -25,7 +25,7 @@
     --background-bg-surface-invert-shadow: rgba(93, 202, 71, 0.6);
 
     --font-family-clash-grotesk: "ClashGrotesk-Variable", "ClashGrotesk-Medium", system-ui, sans-serif;
-    --font-satoshi: "Satoshi-Variable", "Satoshi-Regular", system-ui, sans-serif;
+    --font-family-satoshi: "Satoshi-Variable", "Satoshi-Regular", system-ui, sans-serif;
 }
 
 
@@ -135,22 +135,6 @@ body * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     touch-action: manipulation;
-}
-
-/* Ensure font-clash-grotesk class always wins with higher specificity */
-html .font-clash-grotesk,
-html .font-clash-grotesk.font-clash-grotesk {
-    font-family: var(--font-family-clash-grotesk) !important;
-    text-rendering: geometricPrecision !important;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.font-satoshi {
-    font-family: var(--font-satoshi) !important;
-    text-rendering: geometricPrecision !important;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 .navbar__link {

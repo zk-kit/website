@@ -1,4 +1,3 @@
-import { twMerge } from "tailwind-merge"
 import { createElement } from "react"
 
 interface LabelProps {
@@ -18,11 +17,7 @@ const PageTitle = ({ children, className, as = "h1", size = "lg" }: LabelProps) 
     return createElement(
         as,
         {
-            className: twMerge(
-                "!font-normal !font-clash-grotesk text-app-color-text-base !mb-0",
-                className,
-                sizeClass[size]
-            )
+            className: `!font-normal font-clash-grotesk text-app-color-text-base !mb-0 ${className} ${sizeClass[size]}`
         },
         children
     )
@@ -38,11 +33,7 @@ const SectionTitle = ({ children, className, as = "h2", size = "sm" }: LabelProp
     return createElement(
         as,
         {
-            className: twMerge(
-                "!font-normal !font-clash-grotesk text-app-color-text-base !mb-0",
-                className,
-                sizeClass[size]
-            )
+            className: `!font-normal font-clash-grotesk text-app-color-text-base !mb-0 ${className} ${sizeClass[size]}`
         },
         children
     )
