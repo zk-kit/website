@@ -17,10 +17,9 @@ const PageTitle = ({ children, className, as = "h1", size = "lg" }: LabelProps) 
     return createElement(
         as,
         {
-            className: `!font-normal font-clash-grotesk text-app-color-text-base !mb-0 ${className} ${sizeClass[size]}`,
-            style: { 
-                fontFamily: '"ClashGrotesk-Variable", "ClashGrotesk-Medium", system-ui, sans-serif',
-                ...((typeof className === 'string' && className.includes('style')) ? {} : {})
+            className: `!font-normal text-app-color-text-base !mb-0 ${className || ""} ${sizeClass[size]}`,
+            style: {
+                fontFamily: '"ClashGrotesk-Variable", "ClashGrotesk-Medium", system-ui, sans-serif'
             }
         },
         children
@@ -37,10 +36,9 @@ const SectionTitle = ({ children, className, as = "h2", size = "sm" }: LabelProp
     return createElement(
         as,
         {
-            className: `!font-normal font-clash-grotesk text-app-color-text-base !mb-0 ${className} ${sizeClass[size]}`,
-            style: { 
-                fontFamily: '"ClashGrotesk-Variable", "ClashGrotesk-Medium", system-ui, sans-serif',
-                ...((typeof className === 'string' && className.includes('style')) ? {} : {})
+            className: `!font-normal text-app-color-text-base !mb-0 ${className || ""} ${sizeClass[size]}`,
+            style: {
+                fontFamily: '"ClashGrotesk-Variable", "ClashGrotesk-Medium", system-ui, sans-serif'
             }
         },
         children

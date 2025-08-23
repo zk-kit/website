@@ -2,6 +2,26 @@
 @import "./font.css";
 @custom-variant dark (&:is([data-theme="dark"] *));
 
+/* 
+Safelist - Force Tailwind to generate these classes
+This ensures arbitrary values with ! important are included in the build
+*/
+@media (max-width: 0px) {
+    .safelist {
+        /* Size classes - lg */
+        @apply !leading-[52.3px] !text-5xl lg:!text-[80px] lg:!leading-[88px];
+        
+        /* Size classes - md */
+        @apply !text-[38px] lg:!text-[60px] !leading-[38px] lg:!leading-[60px];
+        
+        /* Size classes - sm */
+        @apply !text-2xl lg:!text-[32px];
+        
+        /* Other classes */
+        @apply !font-normal text-app-color-text-base !mb-0;
+    }
+}
+
 @theme {
     --color-app-color-text-base: var(--app-color-text-base);
     --color-app-color-text-secondary: var(--app-color-text-secondary);
@@ -24,6 +44,7 @@
 
     --background-bg-surface-invert-shadow: rgba(93, 202, 71, 0.6);
 
+    /* Register font families for Tailwind utilities */
     --font-family-clash-grotesk: "ClashGrotesk-Variable", "ClashGrotesk-Medium", system-ui, sans-serif;
     --font-family-satoshi: "Satoshi-Variable", "Satoshi-Regular", system-ui, sans-serif;
 }
