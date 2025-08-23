@@ -9,8 +9,10 @@ import { SEO } from "@site/src/components/SEO"
 import { LINKS, MAX_PROJECTS_TO_SHOW, SEO_DATA } from "@site/src/constants"
 import { useProjects } from "@site/src/hooks/useProjects"
 import { Tag } from "@site/src/components/ui/Tag"
+import { useImagePreload, getPageImages } from "@site/src/utils/imagePreloader"
 
 export default function ProjectsPage() {
+    useImagePreload(getPageImages("projects"))
     const {
         filteredProjects: projects,
         showAllProjects,

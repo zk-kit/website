@@ -15,6 +15,7 @@ import { ResponsiveSlider } from "../components/ui/ResponsiveSlider"
 import { useProjects } from "../hooks/useProjects"
 import { ProjectCard } from "../components/cards/ProjectCard"
 import { useMediaQuery } from "react-responsive"
+import { useImagePreload, getPageImages } from "../utils/imagePreloader"
 
 const LanguageVectorMapping = {
     0: (
@@ -38,6 +39,8 @@ export default function HomePage(): ReactNode {
     const { featuredProjects } = useProjects()
     const [theme, setTheme] = useState<"light" | "dark">("light")
     const isMobile = useMediaQuery({ query: "(max-width: 1023px)" })
+
+    useImagePreload(getPageImages("home"))
 
     useEffect(() => {
         const currentTheme = document.documentElement.getAttribute("data-theme") || "light"

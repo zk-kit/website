@@ -12,6 +12,7 @@ import { CardBase } from "@site/src/components/cards/CardBase"
 import { BulletPoint } from "@site/src/components/ui/BulletPoint"
 import { LINKS, SEO_DATA } from "@site/src/constants"
 import { useGithubData } from "@site/src/hooks/useGithubData"
+import { useImagePreload, getPageImages } from "@site/src/utils/imagePreloader"
 
 const IssueData = ({ title, isLoading }: { title: string; isLoading: boolean }) => {
     return (
@@ -32,6 +33,7 @@ const IssueData = ({ title, isLoading }: { title: string; isLoading: boolean }) 
 }
 
 export default function ContributePage() {
+    useImagePreload(getPageImages("contribute"))
     const { data, loading } = useGithubData()
 
     return (

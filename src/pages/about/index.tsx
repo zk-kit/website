@@ -6,8 +6,10 @@ import { ResponsiveSlider } from "@site/src/components/ui/ResponsiveSlider"
 import { SEO } from "@site/src/components/SEO"
 import { FeatureValueCard } from "@site/src/components/cards/FeatureValueCard"
 import { SEO_DATA } from "@site/src/constants"
+import { useImagePreload, getPageImages } from "@site/src/utils/imagePreloader"
 
 export default function AboutPage() {
+    useImagePreload(getPageImages("about"))
     return (
         <>
             <SEO
