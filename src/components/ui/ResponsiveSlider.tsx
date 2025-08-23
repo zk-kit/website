@@ -67,7 +67,7 @@ export const ResponsiveSlider = ({
         <div className={className}>
             {/* Desktop view - Grid layout (only when not forcing slider) */}
             {!forceSlider && (
-                <div className={twMerge("!hidden md:block", desktopClassName)}>
+                <div className={twMerge("!hidden md:!block", desktopClassName)}>
                     {children}
                 </div>
             )}

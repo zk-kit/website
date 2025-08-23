@@ -38,6 +38,7 @@ export default function AboutPage() {
 
                         <AppContent className="md:border md:border-app-color-border">
                             <ResponsiveSlider
+                                
                                 desktopClassName="overflow-hidden md:!grid !grid-cols-1 md:!grid-cols-3 [&>*:not(:nth-child(3n))]:md:border-r [&>*:nth-child(n+4)]:md:border-t [&>*]:border-app-color-border"
                                 mobileClassName="border-x border-app-color-border border-b border-t lg:border-none"
                                 slidesToShow={1.1}
