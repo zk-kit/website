@@ -31,7 +31,7 @@
 /* Typography Settings - Titles use Satoshi, Headings use Clash Grotesk */
 
 /* Page titles and main titles use Satoshi - but respect explicit font classes */
-:is([class*="pageTitle"], [class*="sectionTitle"]):not(.font-clash-grotesk),
+:is(h1, .h1, [class*="pageTitle"], [class*="sectionTitle"]):not(.font-clash-grotesk),
 .navbar__title,
 .navbar__brand,
 .navbar__logo,
@@ -176,7 +176,9 @@ html *:not(.font-clash-grotesk) {
     font-family: var(--font-satoshi) !important;
 }
 
-.font-clash-grotesk {
+/* Ensure font-clash-grotesk class always wins with higher specificity */
+html .font-clash-grotesk,
+html .font-clash-grotesk.font-clash-grotesk {
     font-family: var(--font-family-clash-grotesk) !important;
     text-rendering: geometricPrecision !important;
     -webkit-font-smoothing: antialiased;
