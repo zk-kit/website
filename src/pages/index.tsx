@@ -216,7 +216,7 @@ export default function HomePage(): ReactNode {
                                     return (
                                         <div
                                             key={index}
-                                            className="flex flex-col gap-5 p-[30px] border-l border-app-color-border"
+                                            className="flex flex-col gap-5 p-[30px] border-x lg:border-r-0 border-app-color-border h-fit"
                                         >
                                             <img
                                                 src={

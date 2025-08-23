@@ -175,7 +175,7 @@ export const Slider = ({
                     {currentChildren.map((child, index) => (
                         <div
                             key={index}
-                            className="flex-shrink-0"
+                            className="flex-shrink-0 h-full"
                             style={{
                                 width: `${slideWidth}%`
                             }}
