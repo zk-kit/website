@@ -178,7 +178,7 @@ export default function HomePage(): ReactNode {
                                             description={project.description}
                                             image={project.image}
                                             languages={project.languages}
-                                            className={`${isLast ? "!border-r" : "!border-r-0 lg:!border-r"}`}
+                                            className={`${isLast ? "!border-r-[1px]" : "!border-r-0 lg:!border-r-[1px]"}`}
                                         />
                                     </a>
                                 )

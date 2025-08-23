@@ -115,7 +115,7 @@ export default function ProjectsPage() {
                                             .map((project, index) => (
                                                 <a href={project.url || "#"} key={index} target="_blank" rel="noopener noreferrer">
                                                     <ProjectCard
-                                                        className="!border-t !border-b !border-r-0 !border-l-0 lg:!border-r lg:!border-l"
+                                                        className="!border-t-[1px] !border-b-[1px] !border-r-0 !border-l-0 lg:!border-r-[1px] lg:!border-l-[1px]"
                                                         {...project}
                                                     />
                                                 </a>
