@@ -167,6 +167,7 @@ export default function HomePage(): ReactNode {
                             desktopSlidesToShow={3.8}
                             withDivider={false}
                             className="px-4"
+                            infinite={true}
                         >
                             {featuredProjects.map((project, index) => {
                                 const isLast = index === featuredProjects.length - 1
@@ -177,7 +178,7 @@ export default function HomePage(): ReactNode {
                                             description={project.description}
                                             image={project.image}
                                             languages={project.languages}
-                                            className={`!border-r-[0]  lg:!border-r ${isLast ? "!border-r-0" : ""}`}
+                                            className={`${isLast ? "!border-r" : "!border-r-0 lg:!border-r"}`}
                                         />
                                     </a>
                                 )
