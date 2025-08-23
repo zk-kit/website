@@ -10,9 +10,11 @@ import { LINKS, MAX_PROJECTS_TO_SHOW, SEO_DATA } from "@site/src/constants"
 import { useProjects } from "@site/src/hooks/useProjects"
 import { Tag } from "@site/src/components/ui/Tag"
 import { useImagePreload, getPageImages } from "@site/src/utils/imagePreloader"
+import { useMediaQuery } from "react-responsive"
 
 export default function ProjectsPage() {
     useImagePreload(getPageImages("projects"))
+    const isMobile = useMediaQuery({ query: "(max-width: 1023px)" })
     const {
         filteredProjects: projects,
         showAllProjects,
@@ -117,7 +119,7 @@ export default function ProjectsPage() {
                                             .map((project, index) => (
                                                 <a href={project.url || "#"} key={index} target="_blank" rel="noopener noreferrer">
                                                     <ProjectCard
-                                                        className="!border-t-[1px] !border-b-[1px] !border-r-0 !border-l-0 lg:!border-r-[1px] lg:!border-l-[1px]"
+                                                        className={`!border-t-[1px] !border-b-[1px] ${isMobile ? "!border-r-0 !border-l-0" : "!border-r-[1px] !border-l-[1px]"}`}
                                                         {...project}
                                                     />
                                                 </a>
