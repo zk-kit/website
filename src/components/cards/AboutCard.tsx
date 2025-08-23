@@ -9,7 +9,7 @@ interface AboutCardProps {
 
 const AboutCard = ({ value, title, description, onlyIcon }: AboutCardProps) => {
     return (
-        <div className="flex flex-col lg:aspect-square p-[30px] duration-200 hover:bg-app-color-background-secondary max-h-[300px] h-[300px] lg:w-auto lg:max-h-none lg:h-auto">
+        <div className="flex flex-col lg:aspect-square p-[30px] duration-200 hover:bg-app-color-background-secondary min-h-[300px] lg:w-auto lg:max-h-none lg:h-full">
             <div className="flex flex-col gap-3 mt-auto">
                 <h4 className="!font-satoshi !text-5xl !font-medium !mb-0">{value}</h4>
                 <div className="flex flex-col gap-1">

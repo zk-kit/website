@@ -65,36 +65,32 @@ export const ResponsiveSlider = ({
     
     return (
         <div className={className}>
-            {/* Desktop view - Grid layout (only when not forcing slider) */}
-            {!forceSlider && (
-                <div className={twMerge(
-                    desktopClassName.includes("!grid") ? "!hidden md:!grid" : "!hidden md:!block", 
-                    desktopClassName
-                )}>
+            {/* Desktop view - Grid layout (only when not forcing slider and not mobile) */}
+            {!forceSlider && !isMobile && (
+                <div className={desktopClassName}>
                     {children}
                 </div>
             )}
 
             {/* Mobile view - Slider (or forced desktop slider) */}
-            <Slider
-                className={twMerge(
-                    forceSlider ? "" : "md:!hidden", 
-                    mobileClassName
-                )}
-                showNavigation={showNavigation}
-                autoSlide={autoSlide || autoPlay}
-                autoSlideInterval={autoSlideInterval || autoPlaySpeed}
-                onSlideChange={onSlideChange}
-                slidesToShow={currentSlidesToShow}
-                gap={currentGap}
-                withDivider={withDivider}
-                controlsPosition={controlsPosition}
-                forceSlider={forceSlider}
-                showControls={showControls}
-                infinite={infinite}
-            >
-                {validChildren}
-            </Slider>
+            {(isMobile || forceSlider) && (
+                <Slider
+                    className={mobileClassName}
+                    showNavigation={showNavigation}
+                    autoSlide={autoSlide || autoPlay}
+                    autoSlideInterval={autoSlideInterval || autoPlaySpeed}
+                    onSlideChange={onSlideChange}
+                    slidesToShow={currentSlidesToShow}
+                    gap={currentGap}
+                    withDivider={withDivider}
+                    controlsPosition={controlsPosition}
+                    forceSlider={forceSlider}
+                    showControls={showControls}
+                    infinite={infinite}
+                >
+                    {validChildren}
+                </Slider>
+            )}
         </div>
     )
 }
