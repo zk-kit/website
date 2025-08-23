@@ -14,6 +14,7 @@ import { LINKS, SEO_DATA } from "../constants"
 import { ResponsiveSlider } from "../components/ui/ResponsiveSlider"
 import { useProjects } from "../hooks/useProjects"
 import { ProjectCard } from "../components/cards/ProjectCard"
+import { useMediaQuery } from "react-responsive"
 
 const LanguageVectorMapping = {
     0: (
@@ -36,6 +37,7 @@ const LanguageVectorMapping = {
 export default function HomePage(): ReactNode {
     const { featuredProjects } = useProjects()
     const [theme, setTheme] = useState<"light" | "dark">("light")
+    const isMobile = useMediaQuery({ query: "(max-width: 1023px)" })
 
     useEffect(() => {
         const currentTheme = document.documentElement.getAttribute("data-theme") || "light"
@@ -171,6 +173,7 @@ export default function HomePage(): ReactNode {
                         >
                             {featuredProjects.map((project, index) => {
                                 const isLast = index === featuredProjects.length - 1
+
                                 return (
                                     <a key={index} href={project.url ?? "#"} target="_blank" rel="noopener noreferrer">
                                         <ProjectCard
@@ -178,7 +181,7 @@ export default function HomePage(): ReactNode {
                                             description={project.description}
                                             image={project.image}
                                             languages={project.languages}
-                                            className={`${isLast ? "!border-r-[1px]" : "!border-r-0 lg:!border-r-[1px]"}`}
+                                            className={`${isLast ? "!border-r-[1px]" : `${isMobile ? "!border-r-0" : "!border-r-[1px]"}`}`}
                                         />
                                     </a>
                                 )
