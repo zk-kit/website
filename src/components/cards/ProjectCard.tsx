@@ -11,10 +11,7 @@ export const ProjectCard = ({
 }: Project & { className?: string }) => {
     return (
         <div
-            className={twMerge(
-                "cursor-pointer group flex flex-col lg:gap-[60px] border border-app-color-border p-[30px] bg-app-color-background hover:bg-app-color-background-secondary transition-all duration-200",
-                className
-            )}
+            className={`cursor-pointer group flex flex-col lg:gap-[60px] border border-app-color-border p-[30px] bg-app-color-background hover:bg-app-color-background-secondary transition-all duration-200 ${className}`}
         >
             <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
