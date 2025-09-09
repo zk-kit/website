@@ -7,18 +7,8 @@ interface Props {
 
 export default function Layout({ children }: Props): ReactNode {
   useEffect(() => {
-    const hasVisited = sessionStorage.getItem('page-visited');
-    
-    if (!hasVisited) {
-      const timer = setTimeout(() => {
-        document.body.classList.add('page-loaded');
-        sessionStorage.setItem('page-visited', 'true');
-      }, 350);
-      
-      return () => clearTimeout(timer);
-    } else {
-      document.body.classList.add('page-loaded');
-    }
+    // Remove page transition logic - immediately mark as loaded
+    document.body.classList.add('page-loaded');
   }, []);
 
   return <OriginalLayout>{children}</OriginalLayout>;

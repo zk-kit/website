@@ -110,16 +110,18 @@ const config: Config = {
                     to: "/about",
                     label: "About",
                 },
+                 /* TODO: temporary hide documentation and blog section 
                 {
                     to: "/blog",
                     label: "Blog",
                 },
+               
                 {
                     to: "/docs/intro",
                     label: "Documentation",
                     position: "right"
                 },
-                
+                */
             ]
         },
         // Footer is overridden by custom theme component

@@ -10,18 +10,12 @@ import { FeatureValueCard } from "@site/src/components/cards/FeatureValueCard"
 import { ActionButton, Button } from "@site/src/components/ui/Button"
 import { CardBase } from "@site/src/components/cards/CardBase"
 import { BulletPoint } from "@site/src/components/ui/BulletPoint"
-import { LINKS, SEO_DATA } from "@site/src/constants"
-import { useGithubData } from "@site/src/hooks/useGithubData"
+import { GITHUB_DATA, LINKS, SEO_DATA } from "@site/src/constants"
 import { useImagePreload, getPageImages } from "@site/src/utils/imagePreloader"
 
-const IssueData = ({ title, isLoading }: { title: string; isLoading: boolean }) => {
+const IssueData = () => {
     return (
         <div className="flex flex-col gap-[10px] ml-auto">
-            {isLoading ? (
-                <div className="animate-pulse h-[18px] w-[100px] bg-slate-300 ml-auto"></div>
-            ) : (
-                <span className="text-app-color-text-base text-lg text-right font-satoshi font-normal">{title}</span>
-            )}
             <div className="flex items-center gap-1 justify-end">
                 <span className="text-app-color-primary text-xs tracking-[0.96px] font-medium font-clash-grotesk">
                     BROWSE
@@ -34,7 +28,6 @@ const IssueData = ({ title, isLoading }: { title: string; isLoading: boolean }) 
 
 export default function ContributePage() {
     useImagePreload(getPageImages("contribute"))
-    const { data, loading } = useGithubData()
 
     return (
         <>
@@ -109,7 +102,7 @@ export default function ContributePage() {
                                 content={
                                     <div className="flex flex-col gap-[18px]">
                                         <a
-                                            href={data?.goodFirstIssues.url ?? "#   "}
+                                            href={GITHUB_DATA?.GOOD_FIRST_ISSUES.URL ?? "#   "}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="hover:[&>div]:bg-app-color-background-secondary"
@@ -117,16 +110,11 @@ export default function ContributePage() {
                                             <FeatureValueCard
                                                 title="Good First Issues"
                                                 description="Perfect for newcomers to the project"
-                                                value={
-                                                    <IssueData
-                                                        isLoading={loading}
-                                                        title={`${data?.goodFirstIssues.total ?? 0} issues`}
-                                                    />
-                                                }
+                                                value={<IssueData />}
                                             />
                                         </a>
                                         <a
-                                            href={data?.bugFixes.url ?? "#   "}
+                                            href={GITHUB_DATA?.BUG_FIXES.URL ?? "#   "}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="hover:[&>div]:bg-app-color-background-secondary"
@@ -134,16 +122,11 @@ export default function ContributePage() {
                                             <FeatureValueCard
                                                 title="Bug Fixes"
                                                 description="Help us squash bugs and improve stability"
-                                                value={
-                                                    <IssueData
-                                                        isLoading={loading}
-                                                        title={`${data?.bugFixes.total ?? 0} issues`}
-                                                    />
-                                                }
+                                                value={<IssueData />}
                                             />
                                         </a>
                                         <a
-                                            href={data?.featureRequests.url ?? "#   "}
+                                            href={GITHUB_DATA?.FEATURE_REQUESTS.URL ?? "#   "}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="hover:[&>div]:bg-app-color-background-secondary"
@@ -151,16 +134,11 @@ export default function ContributePage() {
                                             <FeatureValueCard
                                                 title="Features Requests"
                                                 description="Implement new functionality"
-                                                value={
-                                                    <IssueData
-                                                        isLoading={loading}
-                                                        title={`${data?.featureRequests.total ?? 0} issues`}
-                                                    />
-                                                }
+                                                value={<IssueData />}
                                             />
                                         </a>
                                         <a
-                                            href={data?.documentationIssues.url ?? "#   "}
+                                            href={GITHUB_DATA?.DOCUMENTATION_ISSUES.URL ?? "#   "}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="hover:[&>div]:bg-app-color-background-secondary"
@@ -168,12 +146,7 @@ export default function ContributePage() {
                                             <FeatureValueCard
                                                 title="Documentation"
                                                 description="Improve guides, examples, and API docs"
-                                                value={
-                                                    <IssueData
-                                                        isLoading={loading}
-                                                        title={`${data?.documentationIssues.total ?? 0} issues`}
-                                                    />
-                                                }
+                                                value={<IssueData />}
                                             />
                                         </a>
                                     </div>
@@ -362,18 +335,18 @@ export default function ContributePage() {
                                     >
                                         <FeatureValueCard
                                             title="@zk-kit.identity"
-                                            description="v2.1.0 - Security"
                                             value="High"
+                                            href={LINKS.ZK_IDENTITY_URL}
                                         />
                                         <FeatureValueCard
                                             title="@zk-kit/merkle-tree"
-                                            description="v1.8.0 - Performance"
                                             value="Medium"
+                                            href={LINKS.ZK_MERKLE_TREE_URL}
                                         />
                                         <FeatureValueCard
                                             title="@zk-kit/voting"
-                                            description="v3.0.0 - Code Quality"
                                             value="High"
+                                            href={LINKS.ZK_VOTING_URL}
                                         />
                                     </CardBase>
                                 </ContributeSectionCard>

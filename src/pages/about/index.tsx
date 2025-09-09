@@ -50,9 +50,6 @@ export default function AboutPage() {
                                 <AboutCard value="10K+" title="Downloads" description="Monthly package downloads" />
                                 <AboutCard value="200+" title="Contributors" description="Community developers" />
                                 <AboutCardImage />
-                                <AboutCardImage />
-                                <AboutCard value="15" title="Countries" description="Global developer reach" />
-                                <AboutCard value="95%" title="Uptime" description="Infrastructure reliability" />
                             </ResponsiveSlider>
                         </AppContent>
 
