@@ -2,22 +2,11 @@
 @import "./font.css";
 @custom-variant dark (&:is([data-theme="dark"] *));
 
-/* 
-Safelist - Force Tailwind to generate these classes
-This ensures arbitrary values with ! important are included in the build
-*/
 @media (max-width: 0px) {
     .safelist {
-        /* Size classes - lg */
         @apply !leading-[52.3px] !text-5xl lg:!text-[80px] lg:!leading-[88px];
-        
-        /* Size classes - md */
         @apply !text-[38px] lg:!text-[60px] !leading-[38px] lg:!leading-[60px];
-        
-        /* Size classes - sm */
         @apply !text-2xl lg:!text-[32px];
-        
-        /* Other classes */
         @apply !font-normal text-app-color-text-base !mb-0;
     }
 }
@@ -44,12 +33,9 @@ This ensures arbitrary values with ! important are included in the build
 
     --background-bg-surface-invert-shadow: rgba(93, 202, 71, 0.6);
 
-    /* Register font families for Tailwind utilities */
     --font-family-clash-grotesk: "ClashGrotesk-Variable", "ClashGrotesk-Medium", system-ui, sans-serif;
     --font-family-satoshi: "Satoshi-Variable", "Satoshi-Regular", system-ui, sans-serif;
 }
-
-/* Ensure Tailwind generates these utility classes */
 .font-clash-grotesk {
     font-family: var(--font-family-clash-grotesk);
 }
@@ -58,7 +44,6 @@ This ensures arbitrary values with ! important are included in the build
     font-family: var(--font-family-satoshi);
 }
 
-/* Label component styling using Tailwind */
 .label-page-title {
     @apply !font-normal text-app-color-text-base !mb-0;
     font-family: var(--font-family-clash-grotesk);
@@ -81,7 +66,6 @@ This ensures arbitrary values with ! important are included in the build
 }
 
 
-/* ContributeCard hover states with proper index-based logic */
 .contribute-card[data-index="1"]:hover .contribute-icon path:nth-child(3),
 .contribute-card[data-index="1"]:hover .contribute-icon path:nth-child(4) {
     fill: var(--app-color-primary);
@@ -136,7 +120,6 @@ This ensures arbitrary values with ! important are included in the build
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
     --app-color-background: #0e0e0e;
     --app-color-background-secondary: #131313;
@@ -212,7 +195,6 @@ html[data-theme="light"] .navbar__logo {
     content: url("/static/img/zk-kit-full-logo.svg");
 }
 
-/* remove styling from docusaurus links */
 a,
 a:hover,
 a:visited,
@@ -223,7 +205,6 @@ a:focus {
     background-color: inherit !important;
 }
 
-/* Global removal of focus, ring and active states for all anchor tags */
 a:focus,
 a:focus-visible,
 a:active {
@@ -231,14 +212,12 @@ a:active {
     box-shadow: none !important;
 }
 
-/* Only remove background on focus/active for links without specific styling needs */
 a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):focus,
 a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):focus-visible,
 a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):active {
     background: transparent !important;
 }
 
-/* Be more selective about border removal - only for plain text links */
 a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):not([class*="rounded"]):not([class*="p-"]):not(
         [class*="m-"]
     ):focus,
@@ -251,7 +230,6 @@ a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):not([class*=
     border: none !important;
 }
 
-/* iOS Safari specific fixes - prevent tap zoom and highlight */
 a,
 button,
 input,
@@ -263,7 +241,6 @@ select {
     user-select: none !important;
 }
 
-/* Prevent iOS Safari zoom on tap while preserving accessibility */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
     a:active,
     button:active {
@@ -274,21 +251,17 @@ select {
     }
 }
 
-/* iOS Safari viewport height fixes */
 @supports (height: 100dvh) {
-    /* Use dynamic viewport height when supported */
     .mobile-menu-height {
         height: 100dvh !important;
         min-height: 100dvh !important;
     }
 }
 
-/* Fallback for browsers that don't support dvh */
 @supports not (height: 100dvh) {
     .mobile-menu-height {
         height: 100vh !important;
         min-height: 100vh !important;
-        /* iOS Safari specific fix */
         min-height: -webkit-fill-available !important;
     }
 }
@@ -329,7 +302,6 @@ select {
     background-color: var(--app-color-background) !important;
 }
 
-/* Page transitions removed - no animations on page load or navigation */
 body:not(.page-loaded),
 body.page-loaded {
     opacity: 1 !important;
@@ -340,13 +312,11 @@ body.page-loaded {
 main,
 article,
 section {
-    /* Remove transition animations */
     transition: none;
 }
 
 .navbar,
 .footer {
-    /* Remove slide-in animations */
     animation: none;
 }
 

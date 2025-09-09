@@ -42,8 +42,7 @@ const config: Config = {
     ],
 
     plugins: [
-        "./src/plugins/tailwind-config.ts",
-        "./src/plugins/critical-css-plugin.ts"
+        "./src/plugins/tailwind-config.ts"
     ],
 
     // Moved to local fonts to avoid blocking external requests

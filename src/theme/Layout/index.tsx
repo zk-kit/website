@@ -7,7 +7,6 @@ interface Props {
 
 export default function Layout({ children }: Props): ReactNode {
   useEffect(() => {
-    // Remove page transition logic - immediately mark as loaded
     document.body.classList.add('page-loaded');
   }, []);
 
