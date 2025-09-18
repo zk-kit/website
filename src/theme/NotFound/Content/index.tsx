@@ -28,11 +28,12 @@ export default function NotFoundContent() {
                         <span className="font-satoshi text-base text-app-color-text-secondary">
                             {translate({
                                 id: "theme.NotFound.p1",
-                                message: "The page you are looking for could not be found. It might have been moved, deleted, or you entered the wrong URL."
+                                message:
+                                    "The page you are looking for could not be found. It might have been moved, deleted, or you entered the wrong URL."
                             })}
                         </span>
                     </div>
-                    
+
                     <div className="flex flex-col sm:flex-row gap-4 mt-4">
                         <Link to="/">
                             <Button variant="primary" size="md">

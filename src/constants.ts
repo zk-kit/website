@@ -22,28 +22,47 @@ export const SEO_DATA = {
     INDEX_PAGE: {
         TITLE: "Zero-Knowledge Development Libraries",
         DESCRIPTION: "A set of reusable libraries for zero-knowledge technologies.",
-        KEYWORDS: ["ZK-Kit", "zero-knowledge", "cryptography", "libraries", "development tools", "privacy", "blockchain"]
+        KEYWORDS: [
+            "ZK-Kit",
+            "zero-knowledge",
+            "cryptography",
+            "libraries",
+            "development tools",
+            "privacy",
+            "blockchain"
+        ]
     },
     CONTRIBUTE_PAGE: {
         TITLE: "Contribute to ZK-Kit",
-        DESCRIPTION: "Help ZK-Kit grow and improve. Choose your contribution path - from picking issues to becoming a maintainer or partner.",
+        DESCRIPTION:
+            "Help ZK-Kit grow and improve. Choose your contribution path - from picking issues to becoming a maintainer or partner.",
         KEYWORDS: ["ZK-Kit", "contribute", "open-source", "community", "maintainer", "partner", "issues", "development"]
     },
     PROJECTS_PAGE: {
         TITLE: "Projects",
-        DESCRIPTION: "Discover a curated showcase of innovative projects and applications built with ZK-Kit. See what developers are creating with our zero-knowledge libraries.",
-        KEYWORDS: ["ZK-Kit", "projects", "zero-knowledge", "showcase", "applications", "developer community", "cryptography"]
+        DESCRIPTION:
+            "Discover a curated showcase of innovative projects and applications built with ZK-Kit. See what developers are creating with our zero-knowledge libraries.",
+        KEYWORDS: [
+            "ZK-Kit",
+            "projects",
+            "zero-knowledge",
+            "showcase",
+            "applications",
+            "developer community",
+            "cryptography"
+        ]
     },
     ABOUT_PAGE: {
         TITLE: "About Us",
-        DESCRIPTION: "Learn about ZK-Kit, our growth, and commitment to the developer community. Discover our key figures and statistics.",
+        DESCRIPTION:
+            "Learn about ZK-Kit, our growth, and commitment to the developer community. Discover our key figures and statistics.",
         KEYWORDS: ["ZK-Kit", "about", "zero-knowledge", "cryptography", "developer tools", "statistics"]
     }
 }
 
 export const GITHUB_DATA = {
     GOOD_FIRST_ISSUES: {
-        URL: `${LINKS.GITHUB_URL}/zk-kit/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22`,
+        URL: "https://github.com/zk-kit#open-issues",
         TOTAL: undefined
     },
     BUG_FIXES: {

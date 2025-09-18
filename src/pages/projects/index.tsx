@@ -117,7 +117,12 @@ export default function ProjectsPage() {
                                         {projects
                                             .slice(0, showAllProjects ? projects.length : MAX_PROJECTS_TO_SHOW)
                                             .map((project, index) => (
-                                                <a href={project.url || "#"} key={index} target="_blank" rel="noopener noreferrer">
+                                                <a
+                                                    href={project.url || "#"}
+                                                    key={index}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
                                                     <ProjectCard
                                                         className={`!border-t-[1px] !border-b-[1px] ${isMobile ? "!border-r-0 !border-l-0" : "!border-r-[1px] !border-l-[1px]"}`}
                                                         {...project}

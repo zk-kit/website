@@ -49,28 +49,25 @@ export const ResponsiveSlider = ({
     autoPlaySpeed = 3000
 }: ResponsiveSliderProps) => {
     const isMobile = useMediaQuery({ query: "(max-width: 767px)" })
-    
-    const validChildren = (isMobile || forceSlider)
-        ? Children.toArray(children).filter(child => {
-            if (child && typeof child === 'object' && 'type' in child) {
-                return (child.type as any)?.name !== 'AboutCardImage'
-            }
-            return child != null
-        })
-        : children
-    
+
+    const validChildren =
+        isMobile || forceSlider
+            ? Children.toArray(children).filter((child) => {
+                  if (child && typeof child === "object" && "type" in child) {
+                      return (child.type as any)?.name !== "AboutCardImage"
+                  }
+                  return child != null
+              })
+            : children
+
     // Determine current slidesToShow and gap based on screen size
     const currentSlidesToShow = isMobile ? slidesToShow : (desktopSlidesToShow ?? slidesToShow)
     const currentGap = isMobile ? gap : (desktopGap ?? gap)
-    
+
     return (
         <div className={className}>
             {/* Desktop view - Grid layout (only when not forcing slider and not mobile) */}
-            {!forceSlider && !isMobile && (
-                <div className={desktopClassName}>
-                    {children}
-                </div>
-            )}
+            {!forceSlider && !isMobile && <div className={desktopClassName}>{children}</div>}
 
             {/* Mobile view - Slider (or forced desktop slider) */}
             {(isMobile || forceSlider) && (

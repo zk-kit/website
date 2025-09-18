@@ -65,7 +65,6 @@
     @apply font-normal text-app-color-text-base !mb-0;
 }
 
-
 .contribute-card[data-index="1"]:hover .contribute-icon path:nth-child(3),
 .contribute-card[data-index="1"]:hover .contribute-icon path:nth-child(4) {
     fill: var(--app-color-primary);
@@ -424,7 +423,6 @@ section {
     @apply border-l-2 border-blue-500;
 }
 
-
 #blog-root-layout,
 #doc-root-layout {
     font-family: var(--font-satoshi) !important;
@@ -433,7 +431,12 @@ section {
         padding: 30px !important;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         font-family: var(--font-family-clash-grotesk) !important;
         font-weight: 400 !important;
         color: var(--app-color-text-base) !important;
@@ -456,5 +459,3 @@ section {
         border: none !important;
     }
 }
-
-

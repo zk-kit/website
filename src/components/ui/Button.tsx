@@ -148,11 +148,14 @@ export const Button = forwardRef<any, ButtonProps>(
         }
 
         return (
-            <button 
-                ref={ref} 
-                className={twMerge(buttonClassName, "focus:outline-2 focus:outline-offset-2 focus:outline-app-color-primary")} 
-                disabled={isDisabled} 
-                aria-disabled={isDisabled} 
+            <button
+                ref={ref}
+                className={twMerge(
+                    buttonClassName,
+                    "focus:outline-2 focus:outline-offset-2 focus:outline-app-color-primary"
+                )}
+                disabled={isDisabled}
+                aria-disabled={isDisabled}
                 {...props}
             >
                 {renderButtonContent(children, icon, iconPosition, isExternal, loading)}

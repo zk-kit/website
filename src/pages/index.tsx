@@ -250,14 +250,6 @@ export default function HomePage(): ReactNode {
                             >
                                 <span>GitHub</span>
                             </Button>
-                            <Button
-                                className="mx-auto w-fit"
-                                icon={<Icons.Signal className="text-app-color-text-primary" />}
-                                href={LINKS.SIGNAL_URL}
-                                isExternal
-                            >
-                                <span>Signal</span>
-                            </Button>
                         </div>
                     </Banner>
                 </div>

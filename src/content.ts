@@ -35,34 +35,34 @@ export interface Partner {
 
 export const partners: Partner[] = [
     {
-        title: "Semaphore",
-        image: "/img/partners/aztec.svg",
-        imageDark: "/img/partners/aztec-dark.svg",
-    },
-    {
-        title: "Semaphore",
+        title: "Ethereum Foundation",
         image: "/img/partners/eth.svg",
-        imageDark: "/img/partners/eth-dark.svg",
+        imageDark: "/img/partners/eth-dark.svg"
     },
     {
-        title: "Semaphore",
-        image: "/img/partners/aztec.svg",
-        imageDark: "/img/partners/aztec-dark.svg",
-    },
-    {
-        title: "Semaphore",
+        title: "Ethereum Foundation",
         image: "/img/partners/eth.svg",
-        imageDark: "/img/partners/eth-dark.svg",
+        imageDark: "/img/partners/eth-dark.svg"
     },
     {
-        title: "Semaphore",
-        image: "/img/partners/aztec.svg",
-        imageDark: "/img/partners/aztec-dark.svg",
-    },
-    {
-        title: "Semaphore",
+        title: "Ethereum Foundation",
         image: "/img/partners/eth.svg",
-        imageDark: "/img/partners/eth-dark.svg",
+        imageDark: "/img/partners/eth-dark.svg"
+    },
+    {
+        title: "Ethereum Foundation",
+        image: "/img/partners/eth.svg",
+        imageDark: "/img/partners/eth-dark.svg"
+    },
+    {
+        title: "Ethereum Foundation",
+        image: "/img/partners/eth.svg",
+        imageDark: "/img/partners/eth-dark.svg"
+    },
+    {
+        title: "Ethereum Foundation",
+        image: "/img/partners/eth.svg",
+        imageDark: "/img/partners/eth-dark.svg"
     }
 ]
 

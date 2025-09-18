@@ -1,6 +1,6 @@
 import { AppContent } from "../AppContent"
 
-interface ContributeSectionCardProps {
+interface AuditSectionCardProps {
     title: string
     description?: string
     icon?: React.ReactNode
@@ -10,7 +10,7 @@ interface ContributeSectionCardProps {
     id?: string
 }
 
-export const ContributeSectionCard = ({
+export const AuditSectionCard = ({
     title,
     description,
     icon = "/img/illustrations/contribute-page-illustration.svg",
@@ -18,14 +18,14 @@ export const ContributeSectionCard = ({
     content,
     index,
     id
-}: ContributeSectionCardProps) => {
+}: AuditSectionCardProps) => {
     return (
         <section
             className={`contribute-card border-t border-b border-app-color-border group`}
             data-index={index}
             id={id}
         >
-            <AppContent className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] border-x border-y-0 lg:border-y-0 lg:border-x border-app-color-border divide-y lg:divide-y-0 lg:divide-x divide-app-color-border">
+            <AppContent className="grid grid-cols-1 border-x border-y-0 lg:border-y-0 lg:border-x border-app-color-border divide-y lg:divide-y-0 lg:divide-x divide-app-color-border">
                 <div className="flex flex-col gap-10 lg:gap-11 py-10 px-5 lg:p-[50px]">
                     <div className="flex flex-col gap-[10px]">
                         {icon}
@@ -37,9 +37,6 @@ export const ContributeSectionCard = ({
                         </div>
                     </div>
                     {content}
-                </div>
-                <div className="flex flex-col gap-10 py-10 px-5 lg:p-[50px] bg-app-color-background-secondary">
-                    {children}
                 </div>
             </AppContent>
         </section>
