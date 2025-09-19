@@ -34,7 +34,7 @@ const BUTTON_STYLES = {
 
     variants: {
         primary:
-            "bg-app-color-button-primary-background text-app-color-button-primary-text hover:bg-app-color-button-primary-background-hover hover:text-app-color-button-primary-text-hover dark:bg-app-color-button-primary-background dark:text-app-color-button-primary-text",
+            "bg-app-color-button-primary-background text-app-color-button-primary-text hover:bg-app-color-button-primary-background-hover hover:text-app-color-button-primary-text-hover dark:hover:bg-app-color-button-primary-background dark:hover:text-app-color-button-primary-text",
         secondary:
             "bg-app-color-button-secondary-background text-app-color-button-secondary-text border border-app-color-button-secondary-background hover:bg-app-color-button-secondary-background-hover hover:text-app-color-button-secondary-text-hover"
     } as const,
