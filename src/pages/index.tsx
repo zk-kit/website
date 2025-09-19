@@ -86,7 +86,7 @@ export default function HomePage(): ReactNode {
                                 <Button
                                     variant="primary"
                                     className="w-fit"
-                                    withShadow
+                                    withShadow={true}
                                     href={LINKS.USE_ZK_KIT_URL}
                                     isExternal
                                 >
