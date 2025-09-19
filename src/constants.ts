@@ -12,6 +12,7 @@ export const LINKS = {
     VIEW_ALL_OPPORTUNITIES: "#",
     SUBMIT_PROJECT: "#",
     GITHUB_URL: "https://github.com/zk-kit",
+    X_URL: "https://x.com/zkkitDevs",
     SIGNAL_URL: "https://signal.org/#signal",
     ZK_IDENTITY_URL: "#",
     ZK_MERKLE_TREE_URL: "#",
