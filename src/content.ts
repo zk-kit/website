@@ -70,32 +70,32 @@ export const languages: Language[] = [
     {
         text: "JavaScript",
         description: "Web & Node.js applications",
-        packages: 12,
-        link: "https://github.com/privacy-scaling-explorations/zk-kit"
+        packages: 9,
+        link: "https://github.com/zk-kit/zk-kit"
     },
     {
         text: "Circom",
-        description: "Zero-Knowledge circuirs",
-        packages: 10,
-        link: "https://github.com/privacy-scaling-explorations/zk-kit.circom"
+        description: "Zero-Knowledge circuits",
+        packages: 5,
+        link: "https://github.com/zk-kit/zk-kit.circom"
     },
     {
         text: "Noir",
         description: "Privacy-focused DSL",
-        packages: 9,
-        link: "https://github.com/privacy-scaling-explorations/zk-kit.noir"
+        packages: 4,
+        link: "https://github.com/zk-kit/zk-kit.noir"
     },
     {
         text: "Solidity",
         description: "Smart contracts",
-        packages: 11,
-        link: "https://github.com/privacy-scaling-explorations/zk-kit.solidity"
+        packages: 4,
+        link: "https://github.com/zk-kit/zk-kit.solidity"
     },
     {
         text: "Rust",
         description: "High-performance systems",
-        packages: 12,
-        link: "https://github.com/privacy-scaling-explorations/zk-kit.rust"
+        packages: 3,
+        link: "https://github.com/zk-kit/zk-kit.rust"
     }
 ]
 
