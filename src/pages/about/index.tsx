@@ -44,11 +44,11 @@ export default function AboutPage() {
                                 gap="16px"
                                 autoSlide={false}
                             >
-                                <AboutCard value="50+" title="ZK Components" description="Battle-tested packages" />
+                                <AboutCard value="20+" title="Packages" description="Battle-tested" />
                                 <AboutCardImage />
                                 <AboutCard value="5" title="Languages" description="Multi-language support" />
-                                <AboutCard value="10K+" title="Downloads" description="Monthly package downloads" />
-                                <AboutCard value="200+" title="Contributors" description="Community developers" />
+                                <AboutCard value="1K+" title="Commits" description="Repository Commits" />
+                                <AboutCard value="30+" title="Contributors" description="Community developers" />
                                 <AboutCardImage />
                             </ResponsiveSlider>
                         </AppContent>
