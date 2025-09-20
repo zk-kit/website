@@ -20,7 +20,7 @@ export const AppFooter = () => {
                 <Icons.ZkKit
                     height={40}
                     width={170}
-                    className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+                    className="text-app-color-background absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
                 />
             </div>
             <div className="flex items-center justify-center border-t lg:border-0 border-app-color-border">
