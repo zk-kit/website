@@ -60,7 +60,7 @@ export default function ProjectsPage() {
                                 </AppContent>
                             </div>
                             <div className="mx-auto">
-                                <Button className="w-fit" href={LINKS.SUBMIT_PROJECT} isExternal>
+                                <Button className="w-fit" href={LINKS.SUBMIT_PROJECT} withShadow={true} isExternal>
                                     Submit your project
                                 </Button>
                             </div>
@@ -147,7 +147,7 @@ export default function ProjectsPage() {
                         illustrationWidth={117}
                         illustrationOnMobile={2}
                     >
-                        <Button className="w-fit" href={LINKS.SUBMIT_PROJECT} isExternal>
+                        <Button className="w-fit" href={LINKS.SUBMIT_PROJECT} withShadow={true} isExternal>
                             Submit your project
                         </Button>
                     </Banner>

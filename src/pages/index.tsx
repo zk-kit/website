@@ -247,6 +247,7 @@ export default function HomePage(): ReactNode {
                                 icon={<Icons.Github className="text-app-color-text-primary" />}
                                 href={LINKS.GITHUB_URL}
                                 isExternal
+                                withShadow={true}
                             >
                                 <span>GitHub</span>
                             </Button>

@@ -121,7 +121,7 @@ export default function ContributePage() {
                                     className="my-auto"
                                     title="Getting Started Checklist"
                                     actions={
-                                        <Button href={LINKS.VIEW_ALL_ISSUES} isExternal>
+                                        <Button href={LINKS.VIEW_ALL_ISSUES} withShadow={true} isExternal>
                                             View issues on Github
                                         </Button>
                                     }
@@ -173,7 +173,7 @@ export default function ContributePage() {
                                     className="my-auto"
                                     title="Partnership Types"
                                     actions={
-                                        <Button href={LINKS.APPLY_TO_BE_A_PARTNER} isExternal>
+                                        <Button href={LINKS.APPLY_TO_BE_A_PARTNER} withShadow={true} isExternal>
                                             Apply to be a partner
                                         </Button>
                                     }
@@ -235,7 +235,7 @@ export default function ContributePage() {
                                         className="my-auto"
                                         title="Requirements"
                                         actions={
-                                            <Button href={LINKS.APPLY_TO_BE_A_MAINTAINER} isExternal>
+                                            <Button href={LINKS.APPLY_TO_BE_A_MAINTAINER} withShadow={true} isExternal>
                                                 Apply to be a maintainer
                                             </Button>
                                         }
@@ -264,7 +264,12 @@ export default function ContributePage() {
                                 }
                                 content={
                                     <>
-                                        <Button className="lg:w-max w-full" href={LINKS.AUDIT_GUIDE} isExternal>
+                                        <Button
+                                            className="lg:w-max w-full"
+                                            href={LINKS.AUDIT_GUIDE}
+                                            withShadow={true}
+                                            isExternal
+                                        >
                                             View All Opportunities
                                         </Button>
                                         <div className="lg:grid lg:grid-cols-2 flex flex-col  gap-[18px]">
