@@ -12,8 +12,7 @@ export const AppFooter = () => {
     return (
         <footer className="grid border-t border-app-color-border lg:grid-cols-[300px_1fr_300px] lg:divide-x divide-app-color-border h-full lg:h-[100px] bg-app-color-background">
             <div className="flex items-center justify-center">
-                <NavLink href={LINKS.GITHUB_URL} label="Github" isExternal className="w-full justify-end" />
-                <NavLink href={LINKS.X_URL} label="X (Twitter)" isExternal className="w-full justify-center" />
+                <NavLink href={LINKS.GITHUB_URL} label="Github" isExternal className="w-full justify-center" />
             </div>
             <div className="relative py-5 px-4 lg:px-20">
                 <div className="bg-repeat bg-[length:6px_6px] h-[142px] lg:h-[70px] bg-[url(/img/illustrations/footer-vector-item.svg)]"></div>
@@ -24,7 +23,7 @@ export const AppFooter = () => {
                 />
             </div>
             <div className="flex items-center justify-center border-t lg:border-0 border-app-color-border">
-                <NavLink href="/docs/intro" label="Documentation" className="w-full justify-center" />
+                <NavLink href={LINKS.X_URL} label="X (Twitter)" isExternal className="w-full justify-center" />
             </div>
         </footer>
     )
