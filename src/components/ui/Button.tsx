@@ -34,7 +34,7 @@ const BUTTON_STYLES = {
 
     variants: {
         primary:
-            "bg-app-color-button-primary-background text-app-color-button-primary-text hover:bg-app-color-button-primary-background-hover hover:text-app-color-button-primary-text-hover",
+            "bg-app-color-button-primary-background text-app-color-button-primary-text hover:bg-app-color-button-primary-background-hover hover:text-app-color-button-primary-text-hover dark:hover:bg-app-color-button-primary-background dark:hover:text-app-color-button-primary-text",
         secondary:
             "bg-app-color-button-secondary-background text-app-color-button-secondary-text border border-app-color-button-secondary-background hover:bg-app-color-button-secondary-background-hover hover:text-app-color-button-secondary-text-hover"
     } as const,
@@ -53,7 +53,7 @@ const BUTTON_STYLES = {
     } as const,
 
     withShadow: {
-        true: "hover:shadow-lg hover:shadow-background-bg-surface-invert-shadow",
+        true: "hover:shadow-lg hover:shadow-[0_0_18px_4px_var(--ifm-color-primary-lightest)] dark:hover:shadow-[0_0_18px_4px_color-mix(in_srgb,var(--ifm-color-primary-lightest),transparent_70%)]",
         false: ""
     } as const,
 
@@ -148,11 +148,14 @@ export const Button = forwardRef<any, ButtonProps>(
         }
 
         return (
-            <button 
-                ref={ref} 
-                className={twMerge(buttonClassName, "focus:outline-2 focus:outline-offset-2 focus:outline-app-color-primary")} 
-                disabled={isDisabled} 
-                aria-disabled={isDisabled} 
+            <button
+                ref={ref}
+                className={twMerge(
+                    buttonClassName,
+                    "focus:outline-2 focus:outline-offset-2 focus:outline-app-color-primary"
+                )}
+                disabled={isDisabled}
+                aria-disabled={isDisabled}
                 {...props}
             >
                 {renderButtonContent(children, icon, iconPosition, isExternal, loading)}

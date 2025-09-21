@@ -30,8 +30,11 @@ export const useProjects = () => {
     }
 
     const filteredProjects = projects.filter((project) => {
-        const languageMatch = selectedLanguages.length === 0 || selectedLanguages.some((language) => project.languages?.includes(language))
-        const useCaseMatch = selectedUseCases.length === 0 || selectedUseCases.some((useCase) => project.useCases?.includes(useCase))
+        const languageMatch =
+            selectedLanguages.length === 0 ||
+            selectedLanguages.some((language) => project.languages?.includes(language))
+        const useCaseMatch =
+            selectedUseCases.length === 0 || selectedUseCases.some((useCase) => project.useCases?.includes(useCase))
         return languageMatch && useCaseMatch
     })
 

@@ -86,7 +86,7 @@ export default function HomePage(): ReactNode {
                                 <Button
                                     variant="primary"
                                     className="w-fit"
-                                    withShadow
+                                    withShadow={true}
                                     href={LINKS.USE_ZK_KIT_URL}
                                     isExternal
                                 >
@@ -247,16 +247,9 @@ export default function HomePage(): ReactNode {
                                 icon={<Icons.Github className="text-app-color-text-primary" />}
                                 href={LINKS.GITHUB_URL}
                                 isExternal
+                                withShadow={true}
                             >
                                 <span>GitHub</span>
-                            </Button>
-                            <Button
-                                className="mx-auto w-fit"
-                                icon={<Icons.Signal className="text-app-color-text-primary" />}
-                                href={LINKS.SIGNAL_URL}
-                                isExternal
-                            >
-                                <span>Signal</span>
                             </Button>
                         </div>
                     </Banner>

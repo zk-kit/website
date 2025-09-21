@@ -18,8 +18,12 @@ export const ContributeCard = ({ index, title, description, icon, href, id }: Co
             id={id}
         >
             <div className="flex flex-col gap-[30px]">
-                <span className="text-app-color-text-base text-2xl font-satoshi font-normal">{title}</span>
-                <span className="text-base text-app-color-text-secondary font-satoshi">{description}</span>
+                <span className="text-app-color-text-base text-2xl font-satoshi font-normal md:h-10 h-auto ">
+                    {title}
+                </span>
+                <span className="text-base text-app-color-text-secondary font-satoshi md:h-20 h-auto">
+                    {description}
+                </span>
             </div>
             <div className="opacity-0 group-hover:cursor-pointer pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-200 w-fit mx-auto">
                 <Button className="group-hover:!bg-app-color-button-primary-background group-hover:!text-app-color-button-primary-text">

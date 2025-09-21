@@ -33,14 +33,13 @@ export const ProjectCard = ({
                 </div>
             </div>
             <div className="flex flex-col gap-5">
-                <span className="text-base font-satoshi text-app-color-text-secondary line-clamp-3">{description}</span>
+                <span className="text-base font-satoshi text-app-color-text-secondary line-clamp-3 h-19">
+                    {description}
+                </span>
                 <Button variant="secondary" withGroupHover>
                     <span className="relative overflow-hidden">
-                        <span className="opacity-100 flex group-hover:hidden w-auto h-auto group-hover:opacity-0 group-hover:w-0 group-hover:h-0">
+                        <span className="flex w-auto h-auto group-hover:w-auto group-hover:h-auto group-hover:flex transition-all duration-300">
                             View project
-                        </span>
-                        <span className="opacity-0 w-0 h-0 hidden group-hover:opacity-100 group-hover:w-auto group-hover:h-auto group-hover:flex">
-                            Read more
                         </span>
                     </span>
                 </Button>

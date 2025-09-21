@@ -7,25 +7,15 @@ interface LabelProps {
 
 const PageTitle = ({ children, className, as = "h1", size = "lg" }: LabelProps) => {
     const Component = as
-    
-    return (
-        <Component 
-            className={`label-page-title label-page-title-${size} ${className || ""}`}
-        >
-            {children}
-        </Component>
-    )
+
+    return <Component className={`label-page-title label-page-title-${size} ${className || ""}`}>{children}</Component>
 }
 
 const SectionTitle = ({ children, className, as = "h2", size = "sm" }: LabelProps) => {
     const Component = as
-    
+
     return (
-        <Component 
-            className={`label-section-title label-page-title-${size} ${className || ""}`}
-        >
-            {children}
-        </Component>
+        <Component className={`label-section-title label-page-title-${size} ${className || ""}`}>{children}</Component>
     )
 }
 

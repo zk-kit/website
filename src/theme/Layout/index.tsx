@@ -1,14 +1,14 @@
-import React, { type ReactNode, useEffect } from 'react';
-import OriginalLayout from '@theme-original/Layout';
+import React, { type ReactNode, useEffect } from "react"
+import OriginalLayout from "@theme-original/Layout"
 
 interface Props {
-  children: ReactNode;
+    children: ReactNode
 }
 
 export default function Layout({ children }: Props): ReactNode {
-  useEffect(() => {
-    document.body.classList.add('page-loaded');
-  }, []);
+    useEffect(() => {
+        document.body.classList.add("page-loaded")
+    }, [])
 
-  return <OriginalLayout>{children}</OriginalLayout>;
+    return <OriginalLayout>{children}</OriginalLayout>
 }

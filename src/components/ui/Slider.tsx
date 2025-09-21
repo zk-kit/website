@@ -35,7 +35,6 @@ export const Slider = ({
     showControls = true,
     infinite = false
 }: SliderProps) => {
-
     const isMobile = useMediaQuery({ query: "(max-width: 767px)" })
     const [touchStart, setTouchStart] = useState(0)
     const [touchEnd, setTouchEnd] = useState(0)
@@ -45,14 +44,16 @@ export const Slider = ({
 
     const totalSlides = children.length
     const maxSlideIndex = infinite ? totalSlides - 1 : Math.max(0, totalSlides - Math.floor(slidesToShow))
-    
+
     // For infinite scroll, we need to duplicate slides
     const slidesToClone = Math.ceil(slidesToShow)
-    const infiniteChildren = infinite ? [
-        ...children.slice(-slidesToClone), // Clone last items at beginning
-        ...children, // Original items
-        ...children.slice(0, slidesToClone) // Clone first items at end
-    ] : children
+    const infiniteChildren = infinite
+        ? [
+              ...children.slice(-slidesToClone), // Clone last items at beginning
+              ...children, // Original items
+              ...children.slice(0, slidesToClone) // Clone first items at end
+          ]
+        : children
 
     const [currentSlide, setCurrentSlide] = useState(infinite ? slidesToClone : 0)
 
@@ -72,8 +73,8 @@ export const Slider = ({
 
         const slider = sliderRef.current
         if (slider) {
-            slider.addEventListener('transitionend', handleTransitionEnd)
-            return () => slider.removeEventListener('transitionend', handleTransitionEnd)
+            slider.addEventListener("transitionend", handleTransitionEnd)
+            return () => slider.removeEventListener("transitionend", handleTransitionEnd)
         }
     }, [infinite, currentSlide, totalSlides, slidesToClone, isTransitioning])
 
@@ -151,7 +152,7 @@ export const Slider = ({
     const currentChildren = infinite ? infiniteChildren : children
 
     return (
-        <div 
+        <div
             className={twMerge("flex flex-col gap-5", controlsPosition === "top" && "flex-col-reverse")}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}

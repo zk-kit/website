@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, ImgHTMLAttributes } from "react"
 import { twMerge } from "tailwind-merge"
 
-interface LazyImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'loading'> {
+interface LazyImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, "loading"> {
     src: string
     alt: string
     placeholder?: string
@@ -9,17 +9,13 @@ interface LazyImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'load
     priority?: boolean
 }
 
-export const LazyImage = ({ 
-    src, 
-    alt, 
-    placeholder, 
-    className, 
-    priority = false,
-    ...props 
-}: LazyImageProps) => {
+export const LazyImage = ({ src, alt, placeholder, className, priority = false, ...props }: LazyImageProps) => {
     const [isLoaded, setIsLoaded] = useState(false)
     const [isInView, setIsInView] = useState(priority)
-    const [imageSrc, setImageSrc] = useState(placeholder || 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y0ZjRmNCIvPjwvc3ZnPg==')
+    const [imageSrc, setImageSrc] = useState(
+        placeholder ||
+            "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y0ZjRmNCIvPjwvc3ZnPg=="
+    )
     const imgRef = useRef<HTMLImageElement>(null)
 
     useEffect(() => {
@@ -34,7 +30,7 @@ export const LazyImage = ({
                     }
                 })
             },
-            { rootMargin: '50px' }
+            { rootMargin: "50px" }
         )
 
         if (imgRef.current) {
@@ -63,11 +59,7 @@ export const LazyImage = ({
             src={imageSrc}
             alt={alt}
             loading={priority ? "eager" : "lazy"}
-            className={twMerge(
-                "transition-opacity duration-300",
-                isLoaded ? "opacity-100" : "opacity-70",
-                className
-            )}
+            className={twMerge("transition-opacity duration-300", isLoaded ? "opacity-100" : "opacity-70", className)}
             {...props}
         />
     )

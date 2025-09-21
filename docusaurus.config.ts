@@ -41,9 +41,7 @@ const config: Config = {
         }
     ],
 
-    plugins: [
-        "./src/plugins/tailwind-config.ts"
-    ],
+    plugins: ["./src/plugins/tailwind-config.ts"],
 
     // Moved to local fonts to avoid blocking external requests
 
@@ -58,7 +56,7 @@ const config: Config = {
                     editUrl: "https://github.com/zk-kit/website"
                 },
                 blog: {
-                    routeBasePath: '/blog',
+                    routeBasePath: "/blog",
                     showReadingTime: true,
                     feedOptions: {
                         type: ["rss", "atom"],
@@ -81,9 +79,9 @@ const config: Config = {
         // Open Graph / social card image
         image: "og-share-zk-kot.webp",
         colorMode: {
-            defaultMode: 'dark',
+            defaultMode: "dark",
             disableSwitch: false,
-            respectPrefersColorScheme: false,
+            respectPrefersColorScheme: false
         },
         // Navbar is overridden by custom theme component but config needed for AppNavbar
         navbar: {
@@ -95,21 +93,21 @@ const config: Config = {
             items: [
                 {
                     to: "/",
-                    label: "Home",
+                    label: "Home"
                 },
                 {
                     to: "/projects",
-                    label: "Projects",
+                    label: "Projects"
                 },
                 {
                     to: "/contribute",
-                    label: "Contribute",
+                    label: "Contribute"
                 },
                 {
                     to: "/about",
-                    label: "About",
-                },
-                 /* TODO: temporary hide documentation and blog section 
+                    label: "About"
+                }
+                /* TODO: temporary hide documentation and blog section 
                 {
                     to: "/blog",
                     label: "Blog",
@@ -131,7 +129,7 @@ const config: Config = {
         },
         tableOfContents: {
             minHeadingLevel: 2,
-            maxHeadingLevel: 3,
+            maxHeadingLevel: 3
         }
     } satisfies Preset.ThemeConfig
 }

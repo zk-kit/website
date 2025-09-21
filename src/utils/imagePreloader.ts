@@ -24,7 +24,7 @@ export const useImagePreload = (images: ImagePreloadConfig[]) => {
             link.rel = "preload"
             link.as = "image"
             link.href = src
-            
+
             // Set fetch priority for critical images
             if (fetchPriority !== "auto") {
                 link.setAttribute("fetchpriority", fetchPriority)
@@ -37,7 +37,7 @@ export const useImagePreload = (images: ImagePreloadConfig[]) => {
 
         // Cleanup: remove preload links when component unmounts
         return () => {
-            preloadLinks.forEach(link => {
+            preloadLinks.forEach((link) => {
                 if (document.head.contains(link)) {
                     document.head.removeChild(link)
                 }
