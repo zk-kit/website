@@ -1,11 +1,113 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+@import "tailwindcss";
+@import "./font.css";
+@custom-variant dark (&:is([data-theme="dark"] *));
 
-/* You can override the default Infima variables here. */
+@media (max-width: 0px) {
+    .safelist {
+        @apply !leading-[52.3px] !text-5xl lg:!text-[80px] lg:!leading-[88px];
+        @apply !text-[38px] lg:!text-[60px] !leading-[38px] lg:!leading-[60px];
+        @apply !text-2xl lg:!text-[32px];
+        @apply !font-normal text-app-color-text-base !mb-0;
+    }
+}
+
+@theme {
+    --color-app-color-text-base: var(--app-color-text-base);
+    --color-app-color-text-secondary: var(--app-color-text-secondary);
+    --color-app-color-background: var(--app-color-background);
+    --color-app-color-background-secondary: var(--app-color-background-secondary);
+    --color-app-color-border: var(--app-color-border);
+    --color-app-color-tag-background: var(--app-color-tag-background);
+    --color-app-color-tag-background-hover: var(--app-color-tag-background-hover);
+    --color-app-color-tag-text: var(--app-color-tag-text);
+    --color-app-color-primary: var(--app-color-primary);
+
+    --color-app-color-button-primary-background: var(--app-color-button-primary-background);
+    --color-app-color-button-primary-background-hover: var(--app-color-button-primary-background-hover);
+    --color-app-color-button-primary-text: var(--app-color-button-primary-text);
+    --color-app-color-button-primary-text-hover: var(--app-color-button-primary-text-hover);
+    --color-app-color-button-secondary-background: var(--app-color-button-secondary-background);
+    --color-app-color-button-secondary-background-hover: var(--app-color-button-secondary-background-hover);
+    --color-app-color-button-secondary-text: var(--app-color-button-secondary-text);
+    --color-app-color-button-secondary-text-hover: var(--app-color-button-secondary-text-hover);
+
+    --background-bg-surface-invert-shadow: rgba(93, 202, 71, 0.6);
+
+    --font-family-clash-grotesk: "ClashGrotesk-Variable", "ClashGrotesk-Medium", system-ui, sans-serif;
+    --font-family-satoshi: "Satoshi-Variable", "Satoshi-Regular", system-ui, sans-serif;
+}
+.font-clash-grotesk {
+    font-family: var(--font-family-clash-grotesk);
+}
+
+.font-satoshi {
+    font-family: var(--font-family-satoshi);
+}
+
+.label-page-title {
+    @apply !font-normal text-app-color-text-base !mb-0;
+    font-family: var(--font-family-clash-grotesk);
+}
+
+.label-page-title-lg {
+    @apply !leading-[52.3px] !text-5xl lg:!text-[80px] lg:!leading-[88px];
+}
+
+.label-page-title-md {
+    @apply !text-[38px] lg:!text-[60px] !leading-[38px] lg:!leading-[60px];
+}
+
+.label-page-title-sm {
+    @apply !text-2xl lg:!text-[32px];
+}
+
+.label-section-title {
+    @apply font-normal text-app-color-text-base !mb-0;
+}
+
+.contribute-card[data-index="1"]:hover .contribute-icon path:nth-child(3),
+.contribute-card[data-index="1"]:hover .contribute-icon path:nth-child(4) {
+    fill: var(--app-color-primary);
+}
+
+.contribute-card[data-index="2"]:hover .contribute-icon path:nth-child(2) {
+    fill: var(--app-color-primary);
+}
+
+.contribute-card[data-index="3"]:hover .contribute-icon path:nth-child(1) {
+    fill: var(--app-color-primary);
+}
+
+.contribute-card[data-index="4"]:hover .contribute-icon path:nth-child(5),
+.contribute-card[data-index="4"]:hover .contribute-icon path:nth-child(6) {
+    fill: var(--app-color-primary);
+}
+
+.contribute-icon path {
+    transition: fill 0.2s ease;
+}
+
 :root {
+    --app-color-background: #ffffff;
+    --app-color-background-secondary: #f3fcf1;
+    --app-color-primary: #5dca47;
+    --app-color-text-base: #0e0e0e;
+    --app-color-text-secondary: #6d6d6d;
+    --app-color-border: #d1d1d1;
+    --app-color-tag-background: #e4f9df;
+    --app-color-tag-background-hover: #caf1c1;
+    --app-color-tag-text: #285d1e;
+
+    --app-color-button-primary-background: #0e0e0e;
+    --app-color-button-primary-background-hover: #48b532;
+    --app-color-button-primary-text: #ffffff;
+    --app-color-button-primary-text-hover: #ffffff;
+
+    --app-color-button-secondary-background: #e4f9df;
+    --app-color-button-secondary-background-hover: #2d7520;
+    --app-color-button-secondary-text: #0e0e0e;
+    --app-color-button-secondary-text-hover: #fff;
+
     --ifm-color-primary: #48b532;
     --ifm-color-primary-dark: #369524;
     --ifm-color-primary-darker: #2d7520;
@@ -17,8 +119,32 @@
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
+    --app-color-background: #0e0e0e;
+    --app-color-background-secondary: #131313;
+    --app-color-primary: #5dca47;
+    --app-color-text-base: #e7e7e7;
+    --app-color-text-secondary: #b0b0b0;
+    --app-color-border: #323232;
+    --app-color-tag-background: #1a1a1a;
+    --app-color-tag-background-hover: #1a1a1a;
+    --app-color-tag-text: #fff;
+
+    --app-color-button-primary-background: #fff;
+    --app-color-button-primary-background-hover: #1a1a1a;
+    --app-color-button-primary-text: #0e0e0e;
+    --app-color-button-primary-text-hover: #e7e7e7;
+
+    --app-color-button-secondary-background: #0e0e0e;
+    --app-color-button-secondary-background-hover: #fff;
+    --app-color-button-secondary-text: #ffffff;
+    --app-color-button-secondary-text-hover: #0e0e0e;
+
+    --app-color-button-tertiary-background: #e4f9df;
+    --app-color-button-tertiary-background-hover: #caf1c1;
+    --app-color-button-tertiary-text: #285d1e;
+    --app-color-button-tertiary-text-hover: #0e0e0e;
+
     --ifm-color-primary: #48b532;
     --ifm-color-primary-dark: #369524;
     --ifm-color-primary-darker: #2d7520;
@@ -29,8 +155,21 @@
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-@import "tailwindcss";
-@custom-variant dark (&:is([data-theme="dark"] *));
+html {
+    scroll-behavior: smooth;
+}
+
+[id] {
+    scroll-margin-top: 80px;
+}
+
+html,
+body * {
+    text-rendering: geometricPrecision !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
+}
 
 .navbar__link {
     display: flex;
@@ -53,4 +192,270 @@ html[data-theme="dark"] .navbar__logo {
 
 html[data-theme="light"] .navbar__logo {
     content: url("/static/img/zk-kit-full-logo.svg");
+}
+
+a,
+a:hover,
+a:visited,
+a:active,
+a:focus {
+    color: inherit !important;
+    text-decoration: none !important;
+    background-color: inherit !important;
+}
+
+a:focus,
+a:focus-visible,
+a:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):focus,
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):focus-visible,
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):active {
+    background: transparent !important;
+}
+
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):not([class*="rounded"]):not([class*="p-"]):not(
+        [class*="m-"]
+    ):focus,
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):not([class*="rounded"]):not([class*="p-"]):not(
+        [class*="m-"]
+    ):focus-visible,
+a:not([class*="divide"]):not([class*="border"]):not([class*="bg-"]):not([class*="rounded"]):not([class*="p-"]):not(
+        [class*="m-"]
+    ):active {
+    border: none !important;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    a:active,
+    button:active {
+        transform: none !important;
+        transition: none !important;
+        -webkit-transform: none !important;
+        -webkit-transition: none !important;
+    }
+}
+
+@supports (height: 100dvh) {
+    .mobile-menu-height {
+        height: 100dvh !important;
+        min-height: 100dvh !important;
+    }
+}
+
+@supports not (height: 100dvh) {
+    .mobile-menu-height {
+        height: 100vh !important;
+        min-height: 100vh !important;
+        min-height: -webkit-fill-available !important;
+    }
+}
+
+/* Additional iOS Safari mobile menu fixes */
+@media screen and (max-width: 1023px) {
+    /* Prevent background scrolling when mobile menu is open */
+    body.mobile-menu-open {
+        position: fixed !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important;
+    }
+}
+
+/* Partner logos - remove all filters, let SVGs handle their own colors */
+.partner-logo {
+    filter: none;
+}
+
+/* If logos are dark and need to be visible in dark mode, use simple invert */
+[data-theme="dark"] .partner-logo {
+    filter: invert(1);
+}
+
+/* Define CSS custom properties for logo colors that change with theme */
+:root {
+    --logo-primary-color: #000000; /* Black in light mode */
+    --logo-secondary-color: #333333; /* Dark gray in light mode */
+}
+
+[data-theme="dark"] {
+    --logo-primary-color: #ffffff; /* White in dark mode */
+    --logo-secondary-color: #cccccc; /* Light gray in dark mode */
+}
+
+.language-card-link {
+    background-color: var(--app-color-background) !important;
+}
+
+body:not(.page-loaded),
+body.page-loaded {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+}
+
+main,
+article,
+section {
+    transition: none;
+}
+
+.navbar,
+.footer {
+    animation: none;
+}
+
+.language-card-link:hover {
+    background-color: var(--app-color-background-secondary) !important;
+}
+
+/* Custom Sidebar Styling */
+.custom-doc-sidebar {
+    /* Add custom sidebar styles here if needed beyond Tailwind */
+}
+
+/* Enhanced sidebar menu styling */
+.custom-sidebar-content .menu__list {
+    @apply space-y-1;
+}
+
+.custom-sidebar-content .menu__list-item {
+    @apply rounded-lg;
+}
+
+.custom-sidebar-content .menu__link {
+    @apply px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200;
+    @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+    @apply border-l-4 border-transparent hover:border-gray-300 dark:hover:border-gray-600;
+    @apply flex items-center;
+}
+
+.custom-sidebar-content .menu__link--active {
+    @apply bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300;
+    @apply border-l-4 border-blue-500;
+    @apply shadow-sm;
+}
+
+/* Category styling */
+.custom-sidebar-content .menu__list-item--collapsible .menu__link {
+    @apply font-semibold;
+    @apply bg-gray-50 dark:bg-gray-800/50;
+}
+
+.custom-sidebar-content .menu__list-item--collapsible .menu__link:hover {
+    @apply bg-gray-100 dark:bg-gray-700;
+}
+
+/* Nested item indentation */
+.custom-sidebar-content .menu__list .menu__list {
+    @apply ml-4 border-l-2 border-gray-200 dark:border-gray-700 pl-2;
+}
+
+/* Custom badges and indicators */
+.sidebar-badge-new {
+    @apply ml-auto px-2 py-0.5 text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded-full;
+}
+
+.sidebar-badge-beta {
+    @apply ml-auto px-2 py-0.5 text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 rounded-full;
+}
+
+.sidebar-active-indicator {
+    @apply ml-auto w-2 h-2 bg-blue-500 rounded-full;
+}
+
+/* Hover effects for categories */
+.category-wrapper:hover .menu__caret {
+    @apply text-gray-600 dark:text-gray-300;
+}
+
+/* Custom scrollbar for sidebar */
+.custom-sidebar-content::-webkit-scrollbar {
+    @apply w-2;
+}
+
+.custom-sidebar-content::-webkit-scrollbar-track {
+    @apply bg-transparent;
+}
+
+.custom-sidebar-content::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+.custom-sidebar-content::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Custom TOC Styling */
+.custom-toc {
+    /* Add custom TOC styles here if needed beyond Tailwind */
+}
+
+.custom-toc-content .table-of-contents {
+    /* Custom TOC list styling */
+    @apply space-y-1;
+}
+
+.custom-toc-content .table-of-contents__link {
+    /* Custom TOC link styling */
+    @apply block px-3 py-1.5 text-sm rounded-lg transition-colors duration-200;
+    @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+    @apply border-l-2 border-transparent hover:border-blue-500;
+}
+
+.custom-toc-content .table-of-contents__link--active {
+    /* Active TOC link styling */
+    @apply bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300;
+    @apply border-l-2 border-blue-500;
+}
+
+#blog-root-layout,
+#doc-root-layout {
+    font-family: var(--font-satoshi) !important;
+
+    div[class*="generated"] {
+        padding: 30px !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-family-clash-grotesk) !important;
+        font-weight: 400 !important;
+        color: var(--app-color-text-base) !important;
+    }
+
+    [aria-label="Home page"] {
+        display: none !important;
+    }
+
+    .breadcrumbs__link.breadcrumbs__item--active {
+        border-radius: 6px !important;
+        background-color: var(--app-color-tag-background) !important;
+        color: var(--app-color-tag-text) !important;
+        padding: 2px 6px !important;
+        font-size: 12px !important;
+        font-weight: 500 !important;
+    }
+
+    .table-of-contents {
+        border: none !important;
+    }
 }

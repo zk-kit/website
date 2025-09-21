@@ -6,11 +6,11 @@ import type * as Preset from "@docusaurus/preset-classic"
 
 const config: Config = {
     title: "ZK-Kit",
-    tagline: "ZK-Kit website.",
+    tagline: "A set of reusable libraries for zero-knowledge technologies.",
     favicon: "img/zk-kit-logo.svg",
 
     // Set the production url of your site here
-    url: "https://your-docusaurus-site.example.com",
+    url: "https://zkkit.org",
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: "/",
@@ -31,14 +31,19 @@ const config: Config = {
         locales: ["en"]
     },
 
-    plugins: ["./src/plugins/tailwind-config.ts"],
-
-    stylesheets: [
+    headTags: [
         {
-            href: "https://api.fontshare.com/v2/css?f[]=clash-grotesk@500&display=swap",
-            type: "text/css"
+            tagName: "meta",
+            attributes: {
+                name: "viewport",
+                content: "width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+            }
         }
     ],
+
+    plugins: ["./src/plugins/tailwind-config.ts"],
+
+    // Moved to local fonts to avoid blocking external requests
 
     presets: [
         [
@@ -51,18 +56,17 @@ const config: Config = {
                     editUrl: "https://github.com/zk-kit/website"
                 },
                 blog: {
+                    routeBasePath: "/blog",
                     showReadingTime: true,
                     feedOptions: {
                         type: ["rss", "atom"],
                         xslt: true
                     },
-                    // Please change this to your repo.
-                    // Remove this to remove the "edit this page" links.
                     editUrl: "https://github.com/zk-kit/website",
-                    // Useful options to enforce blogging best practices
                     onInlineTags: "warn",
                     onInlineAuthors: "warn",
-                    onUntruncatedBlogPosts: "warn"
+                    onUntruncatedBlogPosts: "warn",
+                    blogSidebarCount: 0
                 },
                 theme: {
                     customCss: "./src/css/custom.css"
@@ -72,8 +76,14 @@ const config: Config = {
     ],
 
     themeConfig: {
-        // Replace with your project's social card
-        image: "img/docusaurus-social-card.jpg",
+        // Open Graph / social card image
+        image: "og-share-zk-kot.webp",
+        colorMode: {
+            defaultMode: "dark",
+            disableSwitch: false,
+            respectPrefersColorScheme: false
+        },
+        // Navbar is overridden by custom theme component but config needed for AppNavbar
         navbar: {
             title: "",
             logo: {
@@ -82,43 +92,44 @@ const config: Config = {
             },
             items: [
                 {
-                    href: "https://github.com/privacy-scaling-explorations/zk-kit",
-                    label: "GitHub",
-                    position: "right"
-                }
-            ]
-        },
-        footer: {
-            style: "dark",
-            links: [
-                {
-                    title: "Community",
-                    items: [
-                        {
-                            label: "GitHub Discussions",
-                            href: "https://github.com/privacy-scaling-explorations/zk-kit/discussions"
-                        },
-                        {
-                            label: "PSE Discord(#🧰-zk-kit)",
-                            href: "https://pse.dev/discord"
-                        }
-                    ]
+                    to: "/",
+                    label: "Home"
                 },
                 {
-                    title: "More",
-                    items: [
-                        {
-                            label: "GitHub",
-                            href: "https://github.com/privacy-scaling-explorations/zk-kit"
-                        }
-                    ]
+                    to: "/projects",
+                    label: "Projects"
+                },
+                {
+                    to: "/contribute",
+                    label: "Contribute"
+                },
+                {
+                    to: "/about",
+                    label: "About"
                 }
-            ],
-            copyright: `Copyright © ${new Date().getFullYear()} Ethereum Foundation`
+                /* TODO: temporary hide documentation and blog section 
+                {
+                    to: "/blog",
+                    label: "Blog",
+                },
+               
+                {
+                    to: "/docs/intro",
+                    label: "Documentation",
+                    position: "right"
+                },
+                */
+            ]
         },
+        // Footer is overridden by custom theme component
+        footer: undefined,
         prism: {
             theme: prismThemes.github,
             darkTheme: prismThemes.dracula
+        },
+        tableOfContents: {
+            minHeadingLevel: 2,
+            maxHeadingLevel: 3
         }
     } satisfies Preset.ThemeConfig
 }
