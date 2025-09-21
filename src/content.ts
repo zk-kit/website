@@ -135,99 +135,50 @@ export const features: Feature[] = [
 export const projects: Project[] = [
     {
         title: "Semaphore",
-        description:
-            "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
+        description: "A zero-knowledge protocol for anonymous proof of membership.",
         image: "/img/projects/project-1.png",
         languages: ["Javascript", "Circom", "Solidity"],
-        useCases: ["Identity", "Voting", "Privacy"],
+        useCases: ["Identity", "Groups", "Voting", "Privacy"],
         featured: true,
-        url: "#"
+        url: "https://semaphore.pse.dev/"
     },
     {
         title: "MACI",
-        description:
-            "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
+        description: "Minimal Anti-Collusion Infrastructure (MACI) is a private, on-chain, voting system.",
         image: "/img/projects/project-2.png",
         languages: ["Javascript", "Solidity", "Circom"],
         useCases: ["Voting", "Privacy", "Identity"],
         featured: true,
-        url: "#"
+        url: "https://maci.pse.dev/"
     },
     {
         title: "Privacy Pools",
         description:
-            "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
+            "Privacy Pools is a blockchain protocol that enables private asset transfers. Users can deposit funds publicly and partially withdraw them privately, provided they can prove membership in an approved set of addresses.",
         image: "/img/projects/project-3.png",
-        languages: ["Rust", "Noir", "Solidity"],
+        languages: ["Javascript", "Solidity"],
         useCases: ["DeFi", "Privacy"],
         featured: true,
-        url: "#"
+        url: "https://privacypools.com/"
     },
     {
-        title: "Project 4",
+        title: "Zupass",
         description:
-            "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
+            "Software for storing and managing Proof-Carrying Data: any data whose well-formedness and validity are cryptographically verifiable.",
         image: "/img/projects/project-4.png",
-        languages: ["Noir", "Javascript"],
-        useCases: ["Gaming", "Social"],
+        languages: ["Javascript", "Circom"],
+        useCases: ["Social", "Privacy"],
         featured: true,
-        url: "#"
+        url: "https://github.com/proofcarryingdata/zupass"
     },
-
     {
-        title: "Project 5",
-        description:
-            "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
+        title: "Self Protocol",
+        description: "Prove your humanity seamlessly & privately.",
         image: "/img/projects/project-5.png",
-        languages: ["Circom", "Rust", "Javascript"],
+        languages: ["Javascript", "Solidity", "Circom"],
         useCases: ["Identity", "Social", "Privacy"],
         featured: true,
-        url: "#"
-    },
-    {
-        title: "Project 6",
-        description:
-            "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
-        image: "/img/projects/project-6.png",
-        languages: ["Solidity", "Noir"],
-        useCases: ["DeFi", "Voting"],
-        url: "#"
-    },
-    {
-        title: "Project 7",
-        description:
-            "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
-        image: "/img/projects/project-7.png",
-        languages: ["Rust", "Circom", "Solidity"],
-        useCases: ["Gaming", "Privacy", "Identity"],
-        url: "#"
-    },
-    {
-        title: "Project 8",
-        description:
-            "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
-        image: "/img/projects/project-8.png",
-        languages: ["Javascript", "Noir", "Rust"],
-        useCases: ["Social", "DeFi"],
-        url: "#"
-    },
-    {
-        title: "Project 9",
-        description:
-            "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
-        image: "/img/projects/project-9.png",
-        languages: ["Circom", "Solidity"],
-        useCases: ["Voting", "Identity", "Gaming"],
-        url: "#"
-    },
-    {
-        title: "Project 10",
-        description:
-            "Malesuada facilisi libero, nam eu. Quis pellentesque tortor a elementum ut blandit sed pellentesque arcu.",
-        image: "/img/projects/project-10.png",
-        languages: ["Noir", "Rust", "Javascript", "Solidity"],
-        useCases: ["Privacy", "Social", "DeFi"],
-        url: "#"
+        url: "https://self.xyz/"
     }
 ]
 
