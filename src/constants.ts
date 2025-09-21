@@ -10,7 +10,7 @@ export const LINKS = {
     APPLY_TO_BE_A_PARTNER: "https://forms.gle/WZ92W6XBnULDKEsh7",
     VIEW_ALL_ISSUES: "https://github.com/zk-kit#-open-issues",
     VIEW_ALL_OPPORTUNITIES: "#",
-    SUBMIT_PROJECT: "https://github.com/zk-kit/website/issues",
+    SUBMIT_PROJECT: "https://github.com/zk-kit/website/issues/new?template=----project.md",
     GITHUB_URL: "https://github.com/zk-kit",
     X_URL: "https://x.com/zkkitDevs",
     SIGNAL_URL: "https://signal.org/#signal",
