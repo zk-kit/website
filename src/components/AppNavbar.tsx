@@ -139,7 +139,7 @@ export const AppNavbar = () => {
                     <NavItems items={sideNavItems} currentPath={currentPath} />
                     <button
                         onClick={toggleColorMode}
-                        className="p-[10px] mx-auto rounded-[6px] group cursor-pointer bg-app-color-tag-background hover:bg-app-color-tag-background-hover transition-all duration-200"
+                        className="p-[10px] mx-auto rounded-[6px] group cursor-pointer bg-app-color-tag-background hover:bg-app-color-tag-background-hover transition-all duration-200 hover:opacity-80"
                         aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
                     >
                         {theme === "dark" ? (

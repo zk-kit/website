@@ -30,6 +30,10 @@
     --color-app-color-button-secondary-background-hover: var(--app-color-button-secondary-background-hover);
     --color-app-color-button-secondary-text: var(--app-color-button-secondary-text);
     --color-app-color-button-secondary-text-hover: var(--app-color-button-secondary-text-hover);
+    --color-app-color-button-tertiary-background: var(--app-color-button-tertiary-background);
+    --color-app-color-button-tertiary-background-hover: var(--app-color-button-tertiary-background-hover);
+    --color-app-color-button-tertiary-text: var(--app-color-button-tertiary-text);
+    --color-app-color-button-tertiary-text-hover: var(--app-color-button-tertiary-text-hover);
 
     --background-bg-surface-invert-shadow: rgba(93, 202, 71, 0.6);
 
@@ -140,10 +144,10 @@
     --app-color-button-secondary-text: #ffffff;
     --app-color-button-secondary-text-hover: #0e0e0e;
 
-    --app-color-button-tertiary-background: #e4f9df;
-    --app-color-button-tertiary-background-hover: #caf1c1;
+    --app-color-button-tertiary-background: #1A1A1A;
+    --app-color-button-tertiary-background-hover: #FFF;
     --app-color-button-tertiary-text: #285d1e;
-    --app-color-button-tertiary-text-hover: #0e0e0e;
+    --app-color-button-tertiary-text-hover: #0E0E0E;
 
     --ifm-color-primary: #48b532;
     --ifm-color-primary-dark: #369524;

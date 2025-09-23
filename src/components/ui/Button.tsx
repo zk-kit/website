@@ -36,7 +36,7 @@ const BUTTON_STYLES = {
         primary:
             "bg-app-color-button-primary-background text-app-color-button-primary-text hover:bg-app-color-button-primary-background-hover hover:text-app-color-button-primary-text-hover dark:hover:bg-app-color-button-primary-background dark:hover:text-app-color-button-primary-text",
         secondary:
-            "bg-app-color-button-secondary-background text-app-color-button-secondary-text border border-app-color-button-secondary-background hover:bg-app-color-button-secondary-background-hover hover:text-app-color-button-secondary-text-hover"
+            "bg-app-color-button-secondary-background text-app-color-button-secondary-text border border-app-color-button-secondary-background hover:bg-app-color-button-secondary-background-hover hover:text-app-color-button-secondary-text-hover dark:bg-app-color-button-tertiary-background dark:hover:bg-app-color-button-tertiary-background-hover dark:hover:text-app-color-button-tertiary-text dark:group-hover:text-app-color-button-tertiary-text-hover dark:group-hover:bg-app-color-button-tertiary-background-hover"
     } as const,
 
     fontWeights: {

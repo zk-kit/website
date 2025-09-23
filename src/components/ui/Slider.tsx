@@ -18,6 +18,9 @@ interface SliderProps {
     forceSlider?: boolean
     showControls?: boolean
     infinite?: boolean
+    yBorder?: boolean
+    xBorder?: boolean
+    arrowClassName?: string
 }
 
 export const Slider = ({
@@ -33,7 +36,10 @@ export const Slider = ({
     controlsPosition = "bottom",
     forceSlider = false,
     showControls = true,
-    infinite = false
+    infinite = false,
+    yBorder = false,
+    xBorder = false,
+    arrowClassName
 }: SliderProps) => {
     const isMobile = useMediaQuery({ query: "(max-width: 767px)" })
     const [touchStart, setTouchStart] = useState(0)
@@ -147,63 +153,98 @@ export const Slider = ({
         setTouchEnd(0)
     }
 
-    const slideWidth = 100 / slidesToShow
-    const translateX = currentSlide * slideWidth
+    const itemPercent = 100 / slidesToShow
     const currentChildren = infinite ? infiniteChildren : children
+
+    const gapValue = Number.parseFloat(gap) || 0
+    const shouldUseGap = slidesToShow > 1 && gapValue > 0
+    const totalMarginsPx = shouldUseGap ? (slidesToShow - 1) * gapValue : 0
+
+    const itemWidth = shouldUseGap ? `calc((100% - ${totalMarginsPx}px) / ${slidesToShow})` : `${itemPercent}%`
+
+    const movementIndex = infinite ? (currentSlide - slidesToClone + totalSlides) % totalSlides : currentSlide
+
+    const stepExpr = shouldUseGap
+        ? `calc((100% - ${totalMarginsPx}px) / ${slidesToShow} + ${gapValue}px)`
+        : `${itemPercent}%`
+
+    const translateExpr = shouldUseGap
+        ? `calc(-1 * (${stepExpr}) * ${movementIndex})`
+        : `-${movementIndex * itemPercent}%`
+
+    const containerWidth = "100%"
 
     return (
         <div
-            className={twMerge("flex flex-col gap-5", controlsPosition === "top" && "flex-col-reverse")}
+            className={twMerge(`flex flex-col gap-5`, controlsPosition === "top" && "flex-col-reverse")}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <div className={twMerge("flex flex-col gap-5 relative overflow-hidden", className)}>
+            <div className={twMerge("w-full", yBorder && "border-y border-app-color-border")}>
                 <div
-                    ref={sliderRef}
                     className={twMerge(
-                        "flex ease-in-out",
-                        isTransitioning ? "transition-transform duration-300" : "",
-                        withDivider && "divide-x divide-app-color-border"
+                        "flex flex-col gap-5 relative overflow-hidden w-full lg:max-w-screen-xl lg:mx-auto",
+                        className
                     )}
-                    style={{
-                        transform: `translateX(-${translateX}%)`,
-                        gap: gap
-                    }}
-                    onTouchStart={handleTouchStart}
-                    onTouchMove={handleTouchMove}
-                    onTouchEnd={handleTouchEnd}
                 >
-                    {currentChildren.map((child, index) => (
-                        <div
-                            key={index}
-                            className="flex-shrink-0 h-full"
-                            style={{
-                                width: `${slideWidth}%`
-                            }}
-                        >
-                            {child}
-                        </div>
-                    ))}
+                    <div
+                        ref={sliderRef}
+                        className={twMerge(
+                            "flex ease-in-out",
+                            isTransitioning ? "transition-transform duration-300" : "",
+                            withDivider && "border-l border-app-color-border divide-x divide-app-color-border"
+                        )}
+                        style={{
+                            transform: shouldUseGap
+                                ? `translateX(${translateExpr})`
+                                : `translateX(-${movementIndex * itemPercent}%)`,
+                            width: containerWidth
+                        }}
+                        onTouchStart={handleTouchStart}
+                        onTouchMove={handleTouchMove}
+                        onTouchEnd={handleTouchEnd}
+                    >
+                        {currentChildren.map((child, index) => (
+                            <div
+                                key={index}
+                                className="flex-shrink-0 h-full"
+                                style={{
+                                    width: itemWidth,
+                                    flexShrink: 0,
+                                    marginLeft: shouldUseGap && index > 0 ? gap : "0px"
+                                }}
+                            >
+                                {child}
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
             {showNavigation && maxSlideIndex > 0 && (isMobile || forceSlider) && showControls && (
-                <div className="flex gap-[10px] ml-auto justify-end">
-                    <ActionButton
-                        onClick={goToPrev}
-                        disabled={!infinite && currentSlide === 0}
-                        aria-label="Previous slide"
-                        className="!mx-0 !focus:outline-none !focus:ring-0 !focus:ring-offset-0"
+                <div className="w-full lg:max-w-screen-xl lg:mx-auto">
+                    <div
+                        className={twMerge(
+                            "flex gap-[10px] justify-end lg:max-w-screen-xl lg:mx-auto px-4 lg:px-0",
+                            arrowClassName
+                        )}
                     >
-                        <Icons.ArrowDown className="rotate-90" />
-                    </ActionButton>
-                    <ActionButton
-                        onClick={goToNext}
-                        disabled={!infinite && currentSlide >= maxSlideIndex}
-                        aria-label="Next slide"
-                        className="!mx-0 !focus:outline-none !focus:ring-0 !focus:ring-offset-0"
-                    >
-                        <Icons.ArrowDown className="-rotate-90" />
-                    </ActionButton>
+                        <ActionButton
+                            onClick={goToPrev}
+                            disabled={!infinite && currentSlide === 0}
+                            aria-label="Previous slide"
+                            className={"!mx-0 !focus:outline-none !focus:ring-0 !focus:ring-offset-0"}
+                        >
+                            <Icons.ArrowDown className="rotate-90" />
+                        </ActionButton>
+                        <ActionButton
+                            onClick={goToNext}
+                            disabled={!infinite && currentSlide >= maxSlideIndex}
+                            aria-label="Next slide"
+                            className="!mx-0 !focus:outline-none !focus:ring-0 !focus:ring-offset-0"
+                        >
+                            <Icons.ArrowDown className="-rotate-90" />
+                        </ActionButton>
+                    </div>
                 </div>
             )}
         </div>
