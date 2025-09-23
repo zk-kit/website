@@ -36,7 +36,6 @@ const AboutCardImage = () => {
                     backgroundImage: "url(/img/illustrations/about-us-placeholder.svg)"
                 }}
             ></div>
-            <img src="" alt="" />
         </div>
     )
 }
