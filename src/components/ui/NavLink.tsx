@@ -1,4 +1,5 @@
 import { twMerge } from "tailwind-merge"
+import Link from '@docusaurus/Link';
 import { Icons } from "./Icons"
 
 interface NavLinkProps {
@@ -12,7 +13,7 @@ interface NavLinkProps {
 
 export const NavLink = ({ href, label, isActive = false, isExternal = false, className, ariaLabel }: NavLinkProps) => {
     return (
-        <a
+        <Link
             href={href}
             target={isExternal ? "_blank" : undefined}
             rel={isExternal ? "noopener noreferrer" : undefined}
@@ -30,6 +31,6 @@ export const NavLink = ({ href, label, isActive = false, isExternal = false, cla
             {isExternal && (
                 <Icons.ExternalLink className="w-2 h-2 text-app-color-text-base group-hover:text-app-color-primary transition-colors duration-200" />
             )}
-        </a>
+        </Link>
     )
 }
