@@ -245,7 +245,7 @@ export default function HomePage(): ReactNode {
                             <Button
                                 className="mx-auto w-fit"
                                 icon={<Icons.Github className="text-app-color-text-primary" />}
-                                href={LINKS.GITHUB_URL}
+                                href={LINKS.GITHUB_DISCUSSIONS}
                                 isExternal
                                 withShadow={true}
                             >
