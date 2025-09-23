@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge"
-import Link from '@docusaurus/Link';
+import Link from "@docusaurus/Link"
 import { Icons } from "./Icons"
 
 interface NavLinkProps {
