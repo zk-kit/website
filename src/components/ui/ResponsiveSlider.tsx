@@ -6,6 +6,7 @@ import { useMediaQuery } from "react-responsive"
 interface ResponsiveSliderProps {
     children: React.ReactNode[]
     className?: string
+    arrowClassName?: string
     desktopClassName?: string
     mobileClassName?: string
     showNavigation?: boolean
@@ -21,6 +22,8 @@ interface ResponsiveSliderProps {
     controlsPosition?: "top" | "bottom"
     showControls?: boolean
     infinite?: boolean
+    xBorder?: boolean
+    yBorder?: boolean
     // Alias props for convenience
     autoPlay?: boolean
     autoPlaySpeed?: number
@@ -29,6 +32,7 @@ interface ResponsiveSliderProps {
 export const ResponsiveSlider = ({
     children,
     className,
+    arrowClassName,
     desktopClassName = "grid grid-cols-1 gap-[30px] lg:grid-cols-4",
     mobileClassName,
     showNavigation = true,
@@ -44,9 +48,11 @@ export const ResponsiveSlider = ({
     controlsPosition = "bottom",
     showControls = true,
     infinite = false,
+    yBorder = false,
+    xBorder = false,
     // Alias props for convenience
     autoPlay = false,
-    autoPlaySpeed = 3000
+    autoPlaySpeed = 3000,
 }: ResponsiveSliderProps) => {
     const isMobile = useMediaQuery({ query: "(max-width: 767px)" })
 
@@ -84,6 +90,9 @@ export const ResponsiveSlider = ({
                     forceSlider={forceSlider}
                     showControls={showControls}
                     infinite={infinite}
+                    arrowClassName={arrowClassName}
+                    yBorder={yBorder}
+                    xBorder={xBorder}
                 >
                     {validChildren}
                 </Slider>

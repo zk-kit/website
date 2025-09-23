@@ -168,11 +168,11 @@ export default function HomePage(): ReactNode {
                         <ResponsiveSlider
                             forceSlider
                             controlsPosition="top"
-                            slidesToShow={1.1}
-                            desktopSlidesToShow={3.8}
+                            slidesToShow={1}
+                            desktopSlidesToShow={4}
                             withDivider={false}
-                            className="px-4"
                             infinite={true}
+                            yBorder
                         >
                             {featuredProjects.map((project, index) => {
                                 const isLast = index === featuredProjects.length - 1
@@ -184,7 +184,7 @@ export default function HomePage(): ReactNode {
                                             description={project.description}
                                             image={project.image}
                                             languages={project.languages}
-                                            className={`${isLast ? "!border-r-[1px]" : `${isMobile ? "!border-r-0" : "!border-r-[1px]"}`}`}
+                                            className={`!border-t-[0px] !border-b-[0px] ${isLast ? "!border-r-[1px]" : `${isMobile ? "!border-r-0" : "!border-r-[1px]"}`}`}
                                         />
                                     </a>
                                 )
@@ -206,20 +206,21 @@ export default function HomePage(): ReactNode {
                             <ResponsiveSlider
                                 forceSlider
                                 slidesToShow={1}
-                                desktopSlidesToShow={4.2}
+                                desktopSlidesToShow={4}
                                 className="px-4"
                                 showControls={false}
-                                withDivider={false}
+                                withDivider
                                 desktopGap="0px"
                                 infinite={true}
                                 autoPlaySpeed={3000}
                                 autoPlay={true}
+                                xBorder
                             >
                                 {partners?.map((partner, index) => {
                                     return (
                                         <div
                                             key={index}
-                                            className="flex flex-col gap-5 p-[30px] border-x lg:border-r-0 border-app-color-border h-fit"
+                                            className="flex flex-col gap-5 p-[30px] h-fit"
                                         >
                                             <img
                                                 src={
