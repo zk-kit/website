@@ -52,7 +52,7 @@ export const ResponsiveSlider = ({
     xBorder = false,
     // Alias props for convenience
     autoPlay = false,
-    autoPlaySpeed = 3000,
+    autoPlaySpeed = 3000
 }: ResponsiveSliderProps) => {
     const isMobile = useMediaQuery({ query: "(max-width: 767px)" })
 

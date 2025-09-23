@@ -218,10 +218,7 @@ export default function HomePage(): ReactNode {
                             >
                                 {partners?.map((partner, index) => {
                                     return (
-                                        <div
-                                            key={index}
-                                            className="flex flex-col gap-5 p-[30px] h-fit"
-                                        >
+                                        <div key={index} className="flex flex-col gap-5 p-[30px] h-fit">
                                             <img
                                                 src={
                                                     isDarkMode ? (partner?.imageDark ?? partner.image) : partner?.image
