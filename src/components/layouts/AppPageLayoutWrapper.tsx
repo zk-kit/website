@@ -13,10 +13,12 @@ export const AppPageLayoutWrapper = ({ children, className, id }: AppPageLayoutW
     return (
         <main id={id}>
             <AppNavbar />
-            <div className={twMerge("flex flex-col bg-app-color-background py-14 lg:py-[140px]", className)}>
-                {children}
+            <div className="flex flex-col">
+                <div className={twMerge("flex flex-col bg-app-color-background pt-14 lg:pt-[140px]", className)}>
+                    {children}
+                </div>
+                <AppFooter />
             </div>
-            <AppFooter />
         </main>
     )
 }
