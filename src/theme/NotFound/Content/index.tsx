@@ -7,7 +7,7 @@ import { translate } from "@docusaurus/Translate"
 
 export default function NotFoundContent() {
     return (
-        <div className="flex flex-col gap-10 lg:gap-16 items-center justify-center min-h-[60vh]">
+        <div className="flex flex-col gap-10 lg:gap-16 items-center justify-center min-h-[60vh] py-40">
             <section className="flex flex-col gap-9 items-center text-center">
                 <div
                     className="lg:container lg:mx-auto h-[200px] lg:h-[300px] mx-auto lg:w-full w-full bg-repeat bg-center lg:bg-no-repeat lg:bg-contain bg-cover opacity-30"

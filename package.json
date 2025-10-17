@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "docusaurus": "docusaurus",
-        "start": "docusaurus start",
+        "start": "docusaurus start --no-open",
         "build": "docusaurus build",
         "swizzle": "docusaurus swizzle",
         "deploy": "docusaurus deploy",
@@ -17,8 +17,8 @@
         "prettier:write": "prettier -w ."
     },
     "dependencies": {
-        "@docusaurus/core": "3.7.0",
-        "@docusaurus/preset-classic": "3.7.0",
+        "@docusaurus/core": "^3.9.1",
+        "@docusaurus/preset-classic": "^3.9.1",
         "@mdx-js/react": "^3.0.0",
         "@tailwindcss/postcss": "^4.1.7",
         "clsx": "^2.0.0",
@@ -28,14 +28,16 @@
         "react-dom": "^19.0.0",
         "react-icons": "^5.5.0",
         "react-responsive": "^10.0.1",
+        "rehype-katex": "^7.0.1",
+        "remark-math": "^6.0.0",
         "tailwind-merge": "^3.3.1",
         "tailwindcss": "^4.1.7",
         "three": "^0.180.0"
     },
     "devDependencies": {
-        "@docusaurus/module-type-aliases": "3.7.0",
-        "@docusaurus/tsconfig": "3.7.0",
-        "@docusaurus/types": "3.7.0",
+        "@docusaurus/module-type-aliases": "^3.9.1",
+        "@docusaurus/tsconfig": "^3.9.1",
+        "@docusaurus/types": "^3.9.1",
         "@types/three": "^0",
         "prettier": "^3.5.3",
         "typescript": "~5.6.2"

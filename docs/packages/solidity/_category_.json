@@ -1,0 +1,13 @@
+{
+  "label": "Solidity",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "title": "Solidity Contracts",
+    "description": "Smart contracts for on-chain verification of ZK proofs.",
+    "slug": "/packages/solidity"
+  }
+}
+
+
+

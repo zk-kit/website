@@ -463,3 +463,46 @@ section {
         border: none !important;
     }
 }
+
+#doc-root-layout {
+
+    ul.menu__list {
+        overflow-y: scroll !important;
+    }
+
+    a {
+        animation-duration: 0.2s;
+
+        &.menu__link.menu__link--active,
+        &:hover {
+            color: #5dca47 !important;
+        }
+    }
+
+    #doc-main-content {
+        ul {
+            list-style: disc !important;
+        }
+
+        a:hover {
+            text-decoration: underline !important;
+        }
+    }
+}
+
+.markdown {
+    @media (min-width: 768px) {
+        img {
+            max-width: 60% !important;
+            margin: 0 auto !important;
+        }
+    }
+
+    ul {
+        list-style: disc !important;
+    }
+}
+
+ul.table-of-contents {
+    list-style: decimal !important;
+}

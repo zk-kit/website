@@ -37,7 +37,7 @@ export default function DocItemLayout({ children }: Props): ReactNode {
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] divide-x divide-app-color-border">
-            <div className="py-5 lg:py-[30px] px-4 lg:px-[30px] lg:h-[calc(100vh-200px)] overflow-y-auto">
+            <div id="doc-main-content" className="py-5 lg:py-[30px] px-4 lg:px-[30px] lg:h-[calc(100vh-100px)] overflow-y-auto">
                 <ContentVisibility metadata={metadata} />
                 <DocVersionBanner />
                 <div className="flex flex-col gap-6">

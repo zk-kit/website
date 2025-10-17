@@ -1,0 +1,13 @@
+{
+  "label": "JavaScript Packages",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "title": "JavaScript Packages",
+    "description": "Detailed documentation for all ZK-Kit JavaScript/TypeScript packages.",
+    "slug": "/packages/javascript"
+  }
+}
+
+
+

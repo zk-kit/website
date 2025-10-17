@@ -1,0 +1,9 @@
+{
+  "label": "Documentation",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Welcome to the ZK-Kit documentation. Choose a section below to get started."
+  }
+}
+

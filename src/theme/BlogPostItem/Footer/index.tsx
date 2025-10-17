@@ -1,5 +1,6 @@
 import React, { type ReactNode } from "react"
 import clsx from "clsx"
+import Link from "@docusaurus/Link"
 import { useBlogPost } from "@docusaurus/plugin-content-blog/client"
 import { ThemeClassNames } from "@docusaurus/theme-common"
 import EditMetaRow from "@theme/EditMetaRow"
@@ -37,7 +38,9 @@ export default function BlogPostItemFooter(): ReactNode {
                         </h3>
                         <div className="flex gap-2 flex-wrap">
                             {tags.map((tag: BlogTag) => (
-                                <Tag key={tag.label} text={tag.label} size="md" withHover={false} />
+                                <Link key={tag.label} to={tag.permalink}>
+                                    <Tag text={tag.label} size="md" withHover={false} />
+                                </Link>
                             ))}
                         </div>
                     </div>
@@ -53,7 +56,9 @@ export default function BlogPostItemFooter(): ReactNode {
                 {tagsExists && (
                     <div className={clsx("col", { "col--9": truncatedPost })}>
                         {tags.map((tag: BlogTag) => (
-                            <Tag key={tag.label} text={tag.label} size="md" withHover={false} />
+                            <Link key={tag.label} to={tag.permalink}>
+                                <Tag text={tag.label} size="md" withHover={false} />
+                            </Link>
                         ))}
                     </div>
                 )}

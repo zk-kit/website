@@ -1,0 +1,11 @@
+{
+  "label": "Packages",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "title": "ZK-Kit Packages",
+    "description": "Detailed documentation for all ZK-Kit packages including Merkle trees, cryptography, and utilities.",
+    "slug": "/category/packages"
+  }
+}
+

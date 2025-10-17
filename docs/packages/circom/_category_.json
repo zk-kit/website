@@ -1,0 +1,13 @@
+{
+  "label": "Circom",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "title": "Circom Circuits",
+    "description": "Zero-knowledge circuit templates for ZK-Kit components.",
+    "slug": "/packages/circom"
+  }
+}
+
+
+

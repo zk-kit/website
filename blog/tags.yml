@@ -1,19 +1,24 @@
-facebook:
-    label: Facebook
-    permalink: /facebook
-    description: Facebook tag description
+zero-knowledge:
+    label: Zero-Knowledge
+    permalink: /zero-knowledge
+    description: Zero-knowledge cryptography and privacy technologies
 
-hello:
-    label: Hello
-    permalink: /hello
-    description: Hello tag description
+ZK-Kit:
+    label: ZK-Kit
+    permalink: /zk-kit
+    description: ZK-Kit library and development tools
 
-docusaurus:
-    label: Docusaurus
-    permalink: /docusaurus
-    description: Docusaurus tag description
+circom:
+    label: Circom
+    permalink: /circom
+    description: Circom zero-knowledge circuit development
 
-hola:
-    label: Hola
-    permalink: /hola
-    description: Hola tag description
+Semaphore:
+    label: Semaphore
+    permalink: /semaphore
+    description: Semaphore privacy protocol
+
+MACI:
+    label: MACI
+    permalink: /maci
+    description: Minimal Anti-Collusion Infrastructure
