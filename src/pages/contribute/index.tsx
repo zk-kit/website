@@ -13,6 +13,7 @@ import { CardBase } from "@site/src/components/cards/CardBase"
 import { BulletPoint } from "@site/src/components/ui/BulletPoint"
 import { GITHUB_DATA, LINKS, SEO_DATA } from "@site/src/constants"
 import { useImagePreload, getPageImages } from "@site/src/utils/imagePreloader"
+import { getPageStructuredData } from "@site/src/utils/structured-data"
 
 const IssueData = () => {
     return (
@@ -36,6 +37,8 @@ export default function ContributePage() {
                 title={SEO_DATA.CONTRIBUTE_PAGE.TITLE}
                 description={SEO_DATA.CONTRIBUTE_PAGE.DESCRIPTION}
                 keywords={SEO_DATA.CONTRIBUTE_PAGE.KEYWORDS}
+                url="https://zkkit.org/contribute"
+                structuredData={getPageStructuredData("contribute")}
             />
 
             <AppPageLayoutWrapper>

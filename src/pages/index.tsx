@@ -16,6 +16,7 @@ import { useProjects } from "../hooks/useProjects"
 import { ProjectCard } from "../components/cards/ProjectCard"
 import { useMediaQuery } from "react-responsive"
 import { useImagePreload, getPageImages } from "../utils/imagePreloader"
+import { getPageStructuredData } from "../utils/structured-data"
 
 const LanguageVectorMapping = {
     0: (
@@ -70,6 +71,8 @@ export default function HomePage(): ReactNode {
                 title={SEO_DATA.INDEX_PAGE.TITLE}
                 description={SEO_DATA.INDEX_PAGE.DESCRIPTION}
                 keywords={SEO_DATA.INDEX_PAGE.KEYWORDS}
+                url="https://zkkit.org/"
+                structuredData={getPageStructuredData("home")}
             />
             <AppPageLayoutWrapper>
                 <div className="flex flex-col gap-10 lg:gap-[140px]">

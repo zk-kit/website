@@ -1,0 +1,47 @@
+User-agent: *
+Allow: /
+Allow: /docs/
+Allow: /docs/introduction/what-is-zk-kit
+Allow: /docs/introduction/comparison
+Allow: /docs/introduction/ecosystem
+Allow: /docs/introduction/language-implementations
+Allow: /docs/introduction/why-zero-knowledge
+Allow: /docs/getting-started/installation
+Allow: /docs/getting-started/quick-start
+Allow: /docs/getting-started/development-setup
+Allow: /docs/getting-started/first-proof
+Allow: /docs/getting-started/typescript-setup
+Allow: /docs/core-concepts/merkle-trees
+Allow: /docs/core-concepts/zero-knowledge-basics
+Allow: /docs/packages/overview
+Allow: /docs/packages/choosing-a-package
+Allow: /docs/packages/javascript/
+Allow: /docs/packages/circom/
+Allow: /docs/packages/solidity/
+Allow: /docs/packages/noir/
+Allow: /docs/packages/rust/
+Allow: /docs/faq
+Allow: /docs/academic-papers
+Allow: /docs/contributing
+Allow: /docs/development-tools
+Allow: /projects
+Allow: /contribute
+Allow: /about
+Allow: /blog
+
+
+# Disallow blog archives, tags, and author pages
+Disallow: /blog/archive
+Disallow: /blog/authors/
+Disallow: /blog/tags/
+
+# Allow important images for social sharing
+Allow: /og-share-zk-kot.webp
+Allow: /img/zk-kit-full-logo.svg
+Allow: /img/zk-kit-logo.svg
+
+# Crawl-delay to be respectful of resources
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://zkkit.org/sitemap.xml

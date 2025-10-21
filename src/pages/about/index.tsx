@@ -7,6 +7,7 @@ import { SEO } from "@site/src/components/SEO"
 import { FeatureValueCard } from "@site/src/components/cards/FeatureValueCard"
 import { SEO_DATA } from "@site/src/constants"
 import { useImagePreload, getPageImages } from "@site/src/utils/imagePreloader"
+import { getPageStructuredData } from "@site/src/utils/structured-data"
 
 export default function AboutPage() {
     useImagePreload(getPageImages("about"))
@@ -16,6 +17,8 @@ export default function AboutPage() {
                 title={SEO_DATA.ABOUT_PAGE.TITLE}
                 description={SEO_DATA.ABOUT_PAGE.DESCRIPTION}
                 keywords={SEO_DATA.ABOUT_PAGE.KEYWORDS}
+                url="https://zkkit.org/about"
+                structuredData={getPageStructuredData("about")}
             />
             <AppPageLayoutWrapper className="flex flex-col gap-10 lg:gap-16">
                 <section className="flex flex-col gap-9">

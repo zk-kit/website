@@ -11,6 +11,7 @@ import { useProjects } from "@site/src/hooks/useProjects"
 import { Tag } from "@site/src/components/ui/Tag"
 import { useImagePreload, getPageImages } from "@site/src/utils/imagePreloader"
 import { useMediaQuery } from "react-responsive"
+import { getPageStructuredData } from "@site/src/utils/structured-data"
 
 export default function ProjectsPage() {
     useImagePreload(getPageImages("projects"))
@@ -34,6 +35,8 @@ export default function ProjectsPage() {
                 title={SEO_DATA.PROJECTS_PAGE.TITLE}
                 description={SEO_DATA.PROJECTS_PAGE.DESCRIPTION}
                 keywords={SEO_DATA.PROJECTS_PAGE.KEYWORDS}
+                url="https://zkkit.org/projects"
+                structuredData={getPageStructuredData("projects")}
             />
             <AppPageLayoutWrapper>
                 <div className="flex flex-col">

@@ -8,9 +8,10 @@ interface SEOProps {
     url?: string
     type?: "website" | "article"
     keywords?: string[]
+    structuredData?: Record<string, any>
 }
 
-export const SEO = ({ title, description, image, url, type = "website", keywords = [] }: SEOProps) => {
+export const SEO = ({ title, description, image, url, type = "website", keywords = [], structuredData }: SEOProps) => {
     const { siteConfig } = useDocusaurusContext()
 
     const pageTitle = title ? `${title} | ${siteConfig.title}` : siteConfig.title
@@ -41,6 +42,11 @@ export const SEO = ({ title, description, image, url, type = "website", keywords
             {/* Additional meta tags */}
             <meta name="robots" content="index, follow" />
             <link rel="canonical" href={pageUrl} />
+
+            {/* JSON-LD Structured Data */}
+            {structuredData && (
+                <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+            )}
         </Head>
     )
 }
