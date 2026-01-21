@@ -287,7 +287,7 @@ export default function ContributePage() {
                                             />
                                             <FeatureValueCard
                                                 title="Compliance Check"
-                                                description="Ensure adherence to project standards and guidelinesn"
+                                                description="Ensure adherence to project standards and guidelines"
                                             />
                                         </div>
                                     </>
